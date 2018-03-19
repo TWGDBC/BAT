@@ -1,0 +1,85 @@
+%%%%%%% EINLEITUNG %%%%%%%
+% Das Lastenheft beschreibt das Grobkonzept eines Projektes aus sicht des Auftraggebers.
+% Es beschreibt lediglich die Basisanforderungen und geht nicht tief ins Detail.
+%
+% In dem Pflichtenheft wird daher vom Projektbearbeiter dargelegt, 
+% wie er die Aufgabenstellung interpretiert und in welchen Schritten er im Detail die Aufgabe abarbeiten möchte.
+% Das Pflichtenheft muss mit dem Auftraggeber (Dozent) abgestimmt werden und
+% gilt danach als verbindliche Grundlage für die Bewertung der in dem Projekt erbrachten Leistungen.
+%
+
+%%%%%%% PRÄAMBEL %%%%%%%
+% Dokumentenklasse% Dokumenteneinstellungen
+\documentclass[
+a4paper,
+%landscape,
+%twocolumn,
+twoside=false,
+%BCOR=10mm, %offset für Binden
+hedainclude,
+footinclude,
+fontsize=12pt,
+pagesize=auto,
+parskip=half,
+headsepline=true,
+footsepline = true,
+numbers=noenddot, % enddot, noenddot
+draft=false]
+{scrbook}
+
+% Stylesheet definition laden
+\usepackage{pkg/layout}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+
+% Beginn des Dokuments
+\begin{document}
+	% Dokumentsprache
+	\selectlanguage{ngerman}
+	% Zeilenabstand
+	\onehalfspacing
+	% Formelnummerierung nur in Sections
+	\numberwithin{equation}{section}
+	% Anzahl sections tiefe
+	\setcounter{secnumdepth}{3}
+	% ToF tiefe
+	\setcounter{tocdepth}{1}
+	\setcounter{page}{-4}
+
+	
+
+	
+	% Header & Footer definieren
+	% Set header
+	% []: Pages with chapter titles
+	% {}: Pages without chapter titles
+	% Inner head
+	\ihead[]{\sffamily \flushleft \sffamily BAT Testkonzept\\  \small \rightmark}	%\rightmark takes first section on page as section in header
+	%\leftmark takes last section on page as section in header
+	% Center head
+	\chead[]{}
+	% Outer head
+	\ohead[]{\sffamily \flushright \sffamily Hochschule Luzern\\  \small Technik \& Architektur}
+	
+	% Set footer
+	% Inner foot
+	\ifoot[]{Daniel Zimmermann}
+	% Center foot
+	\cfoot[]{}
+	% Outer foot
+	\ofoot[\pagemark]{\pagemark}
+	
+	%Deckblatt
+	\pagestyle{empty}
+	\input{tex/title}
+	\newpage
+	
+	%Seitenstyle
+	\pagestyle{scrheadings}	
+	\renewcommand{\chapterpagestyle}{scrheadings}
+	% Inhalt
+	\input{tex/contents}
+	
+\end{document}
+ 

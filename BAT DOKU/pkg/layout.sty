@@ -1,0 +1,226 @@
+% coding:utf-8
+
+\author{Daniel Zimmermann}
+
+% Workaround because svg requires subfig, which is incompatible with subcaption
+\RequirePackage{scrlfile}
+\PreventPackageFromLoading{subfig}
+
+% common layout
+\usepackage{setspace}
+\usepackage{scrlayer-scrpage}\automark[chapter]{chapter} 
+
+% For special geometry/pagemargins
+\usepackage{geometry}
+%set size of text area ond page
+\geometry{textheight=24cm, left=25mm, right=25mm, bottom = 40mm, top = 30mm,}
+
+
+% Package to show page frames
+%\usepackage{showframe}
+
+% For landscape environment
+%\usepackage{pdflscape}
+	
+% Encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage{courier}
+\usepackage{microtype}
+\addtokomafont{disposition}{\rmfamily}	%make title font same as text
+
+% tables
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{multirow}
+        % table coloring
+        \newenvironment{zebratabular}{\rowcolors{1}{lgray}{white}\tabular}{\endtabular}
+	\newenvironment{zebralongtable}{\rowcolors{1}{lgray}{white}\longtable}{\endlongtable}
+\usepackage{array,dcolumn}
+\usepackage{booktabs} % Allows \toprule, \midrule, \bottomrule in tables
+
+% language
+%\usepackage[ngerman]{babel}
+%\usepackage[english]{babel}
+\usepackage[ngerman, english]{babel}
+
+% graphics
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata,positioning}
+\usepackage[european]{circuitikz}
+\usepackage{bchart}
+%\usepackage{pgf-pie}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{sidecap}
+%\usepackage{wrapfig}
+\usepackage{floatflt}
+
+\usepackage{acronym}
+
+\usepackage{tabularx}
+
+% colors
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{gray}{gray}{0.749}
+\definecolor{lgray}{gray}{0.85}
+\definecolor{red}{rgb}{1, 0, 0}
+\definecolor{green}{rgb}{0, 1, 0}
+\definecolor{blue}{rgb}{0, 0, 1}
+
+% math in tables (spreadsheet alike)
+\usepackage{spreadtab}
+
+% hyperlinks 
+\usepackage[hidelinks]{hyperref}
+
+% math
+\usepackage{amsmath}
+\usepackage[all]{xy}
+\usepackage{amssymb}
+
+% glossary
+%\usepackage[xindy]{glossaries}
+%\usepackage{makeidx}
+
+% Bibliography, Listof.., Tableofcontents
+% Packages
+% Bibliography Style
+\usepackage[natbibapa]{apacite}
+% Chapter / Section Settings
+\usepackage[nottoc,numbib,section]{tocbibind}
+
+% Title of ToC
+\addto{\captionsngerman}{
+\renewcommand*{\contentsname}{Inhaltsverzeichnis}
+}
+
+% Title of Bibliography
+\addto{\captionsngerman}{
+\renewcommand*{\bibname}{Literatur}
+}
+
+% Title of LoF and Caption Title for Figures
+\renewcommand{\listoffigures}{\begingroup
+\tocsection
+\tocfile{\listfigurename}{lof}
+\endgroup}
+\addto{\captionsngerman}{
+\renewcommand*{\figurename}{Abbildung}
+\renewcommand*{\listfigurename}{Abbildungen}
+}
+
+% Title of LoT and Caption Title for Tables
+\renewcommand{\listoftables}{\begingroup
+\tocsection
+\tocfile{\listtablename}{lot}
+\endgroup}
+\addto{\captionsngerman}{
+\renewcommand*{\tablename}{Tabelle}
+\renewcommand*{\listtablename}{Tabellen}
+}
+
+
+
+
+% PDF managment
+\usepackage{}
+
+% todo notes
+\usepackage{todonotes}
+
+	\usepackage{caption}
+	\usepackage{subcaption}				
+
+% source code
+\definecolor{darkgreen}{rgb}{0,0.6,0}		% color definition
+\usepackage{listings}
+\lstset{language=C}
+% \lstloadlanguages{C}				% language options
+\lstset{basicstyle=\ttfamily,			% fontstyle
+        numbers=left,				% linenumber placemnt
+        numberstyle=\tiny,			% linenumber fontsize
+        numbersep=5pt,				% 
+        breaklines=true,			% print linebreaks
+        %texcsstyle=\color{black},		% code color
+        %backgroundcolor=\color{gray!10},	% background color
+        commentstyle=\color{darkgreen},	% comment color
+        keywordstyle=\color{red}\bfseries,	% keyword color
+        stringstyle=\color{blue}\bfseries,	% string color
+        frame=single,				% frame
+        tabsize=8,				% tabstop
+        emph={double,bool,int,unsigned,char,true,false,void,short,float},
+        emph={[2]\using,\#include,\#define,\#ifdef,\#endif}, 
+        %rulecolor=\color{black!30},		% 
+        title=\lstname,				% title is name of source file
+        escapeinside={\%*}{*)},			% 
+        %breakatwhitespace=true,		% 
+        framextopmargin=2pt,			% 
+        framexbottommargin=2pt,			% 
+        inputencoding=utf8,			% encoding = utf8
+        extendedchars=true,			% 
+        literate={Ö}{{\"O}}1			% umlaute in code
+                 {Ä}{{\"A}}1			% 
+                 {Ü}{{\"U}}1			% 
+                 {ü}{{\"u}}1			% 
+                 {ä}{{\"a}}1			% 
+                 {ö}{{\"o}}1 }
+
+%
+\newcommand{\incADreiMode}{A3}  % [A3 | anything ]
+
+\newcommand{\incADrei}[1]{
+  \ifthenelse%
+  {\equal{\incADreiMode}{A3}}%
+  {\newpage%
+    \pdfpagewidth 420mm%
+    \pdfpageheight 297mm%
+    \includepdf[pages={-},fitpaper=true]{#1}%
+    \newpage%
+    \pdfpagewidth 210mm%
+    \pdfpageheight 297mm}%
+  {\includepdf[pages={-},landscape=true,turn=false]{#1}%
+  }%
+}
+
+% 
+\usepackage{printlen}
+
+% commenting
+\usepackage{verbatim}
+
+% lorem ipsum and friends
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+% euro symbol
+\usepackage{eurosym}
+
+% Uhrzeit
+%\usepackage{uhrzeit}        % print the compile time
+
+% abbreviations
+\usepackage{acronym}
+
+% alphabetical lists/enumerations
+\usepackage{enumitem}
+
+% printing URLs
+\usepackage{url}
+
+% citation
+\usepackage{cite}
+\usepackage{apacite}
+
+
+% pagedesign
+\usepackage{multicol}
+
+%Paket laden\
+
+\addto\captionsngerman{\let\appendixtocname\appendixname%
+\let\appendixpagename\appendixname}

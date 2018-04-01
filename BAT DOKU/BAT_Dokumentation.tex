@@ -23,18 +23,33 @@ pagesize=auto,
 parskip=half,
 headsepline=true,
 footsepline = true,
+plainheadsepline = true,
+plainfootsepline = true,
 numbers=noenddot, % enddot, noenddot
 draft=false]
 {scrbook}
 
+%% List of equation
+ %%gmedina solution
+  
+
 % Stylesheet definition laden
 \usepackage{pkg/layout}
-
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+\renewcommand*{\acsfont}[1]{\textnormal{#1}}
+
+\newcommand{\listequationsname}{Formeln}
+\newlistof{myequations}{equ}{\listequationsname}
+\newcommand{\myequations}[1]{%
+	\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+
+
+
 
 
 % Beginn des Dokuments
 \begin{document}
+
 	% Dokumentsprache
 	\selectlanguage{ngerman}
 	% Zeilenabstand
@@ -45,9 +60,7 @@ draft=false]
 	\setcounter{secnumdepth}{3}
 	% ToF tiefe
 	\setcounter{tocdepth}{1}
-	\setcounter{page}{-4}
-	
-	
+	\setcounter{page}{-5}
 	
 	
 	% Header & Footer definieren
@@ -55,20 +68,21 @@ draft=false]
 	% []: Pages with chapter titles
 	% {}: Pages without chapter titles
 	% Inner head
-	\ihead[]{\sffamily \flushleft \sffamily BAT Projektmanagement\\  \small \rightmark}	%\rightmark takes first section on page as section in header
+	\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small \rightmark]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small \rightmark}	
+	%\rightmark takes first section on page as section in header
 	%\leftmark takes last section on page as section in header
 	% Center head
 	\chead[]{}
 	% Outer head
-	\ohead[]{\sffamily \flushright \sffamily Hochschule Luzern\\  \small Technik \& Architektur}
+	\ohead[\sffamily \flushright \sffamily Hochschule Luzern\\  \small Technik \& Architektur]{\sffamily \flushright \sffamily Hochschule Luzern\\  \small Technik \& Architektur}
 	
 	% Set footer
 	% Inner foot
-	\ifoot[]{Daniel Zimmermann}
+	\ifoot[Daniel Zimmermann]{Daniel Zimmermann}
 	% Center foot
 	\cfoot[]{}
 	% Outer foot
-	\ofoot[\pagemark]{\pagemark}
+	\ofoot[\mark]{\pagemark}
 	
 	%Deckblatt
 	\pagestyle{empty}
@@ -78,6 +92,9 @@ draft=false]
 	%Seitenstyle
 	\pagestyle{scrheadings}	
 	\renewcommand{\chapterpagestyle}{scrheadings}
+	\renewcommand{\partpagestyle}{scrheadings}
+	
+	
 	% Inhalt
 	\input{tex/contents}
 	

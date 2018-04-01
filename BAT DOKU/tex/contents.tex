@@ -1,25 +1,52 @@
-% Abstract
-\newpage
 
-
-\ihead[]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Eigenständigkeitserklärung}	
-\ofoot[]{}
 
 \input{tex/Selbstständigkeitskerlärung}
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Eigenständigkeitserklärung]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Eigenständigkeitserklärung}	
+\ofoot[]{}
 %Anderungshistorie
-\input{tex/Abstract}
+\newpage
 \ihead[]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abstract}
+\input{tex/Abstract}
+
 
 %Inhaltsverzeichnis Dokumentation
 \newpage
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Inhaltsverzeichnis]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Inhaltsverzeichnis}
 \tableofcontents
-\ihead[]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small \rightmark}
+
+
+
+%% Glossar
 \newpage
-\ofoot[]{}
+\chapter*{Glossar}\addcontentsline{toc}{section}{Glossar}
+\input{tex/glossary.tex}
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Glossar]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Glossar}
+
+
+%% Abbildungen
+\newpage
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abbildungen]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abbildungen}
+\listoffigures \addcontentsline{toc}{section}{Abbildungen}
+
+%% TABELLEN
+\newpage
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Tabellen]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Tabellen}
+\listoftables \addcontentsline{toc}{section}{Tabellen}
+%% EQUATUIN
+\newpage 
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Formeln]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Formeln}
+\listofmyequations \addcontentsline{toc}{section}{Formeln} 
+\newpage
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Literaturverzeichnis]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Literaturverzeichnis}
+\printbibliography[ keyword={online}, title={Literaturverzeichnis}]\addcontentsline{toc}{section}{Literaturverzeichnis} 
+\clearpage 
+
 
 %Zielbestimmung
+\ihead[]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small \rightmark}
 \newpage
 \input{tex/Einleitung}
+\ofoot[]{\pagemark}
 \input{tex/Informationsbeschaffung}
 
 \input{tex/Testphase_1}
@@ -30,6 +57,8 @@
 
 \input{tex/Empfehlung_Weiteres_Vorgehen}
 \input{tex/Fazit}
+
+\input{tex/Reflexion}
 
 %Freigabe des Ind. Partners und Dozent
 \newpage

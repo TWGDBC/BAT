@@ -78,6 +78,12 @@
 % hyperlinks 
 \usepackage[hidelinks]{hyperref}
 
+% formeln
+\usepackage{tocloft}
+% Glossar
+\usepackage{acronym}
+
+
 % math
 \usepackage{amsmath}
 \usepackage[all]{xy}
@@ -90,9 +96,9 @@
 % Bibliography, Listof.., Tableofcontents
 % Packages
 % Bibliography Style
-\usepackage[natbibapa]{apacite}
+%\usepackage[natbibapa]{apacite}
 % Chapter / Section Settings
-\usepackage[nottoc,numbib,section]{tocbibind}
+%\usepackage[nottoc,numbib,section]{tocbibind}
 
 % Title of ToC
 \addto{\captionsngerman}{
@@ -100,9 +106,9 @@
 }
 
 % Title of Bibliography
-\addto{\captionsngerman}{
-\renewcommand*{\bibname}{Literatur}
-}
+%\addto{\captionsngerman}{
+%\renewcommand*{\bibname}{Literatur}
+%}
 
 % Title of LoF and Caption Title for Figures
 \renewcommand{\listoffigures}{\begingroup
@@ -110,7 +116,7 @@
 \tocfile{\listfigurename}{lof}
 \endgroup}
 \addto{\captionsngerman}{
-\renewcommand*{\figurename}{Abbildung}
+\renewcommand*{\figurename}{Abbildungsverzeichnis}
 \renewcommand*{\listfigurename}{Abbildungen}
 }
 
@@ -120,11 +126,25 @@
 \tocfile{\listtablename}{lot}
 \endgroup}
 \addto{\captionsngerman}{
-\renewcommand*{\tablename}{Tabelle}
+\renewcommand*{\tablename}{Tabelleverzeichnis}
 \renewcommand*{\listtablename}{Tabellen}
 }
 
 
+%Einbindung und Verwaltung von Literaturverzeichnissen
+\usepackage{csquotes} %wird von biber benötigt
+\usepackage[style=alphabetic, backend=biber, bibencoding=ascii]{biblatex}
+\addbibresource{ref/references.bib}
+
+%Einfachere Zitate
+\usepackage{epigraph}
+%Unterstützung der H positionierung (keine automatische Verschiebung eingefügter Elemente)
+\usepackage{float} 
+
+%Erlaubt Umbrüche innerhalb von Tabellen
+\usepackage{tabularx}
+%Erlaubt Seitenumbrüche mit Tabellen
+\usepackage{longtable}
 
 
 % PDF managment
@@ -213,8 +233,8 @@
 \usepackage{url}
 
 % citation
-\usepackage{cite}
-\usepackage{apacite}
+%\usepackage{cite}
+%\usepackage{apacite}
 
 
 % pagedesign

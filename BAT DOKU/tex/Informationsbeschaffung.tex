@@ -18,10 +18,10 @@ Dieses Kapitel bietet fundamentale physikalische Gegebenheiten, sowie die releva
 		Absoprtion &  $\alpha$ & $-$  \\ 
 		
 		\rowcolor{gray}Geschwindigkeit des Chassis & $\dot{Q}$ & $m/s$\\
-		 &  a $\ddot{x}$ & $m/s^2$ \\
+		spektrale spezifische Ausstrahlung &  $M_{\lambda }$ & $m/s^2$ \\
 		\rowcolor{gray} Planksches Wirkungsquantum &  $ h$ & Js \\ 
-		Neigungswinkelgeschwindigkeit des Chassis mit Balanciermasse & $\dot\varphi $ & $ rad/s$ \\ 
-		\rowcolor{gray} Neigungswinkelbeschleunigung des Chassis mit Balanciermasse & $\ddot\varphi $ & $ rad/s^2 $ \\ 
+		Lichtgeschwindigkeit im Vakuum & $c $ & $ m/s$ \\ 
+		\rowcolor{gray} Stefan-Boltzmann-Konstante & $\sigma$ & $ rad/s^2 $ \\ 
 	\end{tabular}
 	\caption{Legende physikalische Grössen Konzeptzeichnungen}
 	\label{tab:Legende Physikalische Grössen} 
@@ -46,6 +46,17 @@ Die Physikalischen Grundlagen erläutert auf kurze und prägnante Weise die r
 
 \subsection{Allgemein}
 
+Formel für die spektrale spezifische Ausstrahlung  eines Schwarzkörpers der absoluten Temperatur  T. Für sie gilt
+
+\begin{equation}
+\label{eq5}
+M_{\lambda } = \frac{2\pi h c^2 }{\lambda^5}*\frac{1}{e^\frac{hc}{\lambda k_{B}}-1}
+\end{equation}
+\myequations{Plank'sches Strahlungsgesetz}
+
+Das Stefan-Boltzmann-Gesetz gibt die Strahlungsintensität Q eines idealen Temperaturstrahlers an (Integral des Plank'schen Gesetzes über alle Wellenlängen). Diese Intensität ist proportional zur 4. Potenz der absoluten Temperatur. Es lautet:
+Strahlungsleistung
+
 \begin{equation}
 \label{eq1}
 \frac{\mathrm{d} Q}{\mathrm{d} t} = \epsilon *\sigma * A * T^4
@@ -55,18 +66,16 @@ Die Physikalischen Grundlagen erläutert auf kurze und prägnante Weise die r
 
 
 
+
+
+Ein grauer Körper im Sinne der Strahlungsphysik ist ein Körper, dessen Oberfläche auftreffende Strahlung nicht vollständig absorbiert und dementsprechend auch nicht bei einer gegebenen Temperatur die maximale Strahlung (Schwarzkörperstrahlung) emittiert (siehe plancksches Strahlungsgesetz). Er hat jedoch einen wellenlängenunabhängigen Emissions- bzw. Absorptionsgrad - er erscheint „grau“, wobei sich die fehlende „Farbe“ nicht auf den sichtbaren, sondern auf den für die Messung relevanten Bereich des Spektrums bezieht.
+
 \begin{equation}
 \label{eq2}
 a^2+b^2=c^2
 \end{equation}
 \myequations{Planksches Strahlungsgesetz}
 
-
-\begin{equation}
-\label{eq3}
-\epsilon +\varphi +\tau  = 1
-\end{equation}
-\myequations{Strahlung Energieerhaltung}
 
 \begin{equation}
 \label{eq4}
@@ -80,11 +89,7 @@ a^2+b^2=c^2
 \end{equation}
 \myequations{Schwarzer Stahler, Energieerhaltung}
 
-\begin{equation}
-\label{eq5}
-M_{\lambda } = \frac{2\pi}{\lambda^5}*\frac{1}{e^\frac{hc}{\lambda k_{B}}-1}
-\end{equation}
-\myequations{Plank'sches Strahlungsgesetz}
+
 
 \subsection{Seebeck-Effekt}
 
@@ -191,7 +196,16 @@ W für eine Umgebungstemperatur von 26 °C. \cite{MenschWaerme}
 
 \subsection{Personenaufzüge}
 
-eine elektronische Schaltung, die als integrierter Schaltkreis realisiert wurde
+In diesem Unterkapitel wurde das Messobjekt "Personenaufzug" näher betrachtet. Neben räumlichen Parametern wie Höhe, Grundfläche und Volumen spielen vor allem die Oberflächenbeschaffenheit bzw. das Oberflächenmaterial eine wichtige Rolle. Weitere thermische Einflussfaktoren finden sich in der Umgebungstemperatur un der verwendeten Leuchtmittel
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]
+	{fig/Edelstahl_gewalzt.PNG}
+	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{Edelstahl}
+	\label{fig:Edelstahl}
+\end{figure}
 
 
 \begin{figure}[H]

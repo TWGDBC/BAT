@@ -3,24 +3,26 @@
 
 
 \label{sec:Ausgangssituation}
-Durch den technologischen Wandel, den die Industrie 4.0 sowie \ac{IoT}  mit sich bringen, entstehen in verschiedensten Einsatzbereichen neue Möglichkeiten. Da Sensoren zunehmend kleiner, vernetzter und günstiger werden, sowie stetig schnellere Prozessoren und größere Speicherkapazitäten zur Verfügung stehen, werden vermehrt auch in alltäglichen Situation intelligente Systeme eingesetzt. 
+Durch den technologischen Wandel, den die Industrie 4.0 sowie \ac{IoT}  mit sich bringen, entstehen in verschiedensten Einsatzbereichen neue Möglichkeiten. Die Sensoren werden zunehmend kleiner, vernetzter und günstiger. Dazu stehen stetig schnellere Prozessoren und größere Speicherkapazitäten zur Verfügung, daher werden vermehrt auch in alltäglichen Situation intelligente Systeme eingesetzt. 
 
-Gerade für Wartungs- und Diagnosezwecke von Personenaufzügen bieten solche intelligente Systeme ein bedeutendes Potential. Durch die ortsunabhängige Kommunikation von übergreifenden Netzwerken und der Echtzeitverarbeitung bieten solche Messeinheiten Alternativen zu teuren Servicegängen. Mittels ständiger Überwachung und Fernwartung können Probleme frühzeitig erkannt und behoben werden. Die Anforderungen an eine solche Messeinheit hängt jedoch stark von Einsatzort ab. Dabei spielen Langzeiteinsatz, Zuverlässigkeit, Flexibilität sowie auch der Energieverbrauch eine bedeutende Rolle.
+Für Wartungs- und Diagnosezwecke von Personenaufzügen bieten solche intelligente Systeme ein bedeutendes Potential. Durch die ortsunabhängige Kommunikation von übergreifenden Netzwerken und der Echtzeitverarbeitung bieten solche Messeinheiten Alternativen zu teuren Servicegängen. Mittels ständiger Überwachung und Fernwartung können Probleme frühzeitig erkannt und behoben werden. Die Anforderungen an eine solche Messeinheit hängt jedoch stark von Einsatzort ab. Dabei spielen Langzeiteinsatz, Zuverlässigkeit, Flexibilität sowie auch der Energieverbrauch eine bedeutende Rolle.
 
-Ein relevantes Messobjekt für eine solche Messeinheit ist die Anzahl Personen innerhalb eines Aufzugs. Da übliche Überwachungskameras und bildgebende TOF-Sensoren teuer sind und einen bedeutenden Energiebedarf besitzen, stellt sich in diesem Bereich die Frage nach einer Alternative.
+Ein relevantes Messobjekt für eine solche Messeinheit ist unter anderem die Anzahl Personen innerhalb eines Aufzugs. Da übliche Überwachungskameras und bildgebende TOF-Sensoren teuer sind und einen bedeutenden Energiebedarf besitzen, stellt sich in diesem Bereich die Frage nach einer Alternative.
 
 \section{Aufgabenstellung}
 \label{chap:Aufgabenstellung}
 
-An diesem Punkt setzt nun die Aufgabenstellung dieser Bachelorarbeit an. Es soll die Eignung von bildgebenden Passiv Infrarot Sensoren (PIR) für eine solche Messeinheit geprüft werden.PIR in möglichst breiter und wegweisender Form beurteilt
+An diesem Punkt setzt nun die Aufgabenstellung dieser Bachelorarbeit an. Es soll die Eignung von bildgebenden Passiv Infrarot Sensoren (PIR) für eine solche Messeinheit geprüft werden. Dabei ein typischer bildgebender PIR-Sensor in möglichst breiter und wegweisender Form beurteilt. Es wird dabei der State-Of-the-Art Sensor AMG8834 von Panasonic verwendet. Mit diesem werden in einer ersten Phase grundlegende Grenzen und Eigenheiten dieses passiven Messprinzips erarbeitet. In einem weiteren Schritt wird auf der Grundlage von Messresultaten und Testdurchführungen ein Algorithmus entwickelt, mit welchem sich Personen innerhalb des Messbereichs detektieren lassen. Abschließend wird das Messprinzip beurteilt und eine Empfehlung für die Weiterführung gebildet. In erster Linie soll mit dieser Arbeit die Fragestellung geklärt werden, ob sich bilgebende \ac{PIR} für die Personendetektion in Personenaufzügen eignen.
 
- Es wird dabei der State-Of-the-Art Sensor AMG8834 von Panasonic verwendet. Mit diesem werden in einer ersten Phase grundlegende Grenzen und Eigenheiten dieses passiven Messprinzips erarbeitet. In einem weiteren Schritt wird auf der Grundlage von Messresultaten und Testdurchführungen ein Algorithmus entwickelt, mit welchem sich Personen innerhalb des Messbereichs detektieren lassen. Abschließend wird das Messprinzip in möglichst breiter und wegweisender Form beurteilt und eine Empfehlung für die Weiterführung gebildet werden. In erster Linie soll mit dieser Arbeit die Fragestellung geklärt werden, ob sich bilgebende Passiv Infrarot Sensoren für die Personendetektion eignen.
-
- 
 \section{Ziele}
 \label{sec:Einleitung}
-Ziel dieser Bachelorarbeit ist es, einen breiten und fundierten Katalog über die Möglichkeiten und Grenzen des PIR Sensors zu liefern. Auf der Basis der Testergebnisse wird ein Algorithmus zu erarbieten, mit dem sich Personen in einem Aufzug detektieren lassen. 
+Ziel dieser Bachelorarbeit ist es, einen breiten und fundierten Katalog über die Möglichkeiten und Grenzen des PIR Sensors zu liefern. Testergebnisse wird ein Algorithmus zu erarbeiten, mit dem sich Personen in einem Aufzug detektieren lassen. 
 
 \section{Methodik}
 \label{sec:Methodik}
-Die gesamte Arbeit ist Etappenweise gegliedert. Dabei wiederholen sich Testphasen und Datenerfassungen und Auswertungen. Einzelne Testkonzepte geben Auskunft über den Projektablauf, sowie die durchgeführten Testspezifikationen. Das Projektmanagement in \todo{referenz} 
+Die gesamte Arbeit ist Etappenweise gegliedert. Dabei wiederholen sich Testphasen und Datenerfassungen und Auswertungen. Einzelne Testkonzepte geben Auskunft über die Testdurchführungen, sowie die entsprechenden Testspezifikationen. 
+
+Das Projektmanagement in \todo{referenz} beinhaltet neben den detaillierten Projektplan auch die anfänglich definierten Meilensteine. Im detaillierten Projektplan sind neben den Tätigkeiten auch die zeitlichen Abschätzungen als Soll-/Ist-Vergleich angefügt. 
+
+
+Diese Bachelorarbeit begrenzt sich auf die Analyse des Messprinzips von PIR Sensoren. Es werden keine bedeutende Vergleiche mit anderen Messverfahren durchgeführt. 

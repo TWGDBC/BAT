@@ -1,10 +1,84 @@
 \chapter{Informationsbeschaffung}
 \label{chap:Informationsbeschaffung}
-Dieses Kapitel bietet fundamentale physikalische Gegebenheiten, sowie die relevanten Informationen über \ac{PIR} und verwendete 
+Dieses Kapitel bietet fundamentale physikalische Gegebenheiten, sowie die relevanten Eigenheiten des verwendeten  \ac{PIR}-Sensors. Da es sich um eine bildgebendes Messprinzip handelt, werden des Weiteren geometrische Aspekte erläutert. Schlussendlich bietet dieses Kapitel auch nötige Informationen über das Messobjekt bzw. die Messumgebung geliefert.
 
 
-\subsection*{Physikalische Grössen und Symbole}
 
+
+\section{Grid-Eye AMG8834}
+
+Der Panasonic Grid-EYE AMG8834 ist ein bildgebender Passiv Infrarot Sensor, der durch 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]
+	{fig/Circuit_AMG8834.PNG}
+	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{AMG8834}
+	\label{fig:SchemaAMG8834}
+\end{figure}
+
+Der Sensor AMG8834 ist standardmässig auf einen Emissionsgrad von $\epsilon$ =0.93 kalibriert.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]
+	{fig/accuracy.PNG}
+	\caption[Messgenauigkeit]{Messgenauigkeit} \protect\cite{AMG8834}
+	\label{fig:Temperaturbereich}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]
+	{fig/Circuit_AMG8834.PNG}
+	\caption[physikalischer Aufbau AMG8834 Sensors]{physikalischer Aufbau des AMG8834 Sensors} \protect\cite{AMG8834}
+	\label{fig:physAufbauAMG8834}
+\end{figure}
+
+Die eintreffenden Infrarotwellen werden durch die Silizium Linse gefiltert. Dabei fallen lediglich langwellige  Infrarotstrahlungen mit den Wellenlängen 8-13 $\mu$m. Dies entspricht dem dritten atmosphärischen Fenster.
+
+
+\ac{ASIC}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]
+	{fig/grid_eye_aufbau.PNG}
+	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{AMG8834}
+	\label{fig:Explosionsdarstellung}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]
+	{fig/Mems_Thermopile.PNG}
+	\caption[Aufbau Thermosäule]{Aufbau Thermosäule} \protect\cite{AMG8834}
+	\label{fig:AufbauThermo}
+\end{figure}
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]
+	{fig/Humidity_Tolerance.PNG}
+	\caption[Einfluss Luftfeuchtigkeit]{Einfluss Luftfeuchtigkeit} \protect\cite{AMG8834}
+	\label{fig:Humidity}
+\end{figure}
+
+
+\section{geometrische Aspekte}
+
+Im vorherigen Abschnitt wurden bereits erwähnt, dass der \ac{FOV}
+
+
+räumliche Streckungen verursacht
+
+\section{Physikalische Aspekte}
+
+Die Physikalischen Grundlagen erläutert auf kurze und prägnante Weise die r
 
 \begin{table}[H]
 	\begin{tabular}{l|c|c}
@@ -27,11 +101,6 @@ Dieses Kapitel bietet fundamentale physikalische Gegebenheiten, sowie die releva
 	\label{tab:Legende Physikalische Grössen} 
 \end{table} 
 
-
-
-\section{Physikalische Aspekte}
-
-Die Physikalischen Grundlagen erläutert auf kurze und prägnante Weise die r
 
 \begin{table}[]
 	\centering
@@ -101,52 +170,7 @@ a^2+b^2=c^2
 
 
 
-
-\section{verwendete Sensorik}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]
-	{fig/Circuit_AMG8834.PNG}
-	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{AMG8834}
-	\label{fig:SchemaAMG8834}
-\end{figure}
-
-Der Sensor AMG8834 ist standardmässig auf einen Emissionsgrad von $\epsilon$ =0.93 kalibriert.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]
-	{fig/accuracy.PNG}
-	\caption[Messgenauigkeit]{Messgenauigkeit} \protect\cite{AMG8834}
-	\label{fig:Temperaturbereich}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.8\textwidth]
-	{fig/Circuit_AMG8834.PNG}
-	\caption[physikalischer Aufbau AMG8834 Sensors]{physikalischer Aufbau des AMG8834 Sensors} \protect\cite{AMG8834}
-	\label{fig:physAufbauAMG8834}
-\end{figure}
-
-Die eintreffenden Infrarotwellen werden durch die Silizium Linse gefiltert. Dabei fallen lediglich langwellige  Infrarotstrahlungen mit den Wellenlängen 8-13 $\mu$m. Dies entspricht dem dritten atmosphärischen Fenster.
-
-
-\ac{ASIC}
-\section{zu messende Objekt}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\textwidth]
-	{fig/grid_eye_aufbau.PNG}
-	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{AMG8834}
-	\label{fig:sens}
-\end{figure}
-\section{geometrische Aspekte}
-
-\section{zu messende Objekt}
+\section{Messobjekt und Messumgebung}
 
 
 \subsection{Personen}
@@ -184,8 +208,7 @@ Der schraffierte Bereich gibt die Höhe dieser Art der
 Wärmeabgabe an. In einer Umgebung mit Temperaturen oberhalb 37 °C kann also die Wärme
 nur noch durch Schwitzen abgeführt werden. Bei mittelschwerer Arbeit verdoppelt sich
 ungefähr die Wärmeabgabe des Menschen gegenüber dem ruhigen Sitzen, da die Muskeln,
-wie bereits erwähnt, zu 80 % Abwärme erzeugen. Bei schwerer Arbeit kann die Wärmeabgabe
-auf ca. 300 W ansteigen. Trainierte Sportler können noch höhere Leistungen erzeugen
+wie bereits erwähnt, zu 80 \% Abwärme erzeugen. Bei schwerer Arbeit kann die Wärmeabgabe auf ca. 300 W ansteigen. Trainierte Sportler können noch höhere Leistungen erzeugen.
 
 Die
 Wärmeabgabe des Menschen ist also proportional seiner Oberfläche und damit von der Körpergröße abhängig. Die Oberfläche eines normalen Menschen beträgt ungefähr 2 m2.
@@ -196,27 +219,35 @@ W für eine Umgebungstemperatur von 26 °C. \cite{MenschWaerme}
 
 \subsection{Personenaufzüge}
 
-In diesem Unterkapitel wurde das Messobjekt "Personenaufzug" näher betrachtet. Neben räumlichen Parametern wie Höhe, Grundfläche und Volumen spielen vor allem die Oberflächenbeschaffenheit bzw. das Oberflächenmaterial eine wichtige Rolle. Weitere thermische Einflussfaktoren finden sich in der Umgebungstemperatur un der verwendeten Leuchtmittel
+In diesem Unterkapitel wurde das Messobjekt "Personenaufzug" näher betrachtet. Neben räumlichen Parametern wie Höhe, Grundfläche und Volumen spielen vor allem die Oberflächenbeschaffenheit bzw. das Oberflächenmaterial eine wichtige Rolle. Weitere thermische Einflussfaktoren finden sich in der Umgebungstemperatur un der verwendeten Leuchtmittel.
 
 
+
+In Abbildung \ref{fig:Edelstahlgewalzt} und \ref{fig:Edelstahlmatt} sind 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]
 	{fig/Edelstahl_gewalzt.PNG}
 	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{Edelstahl}
-	\label{fig:Edelstahl}
+	\label{fig:Edelstahlgewalzt}
 \end{figure}
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]
-	{fig/Edelstahl_gewalzt.PNG}
+	{fig/Edelstahl_matt.PNG}
 	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{Edelstahl}
-	\label{fig:Edelstahl}
+	\label{fig:Edelstahlmatt}
+	
+	
 \end{figure}
 
 \section{Störquellen}
 
-
 \section{verwendete Software}
+
+
+
+\section{Fazit}
+

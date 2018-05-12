@@ -1,10 +1,10 @@
-\chapter{Informationsbeschaffung}
+\chapter{Informationserarbeitung}
 \label{chap:Informationsbeschaffung}
-Dieses Kapitel bietet fundamentale physikalische Gegebenheiten, sowie die relevanten Eigenheiten des verwendeten  \ac{PIR}-Sensors. Da es sich um eine bildgebendes Messprinzip handelt, werden des Weiteren geometrische Aspekte erläutert. Schlussendlich bietet dieses Kapitel auch nötige Informationen über das Messobjekt bzw. die Messumgebung geliefert.
+Dieses Kapitel bietet fundamentale physikalische Gegebenheiten, sowie die relevanten Eigenheiten des verwendeten \ac{PIR}-Sensors. Da es sich um eine bildgebendes Messprinzip handelt, werden des Weiteren geometrische Aspekte erläutert. Schlussendlich bietet dieses Kapitel auch nötige Informationen über das Messobjekt bzw. die Messumgebung geliefert.
 
 \section{Grid-Eye AMG8834}
 
-Der verwendete Panasonic Grid-EYE AMG8834 ist ein bildgebender \ac{MEMS}-Sensor, der mit insgesamt 64 temperaturempfindlichen Thermosäulenelementen ausgestattet ist. Das Messprinzip des Sensors wird im Unterkapitel \ref{seebeck} detailliert erläutert. Alle nachfolgenden Angaben sind, wenn nicht anders angegeben auch dem Datenblatt zu entnehmen.
+Der verwendete Panasonic Grid-EYE AMG8834 ist ein bildgebender \ac{MEMS}-Sensor, der mit insgesamt 64 temperaturempfindlichen Thermosäulenelementen ausgestattet ist. Alle nachfolgenden Angaben sind, wenn nicht anders angegeben aus den Datenblätter zu entnehmen.
 
 \begin{figure}[H]
 	\centering
@@ -15,19 +15,17 @@ Der verwendete Panasonic Grid-EYE AMG8834 ist ein bildgebender \ac{MEMS}-Sensor,
 \end{figure}
 
 
-In Abbildung \ref{ScheamAMG8834} ist das Prinzipschema darstellt. Die durch den Seebeck entstandene Spannung wird in der \ac{ASIC} des \ac{MEMS}-Sensor verarbeitet. Das selektierte Thermoelement wird verstärkt, mit dem integrierten Thermistor verglichen und mit dem \ac{AD} gewandelt. Über \ac{I2C} lassen sich die Thermoelemente als 2 Byte Register auslesen. 
-Dabei werden lediglich 12 Bit für die Pixelwerte genutzt, welches zur kleinsten unterscheidbaren Größe von 0.25 $^\circ$C führt. Die Thermistor-Register lassen sich mit der Auflösung von 0.625 $^\circ$C auslesen.
+In Abbildung \ref{fig:SchemaAMG8834} ist das Prinzipschema des Sensors darstellt. Das Messprinzip des Sensors wird im Unterkapitel \ref{seebeck} detailliert erläutert. Die entstandene Spannung wird durch die \ac{ASIC} des \ac{MEMS}-Sensor verarbeitet. Das selektierte Thermoelement wird verstärkt, mit dem integrierten Thermistor verglichen und mit dem \ac{ADC} gewandelt. Über die \ac{I2C}-Schnittstelle lassen sich die Werte der Thermoelemente und der Thermistoren je aus 2 Register auslesen. Die Messwerte werden alle 100 ms aktualisiert. 
+ 
+Dabei werden lediglich 12 Bit für die Pixelwerte genutzt, welches zur kleinsten unterscheidbaren Größe von 0.25 $^\circ$C führt. Die Thermistor-Register lassen sich mit der Auflösung von 0.625 $^\circ$C unterscheiden. Dies
 
-Durch die hohe interne Verstärkung besitzt der Sensor bei normalen Bedingungen\footnote[2]{Umgebungstemperatur 0 -80 $^\circ$C bei Luftfeuchtigkeit 15-85\%} jedoch lt. Datenblattangaben eine Genauigkeit von +/- 3°C. Aus entsprechenden Messungen, siehe \ref{Testphase1} streuen die Pixelwerte um 0.5
-
-
-
+Durch die hohe interne Verstärkung besitzt der Sensor jedoch bei normalen Bedingungen\footnote[2]{Umgebungstemperatur 0-80 $^\circ$C bei Luftfeuchtigkeit 15-85\%} lt. Datenblattangaben eine Genauigkeit von +/- 3°C. 
 
 
 
 
 
-Der Sensor AMG8834 ist standardmässig auf einen Emissionsgrad von $\epsilon$ =0.93 kalibriert.
+Der Sensor AMG8834 ist standardmäßig auf einen Emissionsgrad von $\epsilon$ =0.93 kalibriert.
 
 \begin{figure}[H]
 	\centering
@@ -66,21 +64,9 @@ Die eintreffenden Infrarotwellen werden durch die Silizium Linse gefiltert. Dabe
 \end{figure}
 
 
-\section{geometrische Aspekte}
-
-Im vorherigen Abschnitt wurden bereits erwähnt, dass durch den begrenzten \ac{FOV} des Sensors die Distanz zum Messobjekt eine entscheidende Rolle spielt. In der nachstehenden Skizze (Abbildung \ref{}) sind die Verhältnisse perspektivisch dargestellt. Dabei wird von einer Raumhöhe  von 2.10 m ausgegangen. (nach Standardkabine EN 81-70)   
-
-Die räumliche Streckungen verursacht zusätzlich eine perspektivische Verzerrung, welcher in dieser Betrachtung nicht weiter beachtet wird. Zu sehen ist jedoch deutlich, dass bei der Messung von Personen die Messdistanz zwischen 10 bis 110 Zentimeter am relevantesten ist. In diesem Bereich kann jedoch mit dem aktuellen \ac{FOV} im besten Fall eine Fläche von 0.666 $ m/s^2 $ abgedeckt werden. Um eine Aufzugkabine mit 8 Personen\footnote[1]{Masse: (HxBxT) 2100 x 1100 x 400 [mm]} mit entsprechenden Messdistanzen wird ein Öffnungswinkel von -XX$^\circ$ benötigt. 
-)
-
-Problematisch kann in diesem Zusammenhang die Abschattung des Messbereichs durch grosse Personen sein, welche zentral positioniert sind.
-
-  
-
-
 \section{Physikalische Aspekte}
 
-Dieser Abschnitt erläutert auf kurze und prägnante Weise, welche fundamentalen physikalischen Aspekte den nachfolgenden Seiten zu Grunde liegen. 
+Dieser Abschnitt erläutert auf kurze und prägnante Weise, physikalischen Aspekte dem Sensor zu Grunde liegen. Dies bietet die Grundlage für die Bestimmung der Störquellen und das Verhalten des Sensors bei entstprechenden äusseren Einwirkungen. 
 
 
 
@@ -189,19 +175,32 @@ Die durch die konvexe Linse gesammelten infrarotstrahlen verursachen auf den ein
 
 
 
+\section{geometrische Aspekte}
+
+Im vorherigen Abschnitt wurden bereits erwähnt, dass durch den begrenzten \ac{FOV} des Sensors die Distanz zum Messobjekt eine entscheidende Rolle spielt. In der nachstehenden Skizze (Abbildung \ref{}) sind die Verhältnisse perspektivisch dargestellt. Dabei wird von einer Raumhöhe von 2.10 m ausgegangen. (nach Standardkabine EN 81-70)   
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]
+	{fig/Humidity_Tolerance.PNG}
+	\caption[Einfluss Luftfeuchtigkeit]{Einfluss Luftfeuchtigkeit} \protect\cite{AMG8834}
+	\label{fig:Geometrie}
+\end{figure}
+
+Die räumliche Streckungen verursacht zusätzlich eine perspektivische Verzerrung, welcher in dieser Betrachtung nicht weiter beachtet wird. Zu sehen ist jedoch deutlich, dass bei der Messung von Personen die Messdistanz zwischen 10 bis 110 Zentimeter am relevantesten ist. In diesem Bereich kann jedoch mit dem aktuellen \ac{FOV} im besten Fall eine Fläche von 0.666 $ m/s^2 $ abgedeckt werden. Um eine Aufzugkabine mit 8 Personen\footnote[1]{Masse: (HxBxT) 2100 x 1100 x 400 [mm]} mit entsprechenden Messdistanzen wird ein Öffnungswinkel von -XX$^\circ$ benötigt. 
+)
+
+Problematisch kann in diesem Zusammenhang die Abschattung des Messbereichs durch grosse Personen sein, welche zentral positioniert sind. 
+
+ 
+
 \section{Messobjekt und Messumgebung}
 
+Dieses Kapitel beschreibt die Erkenntnisse bei der Betrachtung des Messobjekts und der Messumgebung. Dabei wurden einerseits die Kennwerte von Personen zusammengetragen, sowie die Messumgebung auf Störquellen und Einflussfaktoren begutachtet. Dank der Firma ARLEWO AG konnten unterschiedliche Aufzüge vermessen und bewertet werden. 
 
 \subsection{Personen}
 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.3\textwidth]
-	{fig/person_waerme.JPG}
-	\caption[Wäermebild eines Probanden]{Wärmebild eines Probanden}
-	\label{fig:Waermebild}
-\end{figure}
 
 Die Reaktionen im menschlichen Körper sind auf eine Kerntemperatur von 37 °C eingestellt mit einer Toleranz von etwa + 0,5 Kelvin (Grad). Am kältesten ist die Haut, die etwa 4 bis 7 Kelvin (Grad) kälter ist. Die Aufteilung der verschiedenen Arten der Wärmeabgabe beträgt bei einem ruhenden Menschen in einer Umgebung von 20 °C:
 
@@ -230,6 +229,15 @@ Wärmeabgabe an. In einer Umgebung mit Temperaturen oberhalb 37 °C kann also di
 nur noch durch Schwitzen abgeführt werden. Bei mittelschwerer Arbeit verdoppelt sich
 ungefähr die Wärmeabgabe des Menschen gegenüber dem ruhigen Sitzen, da die Muskeln,
 wie bereits erwähnt, zu 80 \% Abwärme erzeugen. Bei schwerer Arbeit kann die Wärmeabgabe auf ca. 300 W ansteigen. Trainierte Sportler können noch höhere Leistungen erzeugen.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]
+	{fig/person_waerme.JPG}
+	\caption[Wäermebild eines Probanden]{Wärmebild eines Probanden}
+	\label{fig:Waermebild}
+\end{figure}
+
 
 Die
 Wärmeabgabe des Menschen ist also proportional seiner Oberfläche und damit von der Körpergröße abhängig. Die Oberfläche eines normalen Menschen beträgt ungefähr 2 m2.

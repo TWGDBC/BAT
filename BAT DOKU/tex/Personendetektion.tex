@@ -2,6 +2,9 @@
 \label{chap:Personendetektion}
 
 
+Dieser Abschnitt beschreibt das Vorgehen, um die Anzahl Personen in einem Aufzug zu erkennen. In einem ersten Schritt wird die Verarbeitung der Rohdaten aufgezeigt. Für den Auswertealgorithmus wurden mehrere unterschiedliche Aufzüge evaluiert und ein Profil erstellt. 
+
+
 
 \begin{figure}[H]
 	\centering
@@ -12,7 +15,22 @@
 \end{figure}
 
 
+
 \section{Datenverarbeitung}
+
+
+
+
+\section{Datenmanipulation mittels Interpolation}
+
+Die Auflösung von 8x8 Pixel bietet optisch nur begrenzte Aussagekraft über die Anzahl Personen in einem Aufzug. Daher wurde mittels MATLAB mehrere Interpolationsverfahren benutzt, um die Auflösung der Personenerkennung zu verbessern. Im Zusammenhang mit den Pixelwerten eignet sich eine bikubische
+
+
+
+Da im Zusammenhang mit dem Auswertealgorithmus mittels TensorFlow
+
+
+
 
 \subsection{Profilbildung}
 
@@ -20,14 +38,11 @@
 Im Verlauf der Arbeit wurden mehrere 
 
 
+\section{Symetrische Erweiterung}
+
+
+
 \section{Musterauswertung}
-
-
-
-\section{Interpolation}
-
-Die Auflösung von 8x8 Pixel bietet nur begrenzte Aussagekraft. Daher wurde mittels MATLAB mehrere Interpolationsverfahren durchgeführt um die Auflösung der Personenerkennung zu verbessern.
-
 
 
 
@@ -65,4 +80,3 @@ Entweder alle Sekunde der Mittelwert auswerten, doer alle 100 ms die Daten auswe
 \section{Fazit}
 
 
-\section{Symetrische Erweiterung}

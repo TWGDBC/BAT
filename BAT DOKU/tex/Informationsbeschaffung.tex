@@ -46,7 +46,7 @@ Dieser Abschnitt erläutert auf prägnante Weise, physikalischen Aspekte die dem
 		Transmission & $\tau$ & $-$\\
 		\rowcolor{gray}Absoprtion &  $\alpha$ & $-$  \\ 
 		Strahlungsleistung & $\dot{Q}$ & $W$\\
-		\rowcolor{gray}spektrale spezifische Ausstrahlung &  $M_{\lambda }$ & $W/sr$\footnote[2]{Steradiant: Messeinheit für den Raumwinkel} \\
+		\rowcolor{gray}spektrale spezifische Ausstrahlung &  $M_{\lambda }$ & $W/sr$ \footnote[2]{Steradiant: Messeinheit für den Raumwinkel} \\
 		Planksches Wirkungsquantum &  $ h$ & Js \\ 
 		\rowcolor{gray} Lichtgeschwindigkeit im Vakuum & $c $ & $ m/s$ \\ 
  		Stefan-Boltzmann-Konstante & $\sigma$ & $ W/m^2K^2 $ \\ 
@@ -68,7 +68,7 @@ In Abbildung \ref{fig:AufbauThermo} ist ein einzelnes Pixel funktionell dargeste
 	\label{fig:AufbauThermo}
 \end{figure}
 
-Durch die unterschiedlichen Thermokräfte\footnote[2]{auch Seebeckkoeffizienten genannt} der zwei Halbleitermaterialien entsteht ein Potentialunterschied, den man an den Punkten 3 und 5 abgreifen kann. Diese Spannung $U_{t}$ ist die Grundlage des Messprinzips und wird mit Formel \ref{eq1} \protect\cite{AMG8834} beschrieben.
+Durch die unterschiedlichen Thermokräfte\footnote[3]{auch Seebeckkoeffizienten genannt} der zwei Halbleitermaterialien entsteht ein Potentialunterschied, den man an den Punkten 3 und 5 abgreifen kann. Diese Spannung $U_{t}$ ist die Grundlage des Messprinzips und wird mit Formel \ref{eq1} \protect\cite{AMG8834} beschrieben.
 
 \begin{equation}
 \label{eq1}
@@ -86,7 +86,7 @@ M_{\lambda } = \frac{2\pi h c^2 }{\lambda^5}*\frac{1}{e^\frac{hc}{\lambda k_{B} 
 \end{equation}
 \myequations{Plank'sches Strahlungsgesetz}
 
-Wie in der Formel ersichtlich ist die Ausstrahlung eines schwarzen Körper mit 5. Potenz von der Wellenlänge und exponentiell von der Temperatur abhängig. Durch die Siliziumlinse des Sensors werden Störquellen, welche andere Wellenlängen aufweisen, gefiltert. Dies ist vor allem bei Lichtquellen ein relevante Eigenschaft. Da dessen Spektrum sich bedeutend tiefer \footnote[3]{Bereich 0.4$\mu$m - 2 $\mu$m} befinden, können Strahlungseinflüsse von herkömmlichen Lichtquellen ignoriert werden kann.
+Wie in der Formel ersichtlich ist die Ausstrahlung eines schwarzen Körper mit 5. Potenz von der Wellenlänge und exponentiell von der Temperatur abhängig. Durch die Siliziumlinse des Sensors werden Störquellen, welche andere Wellenlängen aufweisen, gefiltert. Dies ist vor allem bei Lichtquellen ein relevante Eigenschaft. Da dessen Spektrum sich bedeutend tiefer \footnote[4]{Bereich 0.4$\mu$m - 2 $\mu$m} befinden, können Strahlungseinflüsse von herkömmlichen Lichtquellen ignoriert werden kann.
 
 Das Stefan-Boltzmann-Gesetz \protect\cite{Thermoformeln} gibt die Strahlungsintensität $\dot{Q}$ eines Temperaturstrahlers an. Diese Formel bietet für die Anwendung die relevantesten Erkenntnisse.
 
@@ -107,7 +107,7 @@ Diese Formel zeigt auf, dass die Wärmestrahlung eines Körpers im Wesentlichen 
 \end{figure}
 
 
-Das Stefan-Boltzmann-Gesetz deutet auf eine weitere relevante physikalische Gegebenheit hin, der mit dem Emissionsgrad $\epsilon$  in Verbindung steht. Der Emissionsgrad $\epsilon$ ist ein materialabhängiger Faktor, welcher zwischen 0-1  angegeben wird. Dieser gilt für graue Körper d.h. für Körper, dessen Oberfläche auftreffende Strahlung nicht vollständig absorbieren. Diese Eigenheit gilt für alle realen Körper. Da der Emissionsgrad vom Material und dessen Oberfläche abhängt können starke Unterschiede entstehen. Im Unterkapitel \ref{subsec:Personenaufzuege} werden übliche Aufzugsmaterialien betrachtet.
+Das Stefan-Boltzmann-Gesetz deutet auf eine weitere relevante physikalische Gegebenheit hin, der mit dem Emissionsgrad $\epsilon$  in Verbindung steht. Der Emissionsgrad $\epsilon$ ist ein materialabhängiger Faktor, welcher zwischen 0-1  angegeben wird. Dieser gilt für graue Körper d.h. für Körper, dessen Oberfläche auftreffende Strahlung nicht vollständig absorbieren. Diese Eigenheit gilt für alle realen Körper. Da der Emissionsgrad vo dem Material und dessen Oberfläche abhängt können starke Unterschiede entstehen. Im Unterkapitel \ref{subsec:Personenaufzuege} werden übliche Aufzugsmaterialien betrachtet.
 
 Neben der Emission können auch Reflexion und Transmission von Störquellen Einfluss auf die Messwerte besitzen. Dabei ist vorallem Sonnenlicht eine wesentliche Störquelle. In den nachfolgenden Formeln wird dies erläutert. Nach dem Energieerhaltungsgesetz \protect\cite{Thermoformeln} gilt für Transmission, Reflexion und Absorption die Formel \ref{eq4}.
 \begin{equation}
@@ -116,7 +116,7 @@ Neben der Emission können auch Reflexion und Transmission von Störquellen Einf
 \end{equation}
 \myequations{Energieerhaltung der Wärmestrahlung}
 
-Wobei bei thermischen Gleichgewicht angenommen werden kann, dass der Emissionsgrad der Absortion entspricht.
+Wobei bei thermischen Gleichgewicht angenommen werden kann, dass der Emissionsgrad der Abortions entspricht.
 
 \begin{equation}
 \label{eq5}
@@ -129,19 +129,22 @@ Da in Aufzügen nur von Festkörper ausgegangen wird, fällt die Transmission $\
 \section{geometrische Aspekte}
 \label{sec:geometrie}
 
-Da die Strahlungsintensität mit zunehmender Distanz im Quadrat abnimmt\footnote[4]{nach Abstandsgesetz}, spielt die Distanz zum Messobjekt eine entscheidende Rolle. Ein weiteres Punkt ist der begrenzten \ac{FOV} des Sensors von 60$^\circ$. In der nachstehenden Skizze (Abbildung \ref{fig:Geometrie}) sind die Verhältnisse perspektivisch dargestellt. Dabei wird von einer Raumhöhe von 2.10m ausgegangen.\footnote[5]{nach Standardkabine EN 81-20}  
-
+In Aufzügen lässt sich der Sensor lediglich an der Decke befestigen, damit die gesamte Aufzugsfläche ausgemessen werden kann. Bei seitlicher Montage können Abschattungen durch Personen verursacht werden, daher wird für die geometrische Betrachtung vom Deckenzentrum eines Aufzugs ausgegangen. In der nachstehenden Skizze (Abbildung \ref{fig:Geometrie}) sind die Verhältnisse perspektivisch dargestellt. Dabei wird von einer Raumhöhe von 2.10m ausgegangen.\footnote[5]{nach Standardkabine EN 81-20}
+ 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]
+	\includegraphics[width=1.1\textwidth]
 	{fig/Humidity_Tolerance.PNG}
 	\caption[Einfluss Luftfeuchtigkeit]{Einfluss Luftfeuchtigkeit} \protect\cite{AMG8834}
 	\label{fig:Geometrie}
 \end{figure}
 
-Die räumliche Streckungen verursacht zusätzlich eine perspektivische Verzerrung, die in dieser Betrachtung nicht weiter beachtet wird. Zu sehen ist jedoch deutlich, dass bei der Messung von Personen der Messabstand zwischen 10 bis 110 Zentimeter am relevantesten ist. In diesem Bereich kann jedoch mit dem aktuellen \ac{FOV} im besten Fall eine Fläche von 0.666$m^2$ erfasst werden. Um eine Aufzugkabine mit 8 Personen\footnote[6]{Masse: (HxBxT) 2100 x 1100 x 1400 [mm]} bei mittlerem Messbereich wird im optimalen Fall ein Öffnungswinkel von 84°x 109$^\circ$ benötigt. 
+Da die Strahlungsintensität mit zunehmender Distanz im Quadrat abnimmt\footnote[6]{nach Abstandsgesetz}, spielt die Distanz zum Messobjekt eine entscheidende Rolle. Neben der Distanz zum Objekt ist jedoch für den Einsatz in Personenaufzügen der \ac{FOV} des Sensors ziemlich entscheidend. In der Abbildung ist zu sehen, dass bei der Raumhöhe eine Fläche von maximal 2.94 $m^2$ abgedeckt wird. Bei der Messung von Personen ist jedoch ein Messabstand zwischen 10 bis 110 cm nötig. In diesem Bereich kann jedoch mit dem aktuellen \ac{FOV} von 60$^\circ$ im besten Fall eine Fläche von 0.666 $m^2$ erfasst werden.
 
-Problematisch kann in diesem Zusammenhang die Abschattung des Messbereichs durch grosse Personen sein, welche zentral positioniert sind.
+Um eine Aufzugkabine mit 8 Personen\footnote[7]{Masse: (HxBxT) 2100 x 1100 x 1400 [mm]} bei mittlerem Messbereich wird im optimalen Fall ein Öffnungswinkel von 84° x 109$^\circ$ benötigt. Problematisch kann in diesem Zusammenhang die Abschattung des Messbereichs durch grosse Personen sein, welche zentral positioniert sind.
+
+In der Abbildung wird davon ausgegangen, dass die Flächen sich verzerrungsfrei vergrössern. Durch die konvexe Linse würde jedoch eine perspektifische Verzerrung entstehen, welche jedoch hier nicht weiter beachtet wird
+
 
 \section{Messobjekt und Messumgebung}
 \label{sec:Messobjekt}
@@ -152,7 +155,7 @@ Dieses Kapitel beschreibt die Erkenntnisse bei der Betrachtung des Messobjekts u
 Die Reaktionen im menschlichen Körper sind auf eine Kerntemperatur von 37$^\circ$C. Am kältesten ist die Haut, die etwa 4 bis 7 Kelvin (Grad) kälter ist. Die Aufteilung der verschiedenen Arten der Wärmeabgabe beträgt bei einem ruhenden Menschen in einer Umgebung von 20$^\circ$C:
 \begin{itemize}
 	\item 46 \% Strahlung
-	\item 33 \% Konvektion\footnote[7]{Konvektion bezeichnet die Wärmeabgabe an
+	\item 33 \% Konvektion\footnote[8]{Konvektion bezeichnet die Wärmeabgabe an
 		das umgebende Medium, in der Regel Luft}
 	\item 19 \% Schwitzen
 	\item \space  2 \% Atmung
@@ -160,27 +163,31 @@ Die Reaktionen im menschlichen Körper sind auf eine Kerntemperatur von 37$^\cir
 
 Die Höhe der Wärmeabgabe hängt im Wesentlichen von der Schwere der Tätigkeit und von der Größe der Körperfläche ab. Daraus folgt, dass größere Personen mehr Wärme abgeben. Strahlung und Konvektion nehmen mit zunehmender Umgebungstemperatur bis zum Wert null bei 36$^\circ$C ab. Hat die Umgebung die Körpertemperatur erreicht, kann folglich durch Strahlung und Konvektion keine Wärme mehr abgeführt werden. In einer Umgebung mit Temperaturen oberhalb 37$^\circ$C kann also die Wärme nur noch durch Schwitzen abgeführt werden.\protect\cite{MenschWaerme}
 
-Da die Personenerkennung auf Temperaturdifferenzen beruht, kann bei einer Umgebungstemperatur um 37$^\circ$C eine Personen nicht mehr zweifelsfrei von der Umgebung differenziert werden.
-\newpage
-Ein weiterer Aspekt, der das Messresultat beeinflusst, ist die Bekleidung. In Abbildung \ref{fig:Waermebild} und Abbildung \ref{fig:Waermebild2} ist zu sehen, dass das thermische Profil einer Person durch die Bekleidung stark variiert.
+Da die Personenerkennung auf Temperaturdifferenzen beruht, kann bei einer Umgebungstemperatur um 37$^\circ$C eine Personen nicht mehr zweifelsfrei von der Umgebung differenziert werden. 
+
+Ein weiterer Aspekt, der die zu messende Temperatur einer Person beeinflusst, ist die Bekleidung. In Abbildung \ref{fig:Waermebild} und Abbildung \ref{fig:Waermebild2} ist zu sehen, dass das thermische Profil einer Person durch die Bekleidung stark variiert.
+
 \begin{figure}[!ht]
 	\centering
-	\begin{minipage}[b]{0.4\linewidth}
+	\begin{minipage}[b]{0.45\linewidth}
 		\centering	
-		\includegraphics[width=0.70\linewidth]{fig/waermebild1.jpg}
+		\includegraphics[width=0.8\linewidth]{fig/waermebild1.jpg}
 		\captionof{figure}[Wärmebild eines Probanden vollbekleidet]{Wärmebild eines Probanden vollbekleidet}
 		\label{fig:Waermebild}
 	\end{minipage}
 	\hfill
-	\begin{minipage}[b]{0.4\linewidth}
+	\begin{minipage}[b]{0.45\linewidth}
 		\centering
-		\includegraphics[width=0.70\linewidth]{fig/waermebild2.png}
+		\includegraphics[width=0.8\linewidth]{fig/waermebild2.png}
 		\captionof{figure}[Wärmebild eines Probanden teilbekleidet]{Wärmebild eines Probanden teilbekleidet}
 		\label{fig:Waermebild2}	
 	\end{minipage}
 \end{figure}
 
- Unbekleidete Zonen sind üblicherweise die wärmsten Regionen. Das thermische Verhalten der Bekleidung hängt von der Art ab und variiert zwischen Hauttemperatur und Umgebungstemperatur. Im Falle von einem Umgebungstemperaturwechsel besitzt die Kleidung eine verzögerte Reaktion bis sich die neue Temperatur einstellt. Dies ist insofern relevant, weil bei einem Wechsel vom Aussenbereich zu einem beispielsweise klimatisierten Innenbereich, die Bekleidung im Verhältnis zur Umgebungstemperatur abweicht. In einem Testaufbau konnte diese Problematik verifiziert werden. 
+ Unbekleidete Zonen sind üblicherweise die wärmsten Regionen. Das thermische Verhalten der Bekleidung hängt von der Art ab und variiert zwischen Hauttemperatur und Umgebungstemperatur. Dabei gibt es grosse Unterscheide im Körperbereich. Für die Personenerkennung ist der hauptsächlich der Oberkörperbereich, welcher von oben die grösste Fläche besitzt, von Interesse.
+ 
+ Im Falle von einem Umgebungstemperaturwechsel besitzt die Kleidung eine verzögerte Reaktion bis sich die neue Temperatur einstellt. 
+ Dies ist insofern relevant, weil bei einem Wechsel vom Aussenbereich zu einem beispielsweise klimatisierten Innenbereich, die Bekleidung im Verhältnis zur Umgebungstemperatur abweicht. In einem Messaufbau konnte diese Problematik verifiziert werden. Es wurden diverse Kleidungsstücke in einem Aufzug getragen, während der Sensor die Personen von der Decke vermessen hat. Da die Personenerkennung in Aufzügen von der Decke durchgeführt wird, sind im wesentlichen die Kopfbedeckungen ein Störfaktor.
 
 \begin{figure}[!ht]
 	\centering
@@ -199,14 +206,28 @@ Ein weiterer Aspekt, der das Messresultat beeinflusst, ist die Bekleidung. In Ab
 	\end{minipage}
 \end{figure}
 
-In Abbildung \ref{fig:ohneHut} und \ref{fig:mitHut} ist die Problematik ersichtlich. Durch das Tragen einer Mütze mit Umgebungstemperatur wird der Proband vom Sensor nur noch schlecht wahrgenommen.
+In Abbildung \ref{fig:ohneHut} und \ref{fig:mitHut} sind die Sensorwerte der einzelner Pixel dargestellt. Durch das Tragen einer Mütze mit Umgebungstemperatur wird der Proband vom Sensor nur noch schlecht wahrgenommen.
 
 \subsection{Personenaufzüge}
 \label{subsec:Personenaufzuege}
 In diesem Unterkapitel wird der Personenaufzug als Messobjekt näher betrachtet. Neben räumlichen Parametern wie Höhe, Grundfläche und Volumen spielen vor allem die Oberflächenbeschaffenheit bzw. das Oberflächenmaterial eine Rolle. Weitere Einflussfaktoren finden sich in der Umgebungstemperatur und der verbauten Leuchtmittel.
 
-Wie bereits in Unterkapitel \ref{subsec:Strahlungstheorie} erläutert, besitzen die Materialien in einem Personenaufzug zum Teil stark abweichende Emissionsgrade. Dies verursacht, dass die gemessen Temperaturen nicht den effektiven Temperaturen entsprechen. Der Sensor AMG8834 ist auf einen Emissionsgrad von 0.93 kalibriert. Dies entspricht in etwa dem Emissionsgrad von Haut, Gummi und Glas.\footnote[8]{ zu entnehmen Emissionsgradtabelle Anhang \ref{AnhangE}}.
-In Abbildung \ref{fig:Edelstahlgewalzt} sind unterschiedlich behandelte Edelstahloberflächen dargestellt welche auch in Aufzügen verwendet werden.  
+Wie bereits in Unterkapitel \ref{subsec:Strahlungstheorie} erläutert, besitzen die Materialien in einem Personenaufzug zum Teil stark abweichende Emissionsgrade. Dies verursacht, einerseits dass die gemessen Temperaturen nicht den effektiven Temperaturen entsprechen und anderseits das Materialien mit tiefen Emissionsgraden anfällig auf Reflektionen von Störquellen sind. Der Sensor AMG8834 ist auf einen Emissionsgrad von 0.93 kalibriert. Dies entspricht in etwa dem Emissionsgrad von Haut.\footnote[9]{ zu entnehmen Emissionsgradtabelle Anhang \ref{AnhangE}}. In Tabelle \ref{tab:Emission} sind in Aufzügen übliche Materialien aufgeführt.
+	
+\begin{table}[H]
+	\centering
+	\caption{Emissionsgrade von üblichen Aufzugsmaterialien}
+	\label{tab:Emission}
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		Kunststoffe                & Hartgummi                 & Lackierte Oberflächen           & Aluminium eloxiert        \\ \hline
+		\multicolumn{1}{|c|}{0.78} & \multicolumn{1}{c|}{0.85} & \multicolumn{1}{c|}{0.8 - 0.96} & \multicolumn{1}{c|}{0.55} \\ \hline
+	\end{tabular}
+\end{table}
+	
+
+Ein besonderes Augenmerk gilt in Aufzügen mit Edelstahlverkleidung. In Abbildung \ref{fig:Edelstahl} sind unterschiedlich behandelte Edelstahloberflächen dargestellt welche auch in Aufzügen verwendet werden.  
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]
@@ -215,44 +236,44 @@ In Abbildung \ref{fig:Edelstahlgewalzt} sind unterschiedlich behandelte Edelstah
 	\label{fig:Edelstahl}
 \end{figure}
 
-Die Emissionsssgrade schwanken zwischen 0,05 bis 0.82, je nachdem ob das Material werkseitig kalt - oder warmgewalzt wurde. Auch Veredelungen durch Schleifen, Polieren oder Bürsten verändern die Oberflächenbeschaffenheit und haben eine Änderung des Emissionsgrad zur Folge. 
+Die Emissionsgrade von Edelstahl schwanken zwischen 0,05 bis 0.82, je nachdem. wie das Material verarbeitet wurde. Auch Veredelungen durch Schleifen, Polieren oder Bürsten verändern die Oberflächenbeschaffenheit und haben eine Änderung des Emissionsgrad zur Folge. 
 
-Zusätzliches Augenmerk gilt bei vollverglasten Kabinen. Glas besitzt die Eigenschaft, auch als Festkörper Infrarotstrahlung zu transmittieren. In Abbildung \ref{fig:Glas} sind die drei Grade dargestellt. 
+Bei vollverglasten Kabinen kommt noch eine weitere Eigenschaft zum tragen. Glas besitzt die Eigenschaft, auch als Festkörper Infrarotstrahlung zu transmittieren. In Abbildung \ref{fig:Glas} sind die drei Grade im  Wellenlängenbereich des Sensors dargestellt. 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.6\textwidth]
 	{fig/Glas_bearbeitet.png}
-	\caption[Emissionsgrad in Abhängikeit zur Wellenlnge]{Emissionsgrad in Abhängikeit zur Wellenlänge von Glas} 
+	\caption[Emissionsgrad in Abhängikeit zur Wellenlnge]{Emissionsgrad in Abhängikeit zur Wellenlänge von Glas}\cite{Glas} 
 	\label{fig:Glas}	
 \end{figure}
 
-Aus der Grafik geht hervor, dass im Arbeitsbereich des Sensors\footnote[8]{ 8- 14 $\mu$m: \textcolor{red}{rote Markierung}} die Transmission vollends ausgeschlossen werden kann. Es besteht jedoch die Schwierigkeit den Emissions- und Reflektionsanteil zu bestimmen, da dieser je nach Wellenlänge schwankt.
+Aus der Grafik geht hervor, dass im Arbeitsbereich des Sensors\footnote[10]{zwischen 8- 14 $\mu$m, in Abbildung \textcolor{red}{rot markiert}} die Transmission ausgeschlossen werden kann. Es besteht jedoch die Schwierigkeit den Emissions- und Reflektionsanteil zu bestimmen, da dieser je nach Wellenlänge schwankt.
 
-
-Neben den Einwirkungen von Reflektionen 
+Die oben genannten Eigenschaften fallen hauptsächlich ins Gewicht, wenn externe Störquellen wie beispielsweise das Sonnenlicht in eine Aufzug wirken. Der Aufzug an sich besitzt lediglich eine einzige innere Störquelle, welche mit der Beleuchtung zu tun hat. 
 
 \begin{figure}[!ht]
 	\centering
 	\begin{minipage}[b]{0.49\linewidth}
 	\centering
 	\includegraphics[width=0.5\linewidth]{fig/Lichtquellen.jpg}
-	\caption{Wärmebild einer älteren Lichtquelle}
+	\caption{Wärmebild einer\\ Glühbirnen-Beleuchtung}
 	\label{fig:lichtquellen}
 	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.49\linewidth}
 	\centering
 	\includegraphics[width=0.5\linewidth]{fig/Lichtquelle.png}
-	\caption{Wärmebild einer LED-Spotbeleuchtung}
+	\caption{Wärmebild einer\\ LED-Spotbeleuchtung}
 	\label{fig:m2lichtquelle}
 	\end{minipage}
 \end{figure}
+
+Da sich die Wellenlängen von üblichen Lichtquellen in tieferen Bereich\footnote[11]{noch zu ergänzen} befinden, können die Strahlungen ausgeschlossen werden. Einzig die Betriebstemperatur der Lichtquelle kann den Sensor beeinflussen. Daher empfiehlt es sich, den Sensor nicht nahe von der Beleuchtung zu positionieren. In Abbildung \ref{fig:lichtquellen}  und \ref{fig:m2lichtquelle} sind unterschiedliche Aufzugsbeleuchtungen mit einer Wärmebildkamera aufgenommen.
 
 
 
 \section{Fazit}
 
-Die Personenerkennung in Aufzügen mit \ac{PIR} Sensoren ist am meisten von der Individualität einer Person abhängig. Faktoren wie Körpertemperatur, Körpergröße und Bekleidung verursachen enorme Differenzen. Dadurch kann kein einheitliches Profil erstellt werden. Da Personenaufzüge Normgrössen besitzen, besteht mit dem AMG8834 durch den begrenzten \ac{FOV} nur einen begrenzten Messbereich. Entsprechende Linsenanpassung können die PRoblematik lösen. 
-Weitere physikalische Gegebenheiten wie die Umgebungstemperatur oder indirekte Sonneneinstrahlung bewirken veränderte Bedingungen für den Messbereich, welche bei einer Messeinheit berücksichtigt werden müssen. Die verwendeten Leuchtmittel besitzten, soweit Einfluss, da deren Betriebstemperatur      
+Die Personenerkennung in Aufzügen mit \ac{PIR} Sensoren ist am meisten von der Individualität einer Person abhängig. Faktoren wie Körpertemperatur, Körpergröße und Bekleidung verursachen enorme Differenzen. Dadurch kann kein einheitliches Profil erstellt werden. Da Personenaufzüge Normgrössen besitzen, ist mit dem AMG8834 durch den \ac{FOV} nur einen begrenzten Bereich messbar. Entsprechende Linsenanpassung können die Problematik lösen. Weitere physikalische Gegebenheiten wie die Umgebungstemperatur oder indirekte Sonneneinstrahlung bewirken veränderte Bedingungen für den Messbereich, welche bei einer Messeinheit berücksichtigt werden müssen. Bei Edelstahlverkleidungen können durch den tieferen Emissionsgrad mehr Reflexionen durch externe Störquellen verursacht werden. Die verwendeten Leuchtmittel besitzen kaum Einfluss, sofern der Sensor nicht in der Nähe der Lichtquellen platziert wird.     
 

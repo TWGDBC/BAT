@@ -37,11 +37,13 @@ draft=false]
 \usepackage{pkg/layout}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \renewcommand*{\acsfont}[1]{\textnormal{#1}}
-\addbibresource{ref/references.bib}
+
+
+
 \newcommand{\listequationsname}{Formeln}
 \newlistof{myequations}{equ}{\listequationsname}
 \newcommand{\myequations}[1]{%
-	\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+	\addcontentsline{equ}{myequations}{\hspace{0.1cm}\protect\numberline{\theequation}#1}\par}
 
 
 

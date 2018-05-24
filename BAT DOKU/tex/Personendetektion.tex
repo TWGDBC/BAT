@@ -29,28 +29,23 @@ Die Auflösung von 8x8 Pixel bietet optisch nur begrenzte Aussagekraft über die
 Da im Zusammenhang mit dem Auswertealgorithmus mittels TensorFlow
 
 
-\section{Aufbau neuronales Netzwerk}
 
+\section{Symmetrische Erweiterung}
 
-Convolutional Networks work by moving small filters across the input image. This means the filters are re-used for recognizing patterns throughout the entire input image. This makes the Convolutional Networks much more powerful than Fully-Connected networks with the same number of variables. This in turn makes the Convolutional Networks faster to train
-
-
-
-
-The convolutional filters are initially chosen at random, so the classification is done randomly. The error between the predicted and true class of the input image is measured as the so-called cross-entropy. The optimizer then automatically propagates this error back through the Convolutional Network using the chain-rule of differentiation and updates the filter-weights so as to improve the classification error. This is done iteratively thousands of times until the classification error is sufficiently low.
-
-
-(W -F +2P) : S+ 1
-
-\section{Convolution Neural Network}
-
+Um die Datensätze zu vergrößern wurden die drei Profile erweitert. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]
-	{fig/CCN.png}
-	\caption[Aufbau des Convolutional Neural Network]{Aufbau des Convolutional Neural Network}
-	\label{fig:CCN}
+	\includegraphics[width=0.3\linewidth]{fig/original}
+	\caption{}
+	\label{fig:original}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/rotated}
+	\caption{}
+	\label{fig:rotated}
 \end{figure}
 
 
@@ -74,17 +69,48 @@ Profil 3
 
 Testprofil Test-set:             22169
 
-\section{Symmetrische Erweiterung}
-
-Um die Datensätze zu vergrößern wurden die drei Profile erweitert. 
 
 
 
-\section{Musterauswertung}
+\section{Aufbau Convolution Neural Network}
 
 
 
 
+Convolutional Networks work by moving small filters across the input image. This means the filters are re-used for recognizing patterns throughout the entire input image. This makes the Convolutional Networks much more powerful than Fully-Connected networks with the same number of variables. This in turn makes the Convolutional Networks faster to train
+
+
+
+
+The convolutional filters are initially chosen at random, so the classification is done randomly. The error between the predicted and true class of the input image is measured as the so-called cross-entropy. The optimizer then automatically propagates this error back through the Convolutional Network using the chain-rule of differentiation and updates the filter-weights so as to improve the classification error. This is done iteratively thousands of times until the classification error is sufficiently low.
+
+
+(W -F +2P) : S+ 1
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]
+	{fig/CCN.png}
+	\caption[Aufbau des Convolutional Neural Network]{Aufbau des Convolutional Neural Network}
+	\label{fig:CCN}
+\end{figure}
+
+
+
+
+\section{Training und Validierung}
+
+
+
+
+\begin{figure}[H]
+	\centering
+	\caption{Trainingsverlauf Profil 1}
+	\label{fig:traininsverlauf}
+	\includegraphics[width=1.0\linewidth]{fig/Traininsverlauf}
+\end{figure}
 
 
 
@@ -94,11 +120,23 @@ Entweder alle Sekunde der Mittelwert auswerten, doer alle 100 ms die Daten auswe
 
 \section{Ergebnisse}
 
+
+\subsection{Profil 1}
+
+
+\subsection{Profil 2}
+
+
+\subsection{Profil 3}
+
+
 \section{Echtzeitpersonenerkennung}
 
 Dank der Saver-Klasse von Tensorflow lassen sich erstellte CNN-Modell als ckpt-File speichern. Dabei werden alle trainierten Bias und Gewichtungen in ein ckpt-File gespeichert. Diese lassen sich wiederum in ein untrainiertes CNN laden.
 
 Auf dieser Grundlage wurde eine Messeinheit erstellt, welche mittels trainiertenn CNN zur Echtzeit Personerkennungen durchführt. Die Messeinheit besteht aus einenm AMG8834 Eval Kit, einem Raspbery Pi3 und einer Powerbank.
+
+In Abbildung ist das 
 
 
 

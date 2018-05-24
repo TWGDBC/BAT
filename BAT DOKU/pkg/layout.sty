@@ -134,7 +134,10 @@
 
 %Einbindung und Verwaltung von Literaturverzeichnissen
 \usepackage{csquotes} %wird von biber benötigt
-\usepackage[style=alphabetic, backend=biber, bibencoding=ascii]{biblatex}
+\usepackage[style=authoryear, 
+	backend=biber, 
+   maxnames = 2, % bei mehr als zwei Namen: et al. 
+	bibencoding=ascii]{biblatex}
 \addbibresource{ref/references.bib}
 
 %Einfachere Zitate

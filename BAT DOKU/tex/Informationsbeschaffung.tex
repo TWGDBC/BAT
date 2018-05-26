@@ -11,7 +11,7 @@ Der verwendete Panasonic AMG8834 ist ein bildgebender \ac{MEMS}-Sensor, der mit 
 	\centering
 	\includegraphics[width=0.3\textwidth]
 	{fig/grid_eye_aufbau.PNG}
-	\caption[Aufbau des AMG8834 Sensors]{Aufbau des AMG8834 Sensors} \protect\cite{AMG8834}
+	\caption[Aufbau des AMG8834 Sensors]{Aufbau des AMG8834 Sensors} []\protect\cite{AMG8834]}
 	\label{fig:Explosionsdarstellung}
 \end{figure}
 Die eintreffenden Infrarotwellen werden durch die Siliziumlinse, welche einen \ac{FOV} von 60$^\circ$ besitzt, gefiltert. Dabei durchdringen lediglich langwellige Infrarotstrahlungen mit den Wellenlängen 8-13 $\mu$m die Linse. 
@@ -22,7 +22,7 @@ In Abbildung \ref{fig:SchemaAMG8834} ist das Prinzipschema des Sensors darstellt
 	\centering
 	\includegraphics[width=0.75\textwidth]
 	{fig/Circuit_AMG8834.PNG}
-	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} \protect\cite{AMG8834}
+	\caption[Schema des AMG8834 Sensors]{Schema des AMG8834 Sensors} [\protect\cite{AMG8834]}
 	\label{fig:SchemaAMG8834}
 \end{figure}
  
@@ -64,11 +64,11 @@ In Abbildung \ref{fig:AufbauThermo} ist ein einzelnes Pixel funktionell dargeste
 	\centering
 	\includegraphics[width=0.6\textwidth]
 	{fig/Mems_Thermopile.PNG}
-	\caption[Aufbau Thermosäulenelement]{Aufbau Thermosäulenelement} \protect\cite{AMG8834}
+	\caption[Aufbau Thermosäulenelement]{Aufbau Thermosäulenelement} []\protect\cite{AMG8834]}
 	\label{fig:AufbauThermo}
 \end{figure}
 
-Durch die unterschiedlichen Thermokräfte\footnote[3]{auch Seebeckkoeffizienten genannt} der zwei Halbleitermaterialien entsteht ein Potentialunterschied, den man an den Punkten 3 und 5 abgreifen kann. Diese Spannung $U_{t}$ ist die Grundlage des Messprinzips und wird mit Formel \ref{eq1} \protect\cite{AMG8834} beschrieben.
+Durch die unterschiedlichen Thermokräfte\footnote[3]{auch Seebeckkoeffizienten genannt} der zwei Halbleitermaterialien entsteht ein Potentialunterschied, den man an den Punkten 3 und 5 abgreifen kann. Diese Spannung $U_{t}$ ist die Grundlage des Messprinzips und wird mit Formel \ref{eq1} beschrieben [)\protect\cite{AMG8834}] .
 
 \begin{equation}
 \label{eq1}
@@ -78,7 +78,7 @@ U_{t} = (\alpha_{p} + \alpha_{n})*(T_{p}+T_{n})
 
 \subsection{Strahlungssender}
 \label{subsec:Strahlungstheorie}
-Das vorherige Unterkapitel erläutert die Funktion des Sensors als Infrarotempfänger. Nicht unwesentlich ist weiter die Betrachtung des Senders. Grundsätzlich gilt, jeder Körper, der eine Temperatur oberhalb des absoluten Nullpunkt aufweist, strahlt Wärmestrahlung im Infrarotbereich ab. Im Allgemein wird für die Betrachtung vom Plank'schen Strahlungsgesetz ausgegangen. Nach dieser gilt für eine spektrale spezifische Ausstrahlung eines Schwarzkörpers mit der Temperatur T folgende Formel \protect\cite{Thermoformeln}:
+Das vorherige Unterkapitel erläutert die Funktion des Sensors als Infrarotempfänger. Nicht unwesentlich ist weiter die Betrachtung des Senders. Grundsätzlich gilt, jeder Körper, der eine Temperatur oberhalb des absoluten Nullpunkt aufweist, strahlt Wärmestrahlung im Infrarotbereich ab. Im Allgemein wird für die Betrachtung vom Plank'schen Strahlungsgesetz ausgegangen. Nach dieser gilt für eine spektrale spezifische Ausstrahlung eines Schwarzkörpers mit der Temperatur T folgende Formel [\protect\cite{Thermoformeln}]: 
 
 \begin{equation}
 \label{eq2}
@@ -88,7 +88,7 @@ M_{\lambda } = \frac{2\pi h c^2 }{\lambda^5}*\frac{1}{e^\frac{hc}{\lambda k_{B} 
 
 Wie in der Formel ersichtlich ist die Ausstrahlung eines schwarzen Körper mit 5. Potenz von der Wellenlänge und exponentiell von der Temperatur abhängig. Durch die Siliziumlinse des Sensors werden Störquellen, welche andere Wellenlängen aufweisen, gefiltert. Dies ist vor allem bei Lichtquellen ein relevante Eigenschaft. Da dessen Spektrum sich bedeutend tiefer \footnote[4]{Bereich 0.4$\mu$m - 2 $\mu$m} befinden, können Strahlungseinflüsse von herkömmlichen Lichtquellen ignoriert werden kann.
 
-Das Stefan-Boltzmann-Gesetz \protect\cite{Thermoformeln} gibt die Strahlungsintensität $\dot{Q}$ eines Temperaturstrahlers an. Diese Formel bietet für die Anwendung die relevantesten Erkenntnisse.
+Das Stefan-Boltzmann-Gesetz []\protect\cite{Thermoformeln}] gibt die Strahlungsintensität $\dot{Q}$ eines Temperaturstrahlers an. Diese Formel bietet für die Anwendung die relevantesten Erkenntnisse.
 
 \begin{equation}
 \label{eq3}
@@ -135,7 +135,7 @@ In Aufzügen lässt sich der Sensor lediglich an der Decke befestigen, damit die
 	\centering
 	\includegraphics[width=1.1\textwidth]
 	{fig/Humidity_Tolerance.PNG}
-	\caption[Einfluss Luftfeuchtigkeit]{Einfluss Luftfeuchtigkeit} \protect\cite{AMG8834}
+	\caption[Skizze Geometrie des \ac{FOV}]{Skizze: Geometrie des \ac{FOV} } \protect\cite{AMG8834}
 	\label{fig:Geometrie}
 \end{figure}
 

@@ -22,7 +22,7 @@ Auf der Grundlage der vorherigen Kapitel wird nun mittels einem neuronalen Netzw
 
 \section{Datenmanipulation mittels Interpolation}
 
-Die Auflösung von 8x8 Pixel bietet optisch nur begrenzte Aussagekraft über die Anzahl Personen in einem Aufzug. Daher wurde mittels MATLAB mehrere Interpolationsverfahren benutzt, um die Auflösung der Personenerkennung zu verbessern. Im Zusammenhang mit den Pixelwerten eignet sich eine bikubische
+Die Auflösung von 8x8 Pixel bietet nur begrenzte Aussagekraft über die Anzahl Personen in einem Aufzug. Daher wurde mittels MATLAB mehrere Interpolationsverfahren benutzt, um die Auflösung der Personenerkennung zu verbessern. Im Zusammenhang mit den Pixelwerten eignet sich bikubische und 
 
 
 
@@ -30,24 +30,30 @@ Da im Zusammenhang mit dem Auswertealgorithmus mittels TensorFlow
 
 
 
+
+
 \section{Symmetrische Erweiterung}
 
-Um die Datensätze zu vergrößern wurden die drei Profile erweitert. 
+Um die Datensätze zu vergrößern wurden die drei Profile erweitert. Dafür wurde für die entsprechenden Profile Python-Programm rotate\_and\_swap\_ProfilX  geschrieben, welche alle Frames er Datensätze symmetrisch erweitert.  
 
-\begin{figure}[H]
+\begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.3\linewidth]{fig/original}
-	\caption{}
+	\begin{minipage}[c]{0.35\linewidth}
+	\centering
+	\includegraphics[width=.8\linewidth]{fig/original}
+	\caption{Originales Frame}
 	\label{fig:original}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[c]{0.6\linewidth  }
+\includegraphics[width=1\linewidth]{fig/rotated}
+\caption{Rotierte und gespiegelte Frames}
+\label{fig:rotated}
+	\end{minipage}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{fig/rotated}
-	\caption{}
-	\label{fig:rotated}
-\end{figure}
 
+Durch die Erweiterung konnten die Datensätze um den Faktor 5 vergrößert werden. Es konnten so, nicht vermessenen Positionen generiert werden. Mit den Messstandorten A-I und den generierten Erweiterungen werden nahezu beliebige Varianten im Messbereich zur Verfügung.
 
 
 \subsection{Profilbildung}
@@ -113,11 +119,6 @@ The convolutional filters are initially chosen at random, so the classification 
 \end{figure}
 
 
-
-\section{c}
-
-Entweder alle Sekunde der Mittelwert auswerten, doer alle 100 ms die Daten auswerten 
-
 \section{Ergebnisse}
 
 
@@ -139,10 +140,27 @@ Auf dieser Grundlage wurde eine Messeinheit erstellt, welche mittels trainierten
 In Abbildung ist das 
 
 
+\begin{figure}[H]
+	\centering
+	\caption{Trainingsverlauf Profil 1}
+	\label{fig:Echtzeitmesseinheit}
+	\includegraphics[width=1.0\linewidth]{fig/Echtzeitmessgeraet.jpg}
+\end{figure}
 
- 
+
+
 
 \section{Fazit}
+
+Tensorflow bietet mit der Implentierung \ac{CNN} eine grosse Anzahl an Parameter und varrierbaren Einstellungen, um eine Bilderkennung mittels maschinellen Lernens zu realiiseren. 
+
+Der relevanteste Punkt für die Personenerkennung sind die Trainingssets. Es wurde mit den erstellten Datensätzen eine möglichst breite Platte an Situationen generiert, trotzdem lassen sich zum Teil Frames nicht differenzieren. Dies hat eines der folgenden Gründe.
+
+Die Auflösung ist jedoch in diesem Zusammenhang. Da nur 8x8 Pixel zur Verfügung stehen, ist die Tiefe de neuronalen Netzwerk begrenzt. Es lassen sich viele Features aus den Frames generieren , doch die Unterschiede zu anderen Objekten lassen sich nur bedingt erstellen.
+
+Die Genauigkeit des Sensors streut mit 3°C bedeutend. Dies verursacht das die bedeutend mehr unterschiedliche thermische Frames vorhanden sind, doch die Streuung verursacht eine grösse Messunsicherheit, welche vorallem bei Bilder zu tragen kommen, in welchen mehrere Personen von unterschieldicher Grösse nahe beinader stehen. Durch die Unsicherheit lassen sich einzelne grosse Personen kaum von mehreren kleinen Personen differenzieren.
+
+
 
 
 

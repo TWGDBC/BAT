@@ -1,16 +1,16 @@
 \chapter{Testdurchführungen}
 \label{chap:Testphasen}
 
-Es wurden im Rahmen dieser Arbeit eine grosse Anzahl an Messungen und Testfällen durchgeführt. Die Testkonzepte im digitalen Anhang \ref{AnhangDig} geben detailliert Auskunft über die Testdurchführung. Einige Resultate wurden bereits im vorherigen Kapitel eingebunden. Auf den nachfolgenden Seiten werden die bedeutendsten Resultate wiedergegeben. 
+Es wurden im Rahmen dieser Arbeit eine grosse Anzahl an Messungen und Testfällen durchgeführt. Die Testkonzepte im digitalen Anhang \ref{AnhangDig} geben detailliert Auskunft über die Testdurchführung. Einige Resultate wurden bereits im vorherigen Kapitel eingebunden. Auf den nachfolgenden Seiten werden weitere bedeutendsten Resultate wiedergegeben. 
 
 \section{Messinstrumente}
 
 Für die Messungen wurde das Panasonic AMG8834 Eval Kit verwendet. Es bietet den Vorteil, dass sich, dank einem Atmel Mikroprozessor und einer bereits vorhandene Software, die Sensordaten als Rohdaten über USB bzw. \ac{UART} mit dem Programm H-Term auslesen lassen. 
-Das erstellte C-Programm ConvertValue\_V2\footnote[12]{im digitalen Anhang bereitgestellt} wandelt die Rohdaten in \ac{CSV}-Files um, damit diese mit Matlab und Python verwendet werden können.
+Das erstellte C-Programm ConvertValue\_V2\footnote[12]{im digitalen Anhang bereitgestellt} wandelt die Rohdaten in \ac{CSV}-Files um, damit diese mit Matlab und Python verwendet werden können.\footnote[13]{nähere Erläuterungen folgen im Kapitel \ref{chap:Personendetektion}}
 
-Zudem können die Daten zur Echtzeit über das Bluetooth Modul an die zur Verfügung stehende App übermittelt werden, damit die aktuellen Werte visualisierbar sind.
+Zudem können die Daten zur Echtzeit über das Bluetooth Modul an die zur Verfügung stehende GRID-EYE App übermittelt werden, damit die aktuellen Werte visualisierbar sind.
 
-Zur Vergleich der Messwerte wurde das digitale Thermometer Fluke 52-II und die Wärmebildkamera Fluke TI 125 verwendet. Entsprechende Datenblätter sind im digitalen Anhang \ref{AnhangDig} einsehbar.
+Als weitere Messmittel wurden das digitale Thermometer Fluke 52-II und die Wärmebildkamera Fluke TI 125 verwendet, damit Messwerte verifizeirt werden können. Entsprechende Datenblätter sind im digitalen Anhang \ref{AnhangDig} einsehbar.
 
 \section{Grundlagenmessungen}
 
@@ -20,7 +20,7 @@ Die Grundlagenmessungen geben Auskunft über die Eigenheiten des Messprinzips. D
 
 \textbf{Fragestellung:} Um eine Person zu detektieren, benötigt es eine Temperaturdifferenz zwischen dem Hintergrund und der Person. Daher stellt sich die Frage wie gross die Streuung des Sensor ist. Diese Streuung gibt die minimale Differenz vor, damit eine Person vom Hintergrund unterschieden werden kann.
 
-\textbf{Vorgehen:} In einem 60-minütigen Messdurchgang bei konstanter Umgebungstemperatur von 22.5°C wurde eine gleichmässig 22.6°C warme Oberfläche ausgemessen. In Abbildung \ref{fig:temperaturverhalten} sind die Thermistorwerte(\textcolor{blue}{blau}) und die 64 Pixelwerte(Werte zwischen \textcolor{red}{rot} \& \textcolor{orange}{orange}) dargestellt.
+\textbf{Vorgehen:} In einem 60-minütigen Messdurchgang bei konstanter Umgebungstemperatur von 22.5°C wurde eine gleichmässig 22.6°C warme Oberfläche ausgemessen. In Abbildung \ref{fig:temperaturverhalten} sind die Thermistorwerte(\textcolor{blue}{blau}) und die 64 Pixelwerte(zwischen \textcolor{red}{rot} \& \textcolor{orange}{orange}) dargestellt.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1.0\textwidth]{fig/Temperaturverhalten}
@@ -28,13 +28,11 @@ Die Grundlagenmessungen geben Auskunft über die Eigenheiten des Messprinzips. D
 	\label{fig:temperaturverhalten}
 \end{figure}
 
-\textbf{Ergebnisse:} Es fällt auf, dass  der Thermistorwert(\textcolor{blue}{blau}) entgegen den Erwartungen eine höhere Temperatur (25.5°C anstelle 22.5°C) aufweist. Es wurden mehrere Eval Kits ausgetestet und es konnte kein einheitlicher Offsets\footnote[13]{konstanter Versatz von Effektivwert} eruiert werden. Es ist von Exemplarstreuungen auszugehen. Die Thermistorwerte sind im Allgemeinen um mehrere Grad höher als die effektive Werte. 
+\textbf{Ergebnisse:} Es fällt auf, dass  der Thermistorwert (\textcolor{blue}{blau}) entgegen den Erwartungen eine höhere Temperatur (25.5°C anstelle 22.5°C) aufweist. Es wurden mehrere Eval Kits ausgetestet und es konnte kein einheitlicher Offsets\footnote[13]{konstanter Versatz von Effektivwert} eruiert werden. Es ist von Exemplarstreuungen auszugehen. Die Thermistorwerte sind im Allgemeinen um mehrere Grad höher als die effektive Werte. 
 
-Zusätzlich ist in der Abbildung \ref{fig:temperaturverhalten} ersichtlich, dass die Temperaturwerte der einzelnen Pixel nicht auf gleichen Niveau liegen. die Pixelreihe \textcolor{orange}{orange} streut um 23°C, wobei die Pixelreihe \textcolor{red}{rot} deutlich tiefer liegt. Daher kann im Allgemein nicht davon ausgegangen werden, dass die Sensoren bei einheitlicher Oberflächentemperatur, einheitliche Werte liefern. Der Bereich aller 64 Pixel liegt jedoch im Bereich von 3°C. 
+Zusätzlich ist in der Abbildung \ref{fig:temperaturverhalten} ersichtlich, dass die Temperaturwerte der einzelnen Pixel nicht auf gleichen Niveau liegen. die Pixelreihe \textcolor{orange}{orange} streut um 23°C, wobei die Pixelreihe \textcolor{red}{rot} deutlich tiefer liegt. Daher kann nicht davon ausgegangen werden, dass die Sensoren bei einheitlicher Oberflächentemperatur, einheitliche Werte liefern. Die Messabweichung aller 64 Pixel liegt jedoch im Bereich von +/- 1.5°C vom Mittel. 
 
-Diese Messung bietet eine weitere Erkenntnis im Zusammenhang mit der Streuung. Es wurde in nachfolgender Grafik \ref{fig:Streuung} festgestellt, dass die Sensordaten einer Gaussverteilung\footnote[13]{auch Normalverteilung genant} folgen. Daher wurde die Varianzen\footnote[14]{Abweichung vom Mittelwert} der einzelnen Pixelwerte ausgewertet. Dabei stellte sich heraus, dass die zentralen Pixel tiefere Varianzen aufweisen, als die äusseren Pixel.
-
-Dies könnte in Verbindung mit der konvexen Linse entstehen. Da die Sammellinse an den Rändern mehr Beugungen und Brechungen zulässt. Ein weitere These könnte die grössere Messdistanz aufgrund des \ac{FOV} an den Randpunkte sein. Es muss in jedem Fall mit mehr Abweichungen gerechnet werden, wenn sich Personen am Rande des Messbereichs befinden.
+Diese Messung bietet eine weitere Erkenntnis im Zusammenhang mit der Streuung. Es wurde in nachfolgender Grafik \ref{fig:Streuung} festgestellt, dass die Sensordaten einer Gaussverteilung\footnote[14]{auch Normalverteilung genant} folgen. Daher wurde die Varianzen\footnote[15]{Abweichung vom Mittelwert} der einzelnen Pixelwerte ausgewertet. Dabei stellte sich heraus, dass die zentralen Pixel tiefere Varianzen aufweisen, als die äusseren Pixel.
 
 \begin{figure}[H]
 	\centering
@@ -44,9 +42,26 @@ Dies könnte in Verbindung mit der konvexen Linse entstehen. Da die Sammellinse 
 	\label{fig:Streuung}
 \end{figure}
 
-\subsection{Einflussfaktor Infrarotstrahlung}
+Dies könnte in Verbindung mit der konvexen Linse entstehen,da die Sammellinse an den Rändern mehr Beugungen und Brechungen zulässt. Ein weitere These könnte die grössere Messdistanz aufgrund des \ac{FOV} an den Randpunkte sein. Es muss in jedem Fall mitgrösseren Messabweichungen gerechnet werden, wenn sich Personen am Rande des Messbereichs befinden.
 
-\textbf{Fragestellung:} Der Sensor ist empfindlich auf Infrarotreflexionen und auf die Temperaturen der Messobjekte\footnote{ Unterkapitel siehe \ref{sec:Physik}}. Dabei ist die Sonne eine bedeutende Infrarotstörquelle. Daher wurde im Außenbereich eine Betonoberfläche\footnote[15]{Emissionsgrad 0.92 nach \ref{AnhangE}} ausgemessen, damit Aussagen über die Sonneneinwirkung gemacht werden. 
+\subsection{Einfluss von Lichtquellen}
+\textbf{Fragestellung:} Die Theorie in Unter\ref{subsec:Personenaufzuege} wurde bereits Einflüsse von Lichtquellen recherchiert. Es stellt sich die Frage, ob übliche Lichtquellen in Aufzügen als Störquellen ausgeschlossen werden können. Daher wird mit dieser Messdurchführung dies verifiziert.
+
+\textbf{Vorgehen:} Der Sensor wurde während 10 Minuten auf in einem Abstand von 1m auf eine Betonfläche gerichtet. Die verwendeten Lichtquellen ist unterhalb davon angebracht und wirkt auf die selbe Fläche. Dabei wurde der Sensor von der Lichtquelle abgeschattet. Die Umgebungstemperatur ist bei allen Durchführungen bei 22°C +/- 1°C.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]
+	{fig/Lichtquellenvergleich.jpg}
+	\caption[Streuung der einzelnen Pixel im Vergleich]{Streuung der einzelnen Pixel im Vergleich}
+	\label{fig:Streuung}
+\end{figure}
+
+\textbf{Ergebnisse:}  Wie erwarten sind die vier Plots in gleicher Größenordnung. Bei abgedunkelten Raum, bei Tageslicht und bei einer Leuchtstoffröhre als Beleuchtung gibt es keine nennenswerte Differenzen. Lediglich beim kurzwelligen Infrarot-Wärmestrahler wurden Oberflächen punktuell erwärmt, was zu einer stetigen Zunahme einzelner Pixelwerte führt. 
+
+\subsection{Einfluss von  Sonneneinstrahlung}
+
+\textbf{Fragestellung:} Der Sensor ist empfindlich auf Infrarotreflexionen und auf die Temperaturen der Messobjekte\footnote[16]{siehe Unterkapitel  \ref{sec:Physik}}. Dabei ist die Sonne eine bedeutende Infrarotstörquelle. Daher wurde im Außenbereich eine Betonoberfläche\footnote[17]{Emissionsgrad 0.92 nach Anhang \ref{AnhangE}} ausgemessen, damit Aussagen über die Sonneneinwirkung gemacht werden. 
 
 \textbf{Vorgehen:} In einem kurzen Messaufbau wurde der Sensor abgeschattet von der Sonne platziert. Dabei ist dieser bei einem Abstand von 1m auf eine Betonfläche gerichtet. Die Betonfläche wurde direkt von der Sonne bestrahlt und wird im Verlauf der Messung abgeschattet. Dabei herrschte eine Umgebungstempertur von 25 °C.  
 
@@ -59,12 +74,12 @@ Dies könnte in Verbindung mit der konvexen Linse entstehen. Da die Sammellinse 
 \end{figure}
 
 \textbf{Ergebnisse:} In der Abbildung \ref{fig:temperaturverhalten2} sind die Temperatur und Pixelwerte dargestellt. Einerseits ist ersichtlich das bei konstanter Umgebungstemperatur der Thermistorwert weiterhin steigt. Dies hat direkten Einfluss auf die Zunahme der Pixelwerte. Im Aussenbereich ist im Allgemeinen eine grössere Differenz zwischen den Pixeln feststellbar.
-Zum Zeitpunkt 15:55:25.000 wird der Messbereich durch eine Holzplatte vom direkten Sonnenlicht abgeschattet. Man erkennt deutlich, dass die Therimstor- und Pixelwerte innerhalb von 15 s bedeutend sinken. Dies hat mit der fehlenden Wärmestrahlung der Sonne zu tun. Daraus kann geschlossen werden, dass Oberflächen, welche direkt von der Sonne bestrahlt stark beeinflusst werden.
+Zum Zeitpunkt 15:55:25.000 wird der Messbereich durch eine Holzplatte vom direkten Sonnenlicht abgeschattet. Man erkennt deutlich, dass die Therimstor- und Pixelwerte innerhalb von 15 s bedeutend sinken. Dies hat mit der fehlenden Wärmestrahlung der Sonne zu tun. Daraus kann geschlossen werden, dass Oberflächen, welche direkt von der Sonne bestrahlt werden, stark beeinflusst werden.
 
 
 
 \subsection{Einflussfaktor Luftströme}
-\textbf{Fragestellung:} Da gerade im Aussenbereich mehr Störquellen für den Sensor vorhanden sind wurden weitere äussere Einflüsse ausgemessen. Dabei stellte sich die Frage, ob auch stärke Luftströme Einfluss auf die Messresultate nehmen.
+\textbf{Fragestellung:} Da gerade im Aussenbereich mehr Störquellen für den Sensor vorhanden sind wurden weitere äussere Einflüsse ausgemessen. Dabei stellte sich die Frage, ob auch Luftströme Einfluss auf die Messresultate nehmen.
 
 \textbf{Vorgehen:} Ähnlich wie der vorherige Messaufbau wurde der Sensor und der Messbereich abgeschattet von der Sonne platziert. Dabei ist der Sensor bei einem Abstand von 1m auf eine Betonfläche gerichtet. Dabei herrschte eine Umgebungstemperatur von 25.2°C.  
 	
@@ -75,16 +90,15 @@ Zum Zeitpunkt 15:55:25.000 wird der Messbereich durch eine Holzplatte vom direkt
 	\label{fig:temperaturverhaltenwind}
 \end{figure}
 
-\textbf{Ergebnisse:} In der Abbildung \ref{fig:temperaturverhaltenwind} sind unregelmäßig Windböen die Ursache für zum Teil starke Abweichungen der Pixelwerte. Die Spannweite der Pixelwerte erstreckt sich zwischen 40 °C bis 18 °C bei, wobei die Temperatur lediglich von 36°C bis 32°C variieren. Somit besitzen Luftströme, wie beispielsweise Wind Einfluss auf die Sensorik. 
+\textbf{Ergebnisse:} In der Abbildung \ref{fig:temperaturverhaltenwind} sind unregelmäßig Windböen die Ursache für zum Teil starke Abweichungen der Pixelwerte. Die Spannweite der Pixelwerte erstreckt sich zwischen 40°C bis 18°C bei, wobei die Temperatur lediglich von 36°C bis 32°C variieren. Somit besitzen Luftströme, wie beispielsweise Wind Einfluss auf die Messergebnisse. 
 
 
 \section{Personenmessungen}
-Bei der Personenmessungen wurden unterschiedliche Probanden in mehreren Aufzügen ausgemessen und auf dessen Wärmestrahlung analysiert. 
+Bei der Personenmessungen wurden unterschiedliche Probanden in mehreren Aufzügen ausgemessen und auf dessen Wärmestrahlung analysiert. \\
 
-\subsection{Fragestellung} Einerseits soll mit diesen Messungen geklärt werden, wie sich mehrere Personen auf den Messbereichs des Sensors Verhalten und anderseits dienen diese Messdaten gleichzeitig den Datensätzen für die weitere Schritte.
+\textbf{Fragestellung:} Einerseits soll mit diesen Messungen geklärt werden, wie sich mehrere Personen auf den Messbereichs des Sensors Verhalten und anderseits dienen diese Messdaten gleichzeitig den Datensätzen für die weitere Schritte.
 
-\subsection{Vorgehen}
-Es standen insgesamt 6 Probanden zur Verfügung. Die Probanden wurden entsprechend ihrer Grösse und dem Körperumfang in die Kategorien klein [k], mittel [m] und groß [g] unterteilt. Nachfolgende Tabelle gibt über die Masse der Probanden Auskunft. Bei den Werten wurden immer die größten Werte eingetragen.
+\textbf{Vorgehen:} Es standen insgesamt 6 Probanden zur Verfügung. Die Probanden wurden entsprechend ihrer Grösse und dem Körperumfang in die Kategorien klein [k], mittel [m] und groß [g] unterteilt. Nachfolgende Tabelle gibt über die Masse der Probanden Auskunft. Bei den Werten wurden immer die größten Werte eingetragen.
 
 \begin{table}[H]
 \centering
@@ -103,44 +117,43 @@ Es standen insgesamt 6 Probanden zur Verfügung. Die Probanden wurden entspreche
 \end{tabular}
 \end{table}
 
-Für den Messaufbau wurde ein Raster erstellt, welches einerseits den gesamten \ac{FOV} des Sensors abdeckt und anderseits in unterschiedlich grossen Personenaufzügen anwendbar ist. Aus dem Größenvergleich von üblichen Personenaufzügen wurde das nachfolgende Messraster erstellt
+Für den Messaufbau wurde ein Raster erstellt, welches einerseits den gesamten \ac{FOV} des Sensors abdeckt und anderseits in unterschiedlich grossen Personenaufzügen anwendbar ist. Aus dem Größenvergleich von üblichen Personenaufzügen wurde das nachfolgende Messraster erstellt.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth, angle=0]{fig/Messraster_bearbeitet.JPG}
-	\caption{Messraster für Personenmessungen}[Messraster für Personenmessungen]
+	\caption[Messraster für Personenmessungen]{Messraster für Personenmessungen}
 	\label{fig:Messraster}
 \end{figure}
 
-In den einzelnen Bildern ist ersichtlich, dass 
+\textbf{Resultate:} Insgesamt wurden pro Aufzug 50 unterschiedliche Messungen durchgeführt.\footnote[20]{} Dabei wurden unterschiedliche Personenanzahl und unterschiedliche Probandengrössen für ein-minütige stationäre Aufnahmen verwendet. In Abbildung \ref{fig:p1gallpositionsmean} sind 6 Medianwerte der 1-Personenmessungen ersichtlich. In der oberen Reihe wurde ein Proband der Kategorie g eingesetzt. In der Unteren Reihe wurde ein Proband der Kategorie k verwendet. Es ist ersichtlich, dass die Wärmebildaufnahmen stark abweichen, da die Distanz zum Sensor aufgrund der Körpergrösse sich unterscheiden.
 
-\section{Resultate}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.0\textwidth]{fig/p1_k_g_aei.jpg}
+	\caption[Medianwerte Messung V1 Kategorie G]{Medianwerte Messung V1 Kategorie G}
+	\label{fig:p1gallpositionsmean}
+\end{figure}
+
+Zudem sind freie Hautoberflächen, wie beispielsweise in der mittleren Abbildung der oberen Reihe, bedeutend wärmer. An den Rädern des Messbereichs wir aufgrund der Perspektive nicht sondern die Oberfläche des Körper wahrgenommen. Dies führt dazu, dass der Kopfbereich nicht als wärmste Regionen vermessen wird, da dieser mit dem aktuellen \ac{FOV} nicht erreichbar ist.
+
+Bei 1 und 2 Personenmessungen können Probanden soweit sie sich nicht unmittelbar nebeneinander befinden gut separiert werden. Bei Messungen mit 3 und 4 Personen ist aufgrund der begrenzten Auflösung die Evaluation bedeutend schwieriger. In Abbildung \ref{fig:p33x3allpositons} sind vier Messungen dargelegt, welche mit je einer Proband der Kategorie G, K und M durchgeführt wurden.
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1.0\textwidth]{fig/p1_g_Allpositions_mean}
-	\caption[Mittelwerte Messung V1 Kategorie g]{Mittelwerte Messung V1 Kategorie g}
-	\label{fig:p1gallpositionsmean}
-\end{figure}
-
-In den einzelnen Bildern ist ersichtlich, dass Personen im Zentrum leichter zu erkennen sind. Bei diesen Bilder wird der Kopf, der eine höhe Temperatru aufweist gemessen und daher
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1.0\linewidth]{fig/p3_3x3_allpositons}
-	\caption{}
+	\includegraphics[width=0.8\linewidth]{fig/p3_kkg_4x4.jpg}
+	\caption[Medianwerte Messungen 3 Personen Kategorie: GMK]{Medianwerte Messungen 3 Personen Kategorie: GMK}
 	\label{fig:p33x3allpositons}
 \end{figure}
 
 
-
-
-
+Bei Abbildung DEF und GEI können die drei Probanden durch ihren Kopf, als wärmstes Zentrum, voneinander differenziert werden. Bei den Randregionen ABC fällt dies deutlich schwieriger. Die Schwierigkeit ist bei naheliegenden Personen zu differenzieren, ob es sich um mehrere kleinere Personen oder um eine grosse Person handelt.
 
 
 \section{Fazit}
-Die Messresultate haben die Ergebnisse aus dem Kapitel \ref{chap:Informationsbeschaffung} bestätigt. Es konnten noch weitere Einlfüsse und Störquellen identifiziert werden. Vor allem im Aussenbereich gibt es grosse Störeinwirkungen, die Einfluss auf die Sensorwerte verursachen . Es liegt nahe, dieses Messprinzip nicht in Aussenbereichen zu verwenden, wenn entsprechende Muster erkannt werden wollen.
- Bei der Personenmessungen liegt die Schwierigkeit bei der Profilbildung von Personen. Da unterschiedliche Umgebungstemperaturen.
+Die Messresultate haben die Ergebnisse aus dem Kapitel \ref{chap:Informationsbeschaffung} bestätigt. Es konnten noch weitere Einfüsse und Störquellen identifiziert werden. Vor allem im Aussenbereich gibt es grosse Störeinwirkungen, die Einfluss auf die Sensorwerte verursachen. Es liegt nahe, dieses Messprinzip nicht in Aussenbereichen zu verwenden, wenn entsprechende Muster erkannt werden wollen.
+Bei der Personenmessungen liegt die Schwierigkeit bei der Profilbildung von Personen. Die Grösse der Personen mit der begrenzten Auflösung besitzt nur eingeschränkte Aussagekraft für die Differenzierung. Nahe stehende Personen können leicht um eine Person verwechselt werden. Hinzu kommt die Schwierigkeit, dass die einzelnen Pixel um bis zu 2.5°C streuen. 
+
+Die Messdaten bieten jedoch durch die Streeuung eine grosse Anzahl einzigartige Frames, welche nützlich sind für das Erstellen den neuronalen Netzwerks.
 

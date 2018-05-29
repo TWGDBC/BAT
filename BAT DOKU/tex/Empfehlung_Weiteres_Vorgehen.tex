@@ -1,19 +1,27 @@
 \chapter{Empfehlung und Bewertung}
 \label{Empfehlung_Vorgehen}
 
-Dieses Kapitel beinhaltet eine Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teile bewertet, danach wird eine Gesamtbewertung in einer Matrix dargelegt. Ana Hand dieser Matrix wird wird beuurteilt inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
+Dieses Kapitel beinhaltet eine Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teile bewertet, danach wird eine Gesamtbewertung in einer Matrix dargelegt. An Hand dieser Matrix wird beuurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
 
-\section{Teilbewertung}
+\section{Teilbewertungen}
 \label{sec:Teilbewertung}
 
+Bewertung Störanfälligkeit
 
 
-\subsection{Bewertung Auflösung}
+Bewertung von Geometrischen Aspekte:
+		
+		
+Bewertung Störanfälligkeit:
 
-Bewertung von Geometrischen Aspekte
-Bewertung Messprinzip
 
-Bewertung Personenerkennung
+Bewertung Auflösung:
+
+
+Bewertung Anwendungbereich:
+
+
+
 
 Bewertung von Personenerkennung
 
@@ -43,14 +51,13 @@ Dieser Abschnitt erläutert offene Punkte, welche im Rahmen der Arbeit nicht unt
 Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche Grenzfälle abdeckten. Vor allem das Verhalten des Sensor bei Umgebungstemperatur von 0$^\circ$ und 37$^\circ$ bietet eventuell Erkenntnisse für den Anwendungsfall im Außenbereich.
 
 \textbf{Bewegungfehlverhalten}\\
-Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgegangen und dies zeigt sich auch bei der Auswertung mit der Echtzeitmesseinheit. Bewegungen verursachen, dass sich das Wärmebild einer Person kurzzeitig zum Teil bedeutend verändert. Dies kann zu einer falschen Erkennung von der Personenanzahl führen. 
-
-
+Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgegangen und dies zeigt sich auch bei der Auswertung mit der Echtzeitmesseinheit. Bewegungen verursachen, dass sich das Wärmebild einer Person kurzzeitig zum Teil bedeutend verändert. Dies kann zu einer falschen Erkennung der Personenanzahl führen. 
 
 \textbf{Alternative Profile}\\
 Im Rahmen der Arbeit wurden lediglich stehende erwachsene Personen mit Grössen zwischen 162 - 187 betrachtet. Es wurden im Rahmen der Arbeit keine Kinder, Tiere und rollstuhlgängige Personen ausgemessen. Dessen Wärmebilder können von den aktuellen Profilen abweichen und führen zu fehlerhaften Ergebnissen.
 
-\textbf{Bewegungfehlverhalten}\\
+\textbf{chronologische Trainingssets}\\
+Das aktuelle Modell wurde mit einem grossen durcheinander gemischten Datensatz trainiert, dabei wurden nur statische Situation trainiert. In Aufzügen bietet sich jedoch auch an Sequenzen anzutrainieren. Dabei werden nicht einzelne Frames trainiert, sondern chronologische Framefolgen, wie beispielsweise unterschiedlichen Anzahl Personen welche den Aufzug betreten und verlassen. Die chronologische Abfolge verändert das Trainingsverhalten, da nicht ständig neue ganz unterschiedliche Frames trainiert werden.
 
 \section{Ausblick}
 

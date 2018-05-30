@@ -1,45 +1,83 @@
-\chapter{Empfehlung und Bewertung}
+\chapter{Bewertung und Empfehlung}
 \label{Empfehlung_Vorgehen}
 
-Dieses Kapitel beinhaltet eine Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teile bewertet, danach wird eine Gesamtbewertung in einer Matrix dargelegt. An Hand dieser Matrix wird beuurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
+Dieses Kapitel beinhaltet ene Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teile mit einer Skala zwischen minimal 0  und maximal 10  bewertet, danach wird die Gesamtbewertung in einer Matrix dargelegt. An Hand dieser Matrix wird beurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
 
 \section{Teilbewertungen}
 \label{sec:Teilbewertung}
 
-Bewertung Störanfälligkeit
+Es folgen verschiedene Bewertungskriterien. Anhand der Beschreibung und den Ergebnissen dieser Dokumentation wurde eine Bewertung abgegeben.
+
+\textbf{Komplexität [7/10)]:} \\
+Durch den standartisierten Datenbus \ac{I2C} lassen sich die Sensordaten einfach auslesen und entsprechende Konfigurationen auf dem Sensor tätigen. Dafür eignen sich heutzutage bereits low-cost Microcontroller. Ansonsten besitzt die physikalischen Betrachtungen des Sensorprinzips keine komplexe Abhängigkeiten, welche den Einsatz des Sensors verunmöglichen.
+
+\textbf{Geometrie [6/10]:} \\
+Bei bildgebenden Sensoren ist die geometrische Betrachtung von grosser Bedeutung. Der \ac{FOV} des Sensors ist lediglich für kleinere Personenaufzüge\footnote{bis zu einer Besatzung von ca. 5 Personen} geeignet. Im Allgemeinen lässt sich dieses Problem mit der Vergrösserung der Linse lösen.
+
+\textbf{Zuverlässigkeit [8/10]:}
+Es konnten während der Testzeit keine nennenswerten Probleme mit dem Sensor festgestellt werden. Die Thermistorwerte besitzen jedoch Exemplarstreuungen, welches Einfluss auf die Richtigkeit der Temperaturwerte hat.
+  
+\textbf{Störanfälligkeit [7/10]:} \\
+Die Störanfälligkeit des Sensors auf äussere Einflüsse ist nicht unwesentlich. Aus den Tests aus Kapitel \ref{chap:Testphasen} gehen zahlreiche Einflussfaktoren mit ein. Sofern der Sensor im Innenbereich angewendet wird können die Störquellen grösstenteils vernachlässigt werden.
+
+\newpage
+\textbf{Auflösung [5/10]:} \\
+Die Auflösung wird höher gewichtet, da das gesamte maschinelle Lernen darauf aufbaut. Mit der Auflösung konnten nach Kapitel \ref{chap:Personendetektion} eine breite Palette an Situationen erkannt werden. Bei Extrem- und Randbedingungen reicht diese jedoch nicht mehr aus, da zu wenig Wärmebildinformationen  zur Verfügung stehen.
+
+\textbf{Integrierbarkeit [8/10]:}
+Das Sensorprinzip ist durch die MEMS-Technologie sehr klein dimensioniert und lässt sich auf einem \ac{PCB} anbringen. Es muss bei der Platzierung darauf geachtet werden, dass keine nahen Komponenten die Temperatur des Sensor beinflussen können. Zudem muss der Senosr freies Blickfeld besitzten. Ansonsten gibt es keine Einschränkungen.
 
 
-Bewertung von Geometrischen Aspekte:
-		
-		
-Bewertung Störanfälligkeit:
+\begin{table}[H]
+	\centering
+	\caption{Teilbewertungen des Messprinzips mit Gewichtungen}
+	\label{tab:Teilbewertung}
+	\begin{tabular}{|
+			>{\columncolor[HTML]{9B9B9B}}c |c|c|c|}
+		\hline
+		{\color[HTML]{333333} \textbf{}}       & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{ Allgemein}} & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Gewichtung}} & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Teilwertungen}} \\ \hline
+		\textbf{Komplexität}                            & 7                                                                                  & 0.1                                                                                  & 0.7                                                                          \\ \hline
+		\textbf{Geometrie}       & 6                                                                                  & 0.2                                                                                  & 1.2                                                                          \\ \hline
+		\textbf{Zuverlässigkeit} & 8                                                                                  & 0.1                                                                                  & 0.8                                                                          \\ \hline
+		\textbf{Störanfälligkeit}              & 7                                                                                  & 0.2                                                                                  & 1.4                                                                          \\ \hline
+		\textbf{Auflösung}                     & 5                                                                                  & 0.2                                                                                  & 1                                                                            \\ \hline
+		\textbf{Integrierbarkeit}              & 8                                                                                  & 0.1                                                                                  & 0.8                                                                          \\ \hline
+		\textbf{Decke}                         & 7                                                                                  & 0.1                                                                                  & 0.7                                                                          \\ \hline
+	\end{tabular}
+\end{table}
 
-
-Bewertung Auflösung:
-
-
-Bewertung Anwendungbereich:
-
-
-
-
-Bewertung von Personenerkennung
-
-\section{Gesamtbewertung}
-\label{sec:Gesamtbewetung}
-
-
-
+Aus den gewichteten Teilbewertungen für den Anwendungsbereich in Personenaufzügen wurde nachfolgende hat sich die nachfolgende Gesamtbewertung ergeben.
+\begin{table}[H]
+	\centering
+	\caption{Gesamtbewertung für den Anweundgsbereich in Personenaufzügen}
+	\label{tab:Gesamtbewertung}
+	\begin{tabular}{|c|}
+		\hline
+		\rowcolor[HTML]{9B9B9B} 
+		\multicolumn{1}{|c|}{\cellcolor[HTML]{9B9B9B}\textbf{Gesamtbewertung}} \\ \hline
+		6.6 / 10                                                                    \\ \hline
+	\end{tabular}
+\end{table} 
 
 \section{Empfehlung}
 \label{sec:Empfehlung}
+
+Das Prinzip des passiven Infrarotsensors für die Personenerkennung wurde mit dieser Bachelorarbeit geprüft und als möglich beurteilt. Mit dem neuronalen Netzwerk lassen sich aus Datensätzen Modelle für die Erkennung trainieren. 
+
+Es lässt sich kein allgemeines übergeordnet Profil erstellen, welches für alle Situationen gerecht wird. Eine wesentliche Begrenzung dafür ist die Auflösung des Sensors.
+
+ 
+
+
 
 
 
 \section{Weiteres Vorgehen}
 
-Es bietet sich an die Profilbildung mit diesem Messprinzip zu verfeinern, damit noch mehr Anwedungs
-Weitere Profilbildung, 
+Es bietet sich an die einzelnen Profile zu verfeinern, damit das neuronale Netzwerk an Qualität gewinnt.  Es wurden lediglich 
+mit diesem Messprinzip zu verfeinern, damit noch mehr weitere Profile gebildet werden können. Im 
+
+
 
 Temperaturbereich erweitern
 
@@ -48,7 +86,7 @@ Temperaturbereich erweitern
 Dieser Abschnitt erläutert offene Punkte, welche im Rahmen der Arbeit nicht untersucht wurden.
 
 \textbf{thermische Grenzfälle}\\
-Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche Grenzfälle abdeckten. Vor allem das Verhalten des Sensor bei Umgebungstemperatur von 0$^\circ$ und 37$^\circ$ bietet eventuell Erkenntnisse für den Anwendungsfall im Außenbereich.
+Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche thermiische Grenzfälle abdecken. Vor allem das Verhalten des Sensor bei Umgebungstemperatur von 0$^\circ$ und 37$^\circ$ bietet eventuell Erkenntnisse für den Anwendungsfall.
 
 \textbf{Bewegungfehlverhalten}\\
 Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgegangen und dies zeigt sich auch bei der Auswertung mit der Echtzeitmesseinheit. Bewegungen verursachen, dass sich das Wärmebild einer Person kurzzeitig zum Teil bedeutend verändert. Dies kann zu einer falschen Erkennung der Personenanzahl führen. 
@@ -57,12 +95,16 @@ Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgeg
 Im Rahmen der Arbeit wurden lediglich stehende erwachsene Personen mit Grössen zwischen 162 - 187 betrachtet. Es wurden im Rahmen der Arbeit keine Kinder, Tiere und rollstuhlgängige Personen ausgemessen. Dessen Wärmebilder können von den aktuellen Profilen abweichen und führen zu fehlerhaften Ergebnissen.
 
 \textbf{chronologische Trainingssets}\\
-Das aktuelle Modell wurde mit einem grossen durcheinander gemischten Datensatz trainiert, dabei wurden nur statische Situation trainiert. In Aufzügen bietet sich jedoch auch an Sequenzen anzutrainieren. Dabei werden nicht einzelne Frames trainiert, sondern chronologische Framefolgen, wie beispielsweise unterschiedlichen Anzahl Personen welche den Aufzug betreten und verlassen. Die chronologische Abfolge verändert das Trainingsverhalten, da nicht ständig neue ganz unterschiedliche Frames trainiert werden.
+Das aktuelle Modell wurde mit einem grossen gemischten Datensatz trainiert, dabei wurden nur statische Situation trainiert. In Aufzügen bietet sich jedoch auch an Sequenzen anzutrainieren. Dabei werden nicht einzelne Frames trainiert, sondern chronologische Framefolgen, wie beispielsweise unterschiedlichen Anzahl Personen welche den Aufzug betreten und verlassen. Die chronologische Abfolge verändert das Trainingsverhalten, da nicht ständig neue ganz unterschiedliche Frames trainiert werden.
+
 
 \section{Ausblick}
 
 Diese Bachelorarbeit hat sich mit dem dem Panasonic Grid-Eye AMG8834 befasst. Während der Informationsbeschaffung wurde dieser mit erhältlichen Sensoren anderer Hersteller verglichen und als State-Of-The-Art beurteilt.  
-Ab Mai 2018 wurde von der Firma Melexis der Sensor MLX90640 auf den Markt gebracht. Dieser Sensor könnte die Lücken, welche der verwendete Sensor besitzt schließen. Der MLX90640 besitzt mit einer Auflösung von 24x32 Pixel bedeutende Darstellung- und Auswertemöglichkeiten. Der Einsatztemperatur erstreckt sich zwischen -40$^\circ$ bis 85$^\circ$, daher ist er auch für extremere Umgebungstemperaturen geeignet. Interessant ist bei diesem Sensor das Model mit dem Öffnungswinkel von 110$^\circ$x75$^\circ$. Der Öffnungswinkel könnte die geometrische Problematik aus Kapitel \ref{sec:geometrie} lösen und somit für den Einsatzbereich in Personenaufzügen besser geignet sein. Preislich ist dieser Sensor jedoch doppelt so teuer wie der AMG8834. Das entsprechende Datenblatt ist im digitalen Anhang \ref{AnhangE} angefügt. 
+
+Auf den Grundlagen dieser Arbeit lassen sich für die Anweundgsbereiche 
+
+Seit Mai 2018 wurde von der Firma Melexis der Sensor MLX90640 auf den Markt gebracht. Dieser Sensor könnte die Lücken, welche der verwendete Sensor besitzt schließen. Der MLX90640 besitzt mit einer Auflösung von 24x32 Pixel bedeutende Darstellung- und Auswertemöglichkeiten. Interessant ist bei diesem Sensor das Model mit dem Öffnungswinkel von 110$^\circ$x75$^\circ$. Der Öffnungswinkel könnte die geometrische Problematik aus Kapitel \ref{sec:geometrie} lösen und somit für den Einsatzbereich in Personenaufzügen besser geeignet sein. Preislich ist dieser Sensor jedoch doppelt so teuer wie der AMG8834,gehört jedoch auch in die Kategorie low-cost in der thermografischen Bilderkennung. Das entsprechende Datenblatt ist im digitalen Anhang \ref{AnhangE} angefügt. 
 
 
 

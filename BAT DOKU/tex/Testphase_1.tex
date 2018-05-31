@@ -125,7 +125,7 @@ Für den Messaufbau wurde ein Raster erstellt, welches einerseits den gesamten \
 	\label{fig:Messraster}
 \end{figure}
 
-\textbf{Ergebnisse:} Insgesamt wurden pro Aufzug 50 unterschiedliche Messungen durchgeführt.\footnote[20]{} Dabei wurden unterschiedliche Personenanzahl und unterschiedliche Probandengrössen für ein-minütige stationäre Aufnahmen verwendet. In Abbildung \ref{fig:p1gallpositionsmean} sind 6 Medianwerte der 1-Personenmessungen ersichtlich. In der oberen Reihe wurde ein Proband der Kategorie g eingesetzt. In der Unteren Reihe wurde ein Proband der Kategorie k verwendet. Es ist ersichtlich, dass die Wärmebildaufnahmen stark abweichen, da die Distanz zum Sensor aufgrund der Körpergrösse sich unterscheiden.
+\textbf{Ergebnisse:} Insgesamt wurden pro Aufzug 50 unterschiedliche Messungen\footnote[20]{Messdaten im digitalen Anhang angefügt} durchgeführt. Dabei wurden auf eine unterschiedliche Anzahl an Personen und auf verschiedene Probandengrössen geachtet. Es handelt sich dabei um je einminütige stationäre Aufnahmen, welche je ca. 600 Frames\footnote[21]{Einzelbild einer Bildsequenz} bieten. In Abbildung \ref{fig:p1gallpositionsmean} sind sechs Medianwerte der 1-Personenmessungen ersichtlich. In der oberen Reihe wurde ein Proband der Kategorie g eingesetzt. In der Unteren Reihe wurde ein Proband der Kategorie k verwendet. Es ist ersichtlich, dass die Wärmebildaufnahmen stark abweichen, da sich die Distanz zum Sensor aufgrund der Körpergrösse unterscheiden.
 
 \begin{figure}[H]
 	\centering
@@ -134,25 +134,24 @@ Für den Messaufbau wurde ein Raster erstellt, welches einerseits den gesamten \
 	\label{fig:p1gallpositionsmean}
 \end{figure}
 
-Zudem sind freie Hautoberflächen, wie beispielsweise in der mittleren Abbildung der oberen Reihe, bedeutend wärmer. An den Rädern des Messbereichs wir aufgrund der Perspektive nicht von oben, sondern die Seite eines Körper wahrgenommen. Dies führt dazu, dass der Kopfbereich nicht als wärmste Regionen vermessen wird, da dieser mit dem aktuellen \ac{FOV} nicht erreichbar ist.
+Zudem sind freie Hautoberflächen wie der Kopf, zu sehen beispielsweise beim Proband G am Standort E, bedeutend wärmer. An den Rändern des Messbereichs wir aufgrund der Perspektive die Person nicht von oben ausgemessen, sondern seitlich . Dies führt dazu, dass, wenn der Kopfbereich ausserhalb des Messbereichs liegt, dass die Messwerte deutlich tiefer liegen. Für die Personenerkennung ist diese Situation schwieriger zu identifizieren.
 
-Bei 1 und 2 Personenmessungen können Probanden soweit sie sich nicht unmittelbar nebeneinander befinden gut separiert werden. Bei Messungen mit 3 und 4 Personen ist aufgrund der begrenzten Auflösung die Evaluation bedeutend schwieriger. In Abbildung \ref{fig:p33x3allpositons} sind vier Messungen dargelegt, welche mit je einer Proband der Kategorie G, K und M durchgeführt wurden.
-
+Messungen mit einer bis zwei Personen werden, sofern sie sich nicht unmittelbar nebeneinander befinden, gut separiert. 
+Aufgrund der begrenzten Auflösung ist die Erkennung bei drei und vier Personen deutlich schwieriger. In Abbildung \ref{fig:p33x3allpositons} sind vier Messungen dargelegt, welche mit je einer Proband der Kategorie G, K und M durchgeführt wurden.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{fig/p3_kkg_4x4.jpg}
-	\caption[Medianwerte Messungen 3 Personen Kategorie: GMK]{Medianwerte Messungen 3 Personen Kategorie: GMK}
+	\caption[Medianwerte aus Messungen mit 3 Personen der Kategorie: GMK]{Medianwerte Messungen 3 Personen Kategorie: GMK}
 	\label{fig:p33x3allpositons}
 \end{figure}
 
 
-Bei Abbildung DEF und GEI können die drei Probanden durch ihren Kopf, als wärmstes Zentrum, voneinander differenziert werden. Bei den Randregionen ABC fällt dies deutlich schwieriger. Die Schwierigkeit ist bei naheliegenden Personen zu differenzieren, ob es sich um mehrere kleinere Personen oder um eine grosse Person handelt.
+Bei Abbildung DEF und GEI können die drei Probanden durch ihren Kopf, als wärmstes Zentrum, voneinander differenziert werden. Bei den Randregionen ABC ist dies deutlich schwieriger. Die Schwierigkeit liegt darin, bei naheliegenden Personen zu differenzieren, ob es sich um mehrere kleinere Personen oder um eine grosse Person handelt.
 
 
 \section{Fazit}
-Die Messresultate haben die Ergebnisse aus dem Kapitel \ref{chap:Informationsbeschaffung} bestätigt. Es konnten noch weitere Einfüsse und Störquellen identifiziert werden. Vor allem im Aussenbereich gibt es grosse Störeinwirkungen, die Einfluss auf die Sensorwerte verursachen. Es liegt nahe, dieses Messprinzip nicht in Aussenbereichen zu verwenden, wenn entsprechende Muster erkannt werden wollen.
-Bei der Personenmessungen liegt die Schwierigkeit bei der Profilbildung von Personen. Die Grösse der Personen mit der begrenzten Auflösung besitzt nur eingeschränkte Aussagekraft für die Differenzierung. Nahe stehende Personen können leicht um eine Person verwechselt werden. Hinzu kommt die Schwierigkeit, dass die einzelnen Pixel um bis zu 2.5°C streuen. 
+Die Messresultate haben die Ergebnisse aus dem Kapitel \ref{chap:Informationsbeschaffung} bestätigt. Zudem konnten noch weitere Einflüsse und Störquellen identifiziert werden. Vor allem im Aussenbereich gibt es Störeinwirkungen, die Verfehlungen bei den Sensorwerten verursachen. Es liegt nahe, dieses Messprinzip nicht im Aussenbereichen zu verwenden.
+Bei Personenmessungen liegt die Schwierigkeit darin, die individuellen Profile der Personen zu erkennen. Die Grösse der Personen mit der begrenzten Auflösung besitzt nur eingeschränkte Aussagekraft über das Profil. Nahe stehende Personen können leicht um eine Person verwechselt werden. Hinzu kommt die Schwierigkeit, dass die einzelnen Pixel um bis zu 2.5 °C streuen. 
 
-Die Messdaten bieten jedoch durch die Streeuung eine grosse Anzahl einzigartige Frames, welche nützlich sind für das Erstellen den neuronalen Netzwerks.
-
+Die Messdaten bieten jedoch durch die Streuung der Messwerte auch mehr unterschiedliche Frames. Dies ist vorteilhaft für das neuronale Netzwerk, da die Messungen mehr einzigartige Frames zur Verfügung stellen.

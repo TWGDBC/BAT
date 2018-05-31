@@ -1,32 +1,33 @@
 \chapter{Bewertung und Empfehlung}
 \label{Empfehlung_Vorgehen}
 
-Dieses Kapitel beinhaltet ene Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teile mit einer Skala zwischen minimal 0  und maximal 10  bewertet, danach wird die Gesamtbewertung in einer Matrix dargelegt. An Hand dieser Matrix wird beurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
+Dieses Kapitel beinhaltet eine Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teilekriterien des Messprinzips mit einer Skala zwischen minimal 0 und maximal 10  bewertet, danach wird die Gesamtbewertung in einer Matrix dargelegt. An Hand dieser Zusammenstellung wird beurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
 
 \section{Teilbewertungen}
 \label{sec:Teilbewertung}
 
 Es folgen verschiedene Bewertungskriterien. Anhand der Beschreibung und den Ergebnissen dieser Dokumentation wurde eine Bewertung abgegeben.
 
-\textbf{Komplexität [7/10)]:} \\
-Durch den standartisierten Datenbus \ac{I2C} lassen sich die Sensordaten einfach auslesen und entsprechende Konfigurationen auf dem Sensor tätigen. Dafür eignen sich heutzutage bereits low-cost Microcontroller. Ansonsten besitzt die physikalischen Betrachtungen des Sensorprinzips keine komplexe Abhängigkeiten, welche den Einsatz des Sensors verunmöglichen.
+\textbf{Komplexität [8/10]:} \\
+Durch den standartisierten Datenbus \ac{I2C} lassen sich die Sensordaten einfach auslesen und entsprechende Konfigurationen auf dem Sensor tätigen. Dafür eignen sich heutzutage bereits low-cost Microcontroller. Panasonic bietet eine Vielzahl an Source-Codes, Beispielprogrammen und Hilfestellungen, damit der Einsatz des Sensors vereinfacht wird. Die physikalischen Betrachtungen des Messprinzips besitzen keine komplexen Abhängigkeiten, welche den Einsatz des Sensors verunmöglichen. Dem System sind jedoch Grenzen im Anwendungsbereich gesetzt.
 
 \textbf{Geometrie [6/10]:} \\
-Bei bildgebenden Sensoren ist die geometrische Betrachtung von grosser Bedeutung. Der \ac{FOV} des Sensors ist lediglich für kleinere Personenaufzüge\footnote{bis zu einer Besatzung von ca. 5 Personen} geeignet. Im Allgemeinen lässt sich dieses Problem mit der Vergrösserung der Linse lösen.
+Bei bildgebenden Sensoren ist die geometrische Betrachtung von grosser Bedeutung. Der \ac{FOV} des Sensors ist lediglich für kleinere Flächen geeignet, wenn die Distanz auf übliche Raumhöhen vorgegeben ist. Auch in den Empfehlungen von Panasonic für die Personendetektion wird in den Literaturen grösseren Distanzen zum Messobjekt angegeben. Personenerkennungen am Rande des Messbereichs fallen durch weniger Wärmebildinformationen schlechter aus. Im Allgemeinen lässt sich dieses Problem mit der Vergrösserung der Linse lösen.
 
-\textbf{Zuverlässigkeit [8/10]:}
-Es konnten während der Testzeit keine nennenswerten Probleme mit dem Sensor festgestellt werden. Die Thermistorwerte besitzen jedoch Exemplarstreuungen, welches Einfluss auf die Richtigkeit der Temperaturwerte hat.
+\textbf{Zuverlässigkeit [8/10]:} \\
+Es konnten während der Testzeit keine nennenswerten Probleme mit dem Sensor festgestellt werden. Es wurden mehrstündige Messungen durchgeführt, welche einwandfreie Daten lieferten. Bei 24/7-Anwendungen können diese jedoch nicht als Referenz gelten. Die Thermistorwerte besitzen auch Exemplarstreuungen, welches Einfluss auf die Korrektheit der Sensorwerte hat.
   
 \textbf{Störanfälligkeit [7/10]:} \\
 Die Störanfälligkeit des Sensors auf äussere Einflüsse ist nicht unwesentlich. Aus den Tests aus Kapitel \ref{chap:Testphasen} gehen zahlreiche Einflussfaktoren mit ein. Sofern der Sensor im Innenbereich angewendet wird können die Störquellen grösstenteils vernachlässigt werden.
 
-\newpage
 \textbf{Auflösung [5/10]:} \\
-Die Auflösung wird höher gewichtet, da das gesamte maschinelle Lernen darauf aufbaut. Mit der Auflösung konnten nach Kapitel \ref{chap:Personendetektion} eine breite Palette an Situationen erkannt werden. Bei Extrem- und Randbedingungen reicht diese jedoch nicht mehr aus, da zu wenig Wärmebildinformationen  zur Verfügung stehen.
+Die Auflösung wird höher gewichtet, da das gesamte maschinelle Lernen darauf aufbaut. Mit der Auflösung konnten nach Kapitel \ref{chap:Personendetektion} eine breite Palette an Situationen erkannt werden. Bei Extrem- und Randbedingungen reicht diese jedoch nicht mehr aus, da zu wenig Wärmebildinformationen zur Verfügung stehen. Es lassen sich mit der aktuellen Auflösung mehrere Personen detektieren. Da zum Teil Objekte ähnliche Wärmebilder produzieren, können diese nicht differenziert werden.  
 
-\textbf{Integrierbarkeit [8/10]:}
-Das Sensorprinzip ist durch die MEMS-Technologie sehr klein dimensioniert und lässt sich auf einem \ac{PCB} anbringen. Es muss bei der Platzierung darauf geachtet werden, dass keine nahen Komponenten die Temperatur des Sensor beinflussen können. Zudem muss der Senosr freies Blickfeld besitzten. Ansonsten gibt es keine Einschränkungen.
+\textbf{Integrierbarkeit [8/10]:} \\
+Das Sensorprinzip ist durch die MEMS-Technologie sehr klein dimensioniert und lässt sich auf einem \ac{PCB} anbringen. Es muss bei der Platzierung darauf geachtet werden, dass keine nahen Komponenten die Temperatur des Sensor beeinflussen können. Zudem muss der Sensor freies Blickfeld besitzen. Ansonsten gibt es keine Einschränkungen. 
 
+\textbf{Qualität [8/10]:}
+Trotz der tiefen Auflösung und den Temperaturschwankungen konnte mittels dem \ac{CNN} bei einem unbekannten Testdatensatz von 150 000 Frames mit einer Übereinstimmung von 91\% erreicht werden. Somit kann dieses Messprinzip in Zusammenhang mit neuronalen Netzen eine bescheidene Qualität bieten.
 
 \begin{table}[H]
 	\centering
@@ -35,18 +36,18 @@ Das Sensorprinzip ist durch die MEMS-Technologie sehr klein dimensioniert und l�
 	\begin{tabular}{|
 			>{\columncolor[HTML]{9B9B9B}}c |c|c|c|}
 		\hline
-		{\color[HTML]{333333} \textbf{}}       & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{ Allgemein}} & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Gewichtung}} & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Teilwertungen}} \\ \hline
-		\textbf{Komplexität}                            & 7                                                                                  & 0.1                                                                                  & 0.7                                                                          \\ \hline
+		{\color[HTML]{333333} \textbf{}}       & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Allgemeine Wertung}} & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Gewichtungen}} & \cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Teilwertungen}} \\ \hline
+		\textbf{Komplexität}                            & 8                                                                                  & 0.1                                                                                  & 0.8                                                                          \\ \hline
 		\textbf{Geometrie}       & 6                                                                                  & 0.2                                                                                  & 1.2                                                                          \\ \hline
 		\textbf{Zuverlässigkeit} & 8                                                                                  & 0.1                                                                                  & 0.8                                                                          \\ \hline
 		\textbf{Störanfälligkeit}              & 7                                                                                  & 0.2                                                                                  & 1.4                                                                          \\ \hline
-		\textbf{Auflösung}                     & 5                                                                                  & 0.2                                                                                  & 1                                                                            \\ \hline
+		\textbf{Auflösung}                     & 5                                                                                  & 0.2                                                                                  & 1.0                                                                            \\ \hline
 		\textbf{Integrierbarkeit}              & 8                                                                                  & 0.1                                                                                  & 0.8                                                                          \\ \hline
-		\textbf{Decke}                         & 7                                                                                  & 0.1                                                                                  & 0.7                                                                          \\ \hline
+		\textbf{Qualität}                         & 8                                                                                  & 0.1                                                                                  & 0.8                                                                          \\ \hline
 	\end{tabular}
 \end{table}
 
-Aus den gewichteten Teilbewertungen für den Anwendungsbereich in Personenaufzügen wurde nachfolgende hat sich die nachfolgende Gesamtbewertung ergeben.
+Aus den gewichteten Teilbewertungen für den Anwendungsbereich in Personenaufzügen  hat sich die nachfolgende Gesamtbewertung ergeben.
 \begin{table}[H]
 	\centering
 	\caption{Gesamtbewertung für den Anweundgsbereich in Personenaufzügen}
@@ -55,38 +56,30 @@ Aus den gewichteten Teilbewertungen für den Anwendungsbereich in Personenaufzü
 		\hline
 		\rowcolor[HTML]{9B9B9B} 
 		\multicolumn{1}{|c|}{\cellcolor[HTML]{9B9B9B}\textbf{Gesamtbewertung}} \\ \hline
-		6.6 / 10                                                                    \\ \hline
+		\textbf{7.0 / 10.0 }                                                                   \\ \hline
 	\end{tabular}
 \end{table} 
 
+In folgendem Unterkapitel wird diesbezüglich eine Empfehlung abgegeben.
 \section{Empfehlung}
 \label{sec:Empfehlung}
 
-Das Prinzip des passiven Infrarotsensors für die Personenerkennung wurde mit dieser Bachelorarbeit geprüft und als möglich beurteilt. Mit dem neuronalen Netzwerk lassen sich aus Datensätzen Modelle für die Erkennung trainieren. 
+Das Prinzip des passiven Infrarotsensors für die Personenerkennung wurde mit dieser Bachelorarbeit geprüft und als möglich beurteilt. Aus den Bewertungskriterien geht eine Eignung von 7.0 von 10.0 möglichen Punkten hervor. Dabei sind vor allem die Geometrie und die Auflösung entscheidend für die Herabsetzung der Wertung. 
 
-Es lässt sich kein allgemeines übergeordnet Profil erstellen, welches für alle Situationen gerecht wird. Eine wesentliche Begrenzung dafür ist die Auflösung des Sensors.
+Mit dem neuronalen Netzwerk lassen sich aus Datensätzen Modelle für die Erkennung trainieren. Dabei spielt nicht nur die Grösse der Datensätze eine entscheidende Rolle, sondern auch die Variationen der trainierten Daten. Um die Personenerkennung noch zu verbessern müssen die Trainingssets noch verfeinert werden. 
 
- 
+Es lässt sich kein allgemeines übergeordnet Profil erstellen, welches für alle Situationen gerecht wird. Eine wesentliche Begrenzung dafür ist die Auflösung des Sensors. Es empfiehlt sich bei der Ausarbeitung eines Datensatzes individuelle Einflussfaktoren zu beachten, damit die Qualität der Erkennung bestmöglich wird. 
 
+Wie bereits in den vorherigen Kapitel erwähnt besitzt der Sensor gerade im Aussenberich grösse Störquellen. Da das neuronale Netzwerk nur 64 Wärmebildinformation zur Verfügung hat, können bereits kleine Störeinflusse die Personenerkennung beinflussen.
 
-
-
-
-\section{Weiteres Vorgehen}
-
-Es bietet sich an die einzelnen Profile zu verfeinern, damit das neuronale Netzwerk an Qualität gewinnt.  Es wurden lediglich 
-mit diesem Messprinzip zu verfeinern, damit noch mehr weitere Profile gebildet werden können. Im 
-
-
-
-Temperaturbereich erweitern
+Im Kapitel \ref{sec:Ausblick} wird noch eine Alternative Möglickeit erläutert. 
 
 \section{Offene Punkte}
-
+\label{sec:OffenePunkte}
 Dieser Abschnitt erläutert offene Punkte, welche im Rahmen der Arbeit nicht untersucht wurden.
 
 \textbf{thermische Grenzfälle}\\
-Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche thermiische Grenzfälle abdecken. Vor allem das Verhalten des Sensor bei Umgebungstemperatur von 0$^\circ$ und 37$^\circ$ bietet eventuell Erkenntnisse für den Anwendungsfall.
+Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche thermiische Grenzfälle abdecken. Vor allem das Verhalten des Sensor bei Umgebungstemperatur von 0$ ^\circ$C und 37 $^\circ$C bietet eventuell Erkenntnisse für den Anwendungsfall.
 
 \textbf{Bewegungfehlverhalten}\\
 Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgegangen und dies zeigt sich auch bei der Auswertung mit der Echtzeitmesseinheit. Bewegungen verursachen, dass sich das Wärmebild einer Person kurzzeitig zum Teil bedeutend verändert. Dies kann zu einer falschen Erkennung der Personenanzahl führen. 
@@ -99,12 +92,11 @@ Das aktuelle Modell wurde mit einem grossen gemischten Datensatz trainiert, dabe
 
 
 \section{Ausblick}
+\label{sec:Ausblick}
+Diese Bachelorarbeit hat sich mit dem dem Panasonic Grid-Eye AMG8834 befasst. Während der Informationsbeschaffung wurde dieser mit erhältlichen Sensoren anderer Hersteller verglichen und als State-Of-The-Art beurteilt. 
 
-Diese Bachelorarbeit hat sich mit dem dem Panasonic Grid-Eye AMG8834 befasst. Während der Informationsbeschaffung wurde dieser mit erhältlichen Sensoren anderer Hersteller verglichen und als State-Of-The-Art beurteilt.  
-
-Auf den Grundlagen dieser Arbeit lassen sich für die Anweundgsbereiche 
-
-Seit Mai 2018 wurde von der Firma Melexis der Sensor MLX90640 auf den Markt gebracht. Dieser Sensor könnte die Lücken, welche der verwendete Sensor besitzt schließen. Der MLX90640 besitzt mit einer Auflösung von 24x32 Pixel bedeutende Darstellung- und Auswertemöglichkeiten. Interessant ist bei diesem Sensor das Model mit dem Öffnungswinkel von 110$^\circ$x75$^\circ$. Der Öffnungswinkel könnte die geometrische Problematik aus Kapitel \ref{sec:geometrie} lösen und somit für den Einsatzbereich in Personenaufzügen besser geeignet sein. Preislich ist dieser Sensor jedoch doppelt so teuer wie der AMG8834,gehört jedoch auch in die Kategorie low-cost in der thermografischen Bilderkennung. Das entsprechende Datenblatt ist im digitalen Anhang \ref{AnhangE} angefügt. 
+Es zeigt sich jedoch, dass dieses Messprinzip im Zusammenhang mit \ac{IoT} zunehmend an Interesse gewinnt   Seit Mai 2018 wurde von der Firma Melexis der Sensor MLX90640 auf den Markt gebracht. Dieser konnte jedoch aus zeitlichen Gründen und einer aktuellen Lieferfrist von 24 Wochen\footnote{Stand: Mouser,DigiKey 31.05.2018 }
+Dieser Sensor baut auf dem gleichen Messprinzip wieder AMG 8834 und könnte die Lücken, welche der verwendete Sensor besitzt schließen. Der MLX90640 besitzt mit einer Auflösung von 24x32 Pixel bedeutende Darstellung- und Auswertemöglichkeiten. Interessant ist bei diesem Sensor das Model mit dem Öffnungswinkel von 110$^\circ$x75$^\circ$. Der Öffnungswinkel könnte die geometrische Problematik aus Kapitel \ref{sec:geometrie} lösen und somit für den Einsatzbereich in Personenaufzügen besser geeignet sein. Preislich ist dieser Sensor jedoch doppelt so teuer wie der AMG8834, gehört im Vergleich mit anderen Sensorarten in die Kategorie low-cost in der thermografischen Bilderkennung. Das entsprechende Datenblatt ist im digitalen Anhang \ref{AnhangE} angefügt. 
 
 
 

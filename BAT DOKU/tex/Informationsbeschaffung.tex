@@ -26,7 +26,7 @@ In Abbildung \ref{fig:SchemaAMG8834} ist das Prinzipschema des Sensors dargestel
 	\label{fig:SchemaAMG8834}
 \end{figure}
  
-Über die \ac{I2C}-Schnittstelle lassen sich die Werte der Thermoelemente und der Thermistoren je aus zwei Registern auslesen. Die Messwerte werden alle 100 ms aktualisiert. Dabei werden lediglich 12 Bit pro Pixel für die Temperaturregister genutzt. Dies führt zu der kleinsten unterscheidbaren Größe von 0.25 $^\circ$C. Die Thermistorregister lassen sich mit der Auflösung von 0.0625 $^\circ$C unterscheiden. Im Datenblatt wird eine \ac{NETD} von 0.05 °C angegeben. Durch den \ac{ADC} kann diese Angabe nicht verwendet werden.
+Über die \ac{I2C}-Schnittstelle lassen sich die Werte der Thermoelemente und der Thermistoren je aus zwei Registern auslesen. Die Messwerte werden alle 100 ms aktualisiert. Dabei werden lediglich 12 Bit pro Pixel für die Temperaturregister genutzt. Dies führt zu der kleinsten unterscheidbaren Größe von 0.25 $^\circ$C. Die Thermistorregister lassen sich mit der Auflösung von 0.0625 $^\circ$C unterscheiden. Im Datenblatt wird eine \ac{NETD} von 0.05 °C für die Pixelwerte angegeben. Durch den \ac{ADC} kann diese Angabe nicht verwendet werden.
 In Abbildung \ref{fig:SchemaAMG8834} ist klar ersichtlich, dass die Umgebungstemperatur, bzw. die Temperatur, welche vom Thermistor gemessen wird, direkten Einfluss auf die Pixelwerte hat. Variieren die Thermistorwerte aufgrund von Raumtemperaturschwankungen, entstehen bei den Pixelwerten dadurch entsprechende Schwankungen.
 
 \section{Physikalische Aspekte}

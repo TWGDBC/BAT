@@ -1,19 +1,19 @@
 \chapter{Personendetektion}
 \label{chap:Personendetektion}
 
-Auf der Grundlage der vorherigen Kapitel wird nun mittels einem neuronalen Netzwerk eine Personenerkennung erstellt. Dieser Abschnitt beschreibt das Vorgehen, um die Personenanzahl in einem Aufzug zu erkennen. In einem ersten Schritt wird die Verarbeitung der Rohdaten aufgezeigt. Danach werden diverse Ansätze erläutert, um die Datensätze zu verbessern. Für den Auswertealgorithmus wurden drei unterschiedliche Aufzüge evaluiert und für jeden Aufzug ein eigenes Profil erstellt. 
+Auf der Grundlage der vorherigen Kapitel wird nun mittels einem neuronalen Netzwerks eine Personenerkennung erstellt. Dieser Abschnitt beschreibt das Vorgehen, um die Personenanzahl in einem Aufzug zu erkennen. In einem ersten Schritt wird die Verarbeitung der Rohdaten aufgezeigt. Anschliessend werden diverse Ansätze erläutert, um die Datensätze zu verbessern. Für den Auswertealgorithmus wurden drei unterschiedliche Aufzüge evaluiert und für jeden Aufzug ein eigenes Profil erstellt. 
 
 \section{Datenverarbeitung}
 \label{Datenverarbeitung}
 
 Mittels dem erstellten C-Programm ConvertValue\_V2 lassen sich die Rohdaten in \ac{CSV}-Files konvertieren. Dabei wird über die USB-Schnittstelle mit dem Open-Source Terminal-Programm H-Term die \ac{ASCII}-Rohdaten ausgelesen [\protect\cite{HTERM}].
-H-Term fügt zudem jedem Datensatz den aktuellen Zeitstempel an. In Abbildung \ref{fig:Dataframe} ist der Aufbau des Datenframes ersichtlich.
+Das Programm H-Term fügt zudem jedem Datensatz den aktuellen Zeitstempel an. In Abbildung \ref{fig:Dataframe} ist der Aufbau des Datenframes ersichtlich.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]
 	{fig/Dataframe}
-	\caption[Datenframedes des Eval Boards]{Datenframe des Eval Boards}
+	\caption[Datenframe des Eval Boards]{Datenframe des Eval Boards}
 	\label{fig:Dataframe}
 \end{figure}
 
@@ -26,13 +26,13 @@ Mit dem ConvertValue\_V2 werden diese \ac{ASCII}-Zeichen in die entsprechenden F
 
 26.000 ,27.250 ,27.000 ,26.000 ,25.500 ,25.000 ,23.500 ,22.500 ,24.000 ,26.750 ,25.500 ,26.250 ,25.750 ,24.500 ,22.500 ,22.500 ,22.000 ,22.500 ,22.750 ,23.750 ,24.250 ,21.750 ,22.000 ,22.250 ,22.000 ,22.250 ,21.500 ,21.250 ,21.000 ,21.000 ,21.250 ,21.750 ,21.250 ,20.500 ,20.500 ,21.000 ,21.250 ,20.750 ,21.250 ,21.000 ,22.000 ,21.000 ,20.500 ,20.250 ,20.500 ,20.500 ,21.000 ,21.500 ,20.500 ,20.500 ,20.000 ,20.750 ,20.000 ,21.250 ,21.250 ,21.500 ,21.250 ,20.250 ,20.000 ,20.000 ,19.750 ,20.000 ,20.250 ,21.500 ,\textcolor{blue}{25.0625} ,17:34:04.009
 
-Sporadisch enstanden bei der Messung durch das Programm H-Term fehlerhafte Datenstreams, da der mitgesendete Zeitstempel erst nach dem Header eingefügt wurde. Dies verursachte bei der Konvertierung negative Temperaturwerte.  Diese Fehler mussten von Hand korrigiert werden. 
+Durch das Programm H-Term sind bei der Messung sporadisch fehlerhafte Datenströme entstanden, da der mitgesendete Zeitstempel erst nach dem Header eingefügt wurde. Dies verursachte bei der Konvertierung negative Temperaturwerte, welche von Hand korrigiert werden mussten. 
 
 
 \section{Datenmanipulation mittels Interpolation}
 \label{sec:Datenmanipulation}
 
-Die Auflösung von 8x8 Pixel bietet nur begrenzte Wärmebildinformation über die Anzahl Personen in einem Aufzug. Daher wurde in MATLAB mehrere Interpolationsverfahren benutzt, um die Auflösung, und somit die Wärmebildinformationen zu vergrössern. Im Zusammenhang mit den Pixelwerten eignet sich das bikubische oder das lanczossche Interpolationsverfahren [\protect\cite{Interpol}]. Beim bikubischen Ansatz werden die berechneten Pixel gleichmässig interpoliert. Beim lanczosschen Interpolationsverfahren werden wärmere Gebiete stärker vom kühleren Hintergrund getrennt. Bei einer Interpolation von 8x8 Pixel auf 32x32 Pixel nähern sich die Werte beider Verfahren sehr stark an, da die originalen Wärmebildinformationen begrenzt sind. In Abbildung \ref{fig:interpol1} und \ref{fig:interpol2} sind das Orginalframe, indem sich drei Personen befinden, und die lanczosche Interpolation dargestellt.
+Die Auflösung von 8x8 Pixel bietet nur begrenzte Wärmebildinformationen über die Anzahl Personen in einem Aufzug. Daher wurde in MATLAB mehrere Interpolationsverfahren benutzt, um die Auflösung, und somit die Wärmebildinformationen zu vergrössern. Im Zusammenhang mit den Pixelwerten eignet sich das bikubische oder das lanczossche Interpolationsverfahren [\protect\cite{Interpol}]. Beim bikubischen Ansatz werden die berechneten Pixel gleichmässig interpoliert. Beim lanczosschen Interpolationsverfahren werden wärmere Gebiete stärker vom kühleren Hintergrund getrennt. Bei einer Interpolation von 8x8 Pixel auf 32x32 Pixel nähern sich die Werte beider Verfahren sehr stark an, da die originalen Wärmebildinformationen begrenzt sind. In Abbildung \ref{fig:interpol1} und \ref{fig:interpol2} sind das Orginalframe, indem sich drei Personen befinden, und die lanczosche Interpolation dargestellt.
 
 
 \begin{figure}[!ht]
@@ -51,9 +51,9 @@ Die Auflösung von 8x8 Pixel bietet nur begrenzte Wärmebildinformation über di
 	\end{minipage}
 \end{figure}
 
-In Hinsicht auf das neuronale Netzwerk bieten vor allem grössere Auflösungen mehr Spielraum für das \ac{CNN}. Es können so grössere Filter verwendet werden, damit mehr Eigenschaften\footnote{sogenannte Features} identifiziert werden. Die Auflösung gibt zudem auch die Tiefe des neuronalen Netzwerks vor. Je weniger Bildinformationen zur Verfügung stehen, desto weniger gewinnbringend sind zusätzliche Ebenen im neuronalen Netzwerks. 
+In Hinsicht auf das neuronale Netzwerk bieten vor allem grössere Auflösungen mehr Spielraum für das \ac{CNN}. Es können so grössere Filter verwendet werden, damit mehr Eigenschaften\footnote{sogenannte Features} identifiziert werden. Die Auflösung gibt zudem auch die Tiefe des neuronalen Netzwerks vor. Je weniger Bildinformationen zur Verfügung stehen, desto weniger gewinnbringend sind zusätzliche Ebenen im neuronalen Netzwerk. 
 
-Ein weiterer Ansatz ist, wenn man annimmt das die Hintergrundtemperatur und die Thermistorwerte, sofern keine Störquellen einwirken, identisch sind. Damit lässt sich eine Bildkorrektur durchführen. Wird angenommen,dass Personen wärmer sind, als die Umgebung, dann lässt sich das Bild auf die entsprechenden Pixel filtern. Es entsteht ein binäres Wärmebild, welches die Personen hervorhebt. 
+Weiter kann man davon ausgehen, dass die Hintergrundtemperatur und die Thermistorwerte, sofern keine Störquellen einwirken, identisch sind. Damit lässt sich eine Bildkorrektur durchführen. Wird angenommen, dass Personen wärmer sind als die Umgebung, dann lässt sich das Bild auf die entsprechenden Pixel filtern. Es entsteht ein binäres Wärmebild, welches die Personen hervorhebt. 
 
 \begin{figure}[H]
 	\centering
@@ -64,12 +64,12 @@ Ein weiterer Ansatz ist, wenn man annimmt das die Hintergrundtemperatur und die 
 
 Mit diesem binären Filter können die Wärmemuster, welche Personen besitzen, vereinfacht betrachtet werden. Dieser Ansatz bedingt jedoch, dass die Personen zu jeder Zeit höhere Temperaturen besitzen als die Umgebungstemperatur. Dies kann nicht jederzeit garantiert werden, daher wurde dieser Ansatz nicht weitergeführt.
 
-Nachteilig ist bei beiden Ansätzen, dass die Wärmebildinformationen mit zunehmender Grösse zum Teil stark verfälscht werden oder verloren gehen, da sich die interpolierten Pixel nur rechnerisch abschätzen lassen. Es wurde daher entschieden, die Auflösung bei den unverfälschten, originalen Frames zu belassen. Es werden keine Bildinformationen manipuliert  oder gehen verloren, jedoch ist die Tiefe des neuronalen Netzwerks beschränkt.
+Nachteilig ist bei beiden Ansätzen, dass die Wärmebildinformationen mit zunehmender Grösse zum Teil stark verfälscht werden oder verloren gehen, da sich die interpolierten Pixel nur rechnerisch abschätzen lassen. Es wurde daher entschieden, die Auflösung bei den unverfälschten, originalen Frames zu belassen. Es werden keine Bildinformationen manipuliert oder verloren gehen, jedoch ist die Tiefe des neuronalen Netzwerks beschränkt.
 
 \section{Symmetrische Erweiterung}
 \label{sec:Symmetrische Erweiterung}
 
-Um die Messdaten zu vergrößern wurden diese mit deren Symmetrien erweitert. Dafür wurde für das jeweilige Profil je ein Python-Programm rotate\_and\_swap\_ProfilX\footnote{im digitalen Anhang \ref{AnhangDig} angefügt}  geschrieben, welche alle Frames der Datensätze symmetrisch erweitert.  Es lassen sich die zusätzlichen Frames, welche in den nachfolgenden Abbildungen dargestellt sind, bilden.
+Um die Messdaten zu vergrößern wurden diese mit deren Symmetrien erweitert. Dafür wurde für das jeweilige Profil je ein Python-Programm rotate\_and\_swap\_ProfilX\footnote{im digitalen Anhang \ref{AnhangDig} angefügt}  geschrieben, welches alle Frames der Datensätze symmetrisch erweitert.  Es lassen sich die zusätzlichen Frames bilden, welche in den nachfolgenden Abbildungen \ref{fig:original} dargestellt sind, bilden.
 
 \begin{figure}[!ht]
 	\centering
@@ -88,34 +88,34 @@ Um die Messdaten zu vergrößern wurden diese mit deren Symmetrien erweitert. Da
 \end{figure}
 
 
-Durch die Erweiterung konnten die Messdaten um den Faktor 5 vergrößert werden. Es konnten nicht vermessenen Positionen nachträglich generiert werden. Mit den Messstandorten A bis I und den generierten Erweiterungen stehen eine Vielzahl an Varianten zur Verfügung. 
+Durch die Erweiterung konnten die Messdaten um den Faktor 5 vergrößert und die nicht vermessenen Positionen nachträglich generiert werden. Mit den Messstandorten A bis I und den generierten Erweiterungen stehen eine Vielzahl an Varianten zur Verfügung. 
 
 
 \section{Profilbildung}
 \label{sec:Profilbildung}
 
-Mit den Python-Skripts rawDatamergeV3\_ProfilX\footnote{im digitalen Anhang \ref{AnhangDig} angefügt} werden die einzelnen Messungen zu einem Datenset zusammengestellt. Jedem Frame wird eine weitere Spalte, die die richtige Anzahl Personen im Frames angibt, mitgegeben. Die zusammengefügten Datensätze wurden nach den drei vermessenen Aufzugprofilen erstellt. Ein Überblick über die Messumgebungsparameter des jeweiligen Profils ist in Anhang \ref{AnhangD} angefügt.
+Mit den Python-Skripts rawDatamergeV3\_ProfilX\footnote{im digitalen Anhang \ref{AnhangDig} angefügt} werden die einzelnen Messungen zu einem Datenset zusammengestellt. Jedem Frame wird eine weitere Spalte, die die richtige Anzahl Personen im Frame angibt, mitgegeben. Die zusammengefügten Datensätze wurden nach den drei vermessenen Aufzugsprofilen erstellt. Ein Überblick über die Messumgebungsparameter des jeweiligen Profils ist in Anhang \ref{AnhangD} angefügt.
 
 Es lassen sich  individuell weitere Files hinzufügen oder entfernen. Die  Tabelle \ref{tab:Profilbildung} zeigt, aus welchen Frames die Profile zusammengesetzt sind.
 
 \begin{table}[H]
 	\centering
-	\caption{Zusammesetzung  der Profile}
+	\caption{Zusammesetzung  der Profile in [Frames]}
 	\label{tab:Profilbildung}
 	\begin{tabular}{|c|c|c|c|c|c|c|}
 		\hline
 		\rowcolor[HTML]{9B9B9B} 
 		\multicolumn{1}{|l|}{\cellcolor[HTML]{9B9B9B}}                   & \multicolumn{1}{l|}{\cellcolor[HTML]{9B9B9B}\textbf{0 Personen}} & \textbf{1 Person} & \textbf{2 Personen} & \textbf{3 Personen} & \textbf{4 Personen} & \textbf{Gesamt} \\ \hline
-		\cellcolor[HTML]{9B9B9B}\textbf{Profi 1}                         & 21632                                                            & 42129             & 46826               & 23943               & 17406               & 151936          \\ \hline
+		\cellcolor[HTML]{9B9B9B}\textbf{Profil 1}                         & 21632                                                            & 42129             & 46826               & 23943               & 17406               & 151936          \\ \hline
 		\cellcolor[HTML]{9B9B9B}\textbf{Profil 2}                        & 21632                                                            & 42284             & 47736               & 23108               & 18421               & 153181          \\ \hline
 		\cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Profil 3}} & 21632                                                            & 43479             & 47631               & 23933               & 17786               & 154461          \\ \hline
 	\end{tabular}
 \end{table}
 
-Neben den drei Profilen wurden ein Testprofil erstellt, welches keine Frames der drei Profile verwendet. Dieses Testprofil besitzt hauptsächlich Ausnahmesituationen, die für den Algorithmus schwieriger zu erkennen sind. Dabei wurden folgende Ausnahmesituationen angewendet:
+Neben den drei Profilen wurde ein Testprofil erstellt, welches keine Frames der drei Profile verwendet. Dieses Testprofil besitzt hauptsächlich Ausnahmesituationen, die für den Algorithmus schwieriger zu erkennen sind. Dabei wurden folgende Ausnahmesituationen angewendet:
 
 \begin{itemize}
-	\item nahe nebeneinander stehende Personen 
+	\item Nahe nebeneinander stehende Personen 
 	\item Personen am Rand des Messbereichs
 	\item Störquellen im Messbereich
 	\item Objekte mit Temperaturdifferenzen
@@ -135,24 +135,24 @@ Es wurden dafür auch Messdaten aus Kapitel \ref{chap:Testphasen} verwendet. Die
 	\end{tabular}
 \end{table}
 
-\section{Aufbau Convolution Neural Network}
+\section{Aufbau des Convolution Neural Network}
 \label{AufbauConv}
 
-Für das neuronale Netzwerks wurden ein zweistufiges Python-Skript geschrieben, welches vom Beispiels des \ac{MNIST Dataset} und des Hvass-Labs adaptiert wurde [\protect\cite{Tensorflow}][\protect\cite{HVASS}].
+Für das neuronale Netzwerk wurde ein zweistufiges Python-Skript geschrieben, welches vom Beispiel des \ac{MNIST Dataset} und des Hvass-Labs adaptiert wurde [\protect\cite{Tensorflow}][\protect\cite{HVASS}].
 
-Im Teil Input\_data.py wurde eine Klasse Dataset erstellt, welche alle nötigen Funktionen besitzt, um die Frames aus dem \ac{CSV}-File, soweit vorzubereiten, damit diese dem Neuronalen Netzwerk als Input übergeben werden. 
+Im Teil Input\_data.py wurde eine Klasse Dataset erstellt, welche alle nötigen Funktionen besitzt, um die Frames aus dem \ac{CSV}-File soweit vorzubereiten, damit diese dem Neuronalen Netzwerk als Input übergeben werden kann. 
 
-In dieser Klasse lassen sich die jeweiligen Test- und Trainingsets wählen. Daneben kann eine zusätzliches Validierungsset aus dem Trainingsset extrahiert werden. Dieses wird benötigt, um das zu trainierende Modell bestmöglich anzupassen\footnote{sogenanntes model fitting}. Nähere Erläuterungen zu Training und Validierung folgen im Unterkapitel \ref{TrainingValidierung}.
+In dieser Klasse lassen sich die jeweiligen Test- und Trainingsets wählen. Daneben kann eine zusätzliches Validierungsset aus dem Trainingsset extrahiert werden. Dieses wird benötigt, um das zu trainierende Modell bestmöglich anzupassen\footnote{Auch  bekannt als model fitting}. Nähere Erläuterungen zu Training und Validierung folgen im Unterkapitel \ref{TrainingValidierung}.
 
 Das \ac{CNN} wurde im Teil Personendetektion\_Modelling\_V3\_ProfilX.py\footnote{im digitalen Anhang \ref{AnhangDig} angefügt} implementiert. Daneben besitzt dieses File einige Hilfsfunktionen, welche für das Training und die Validierung nötig sind.
 
-Anfänglich wurde mit der Tiefe des Netzwerks variiert, dabei wurde die Tiefe stetig vergrössert bis keine Verbesserungen mehr erkennbar waren. Es stellte sich heraus, dass ein 3-stufiges Netzwerk die besten Ergebnisse liefert.
+Anfänglich wurde mit der Tiefe des Netzwerks variiert, dabei wurde die Tiefe stetig vergrössert bis keine Verbesserungen mehr erkennbar waren. Es stellte sich heraus, dass ein dreistufiges Netzwerk die besten Ergebnisse liefert.
 
-Das Netzwerk besteht aus mehreren Teilblöcken, die üblicherweise sequentiell hintereinander geschaltet sind. Dabei wird jedes Frame einzeln dem CNN übergeben und ausgewertet. Nachfolgend sind die Funktionen der Teilblöcke kurz beschrieben\footnote{nähere Erläuterungen unter www.tensorflow.org/ }: \\
+Das Netzwerk besteht aus mehreren Teilblöcken, die üblicherweise sequentiell hintereinander geschaltet sind. Dabei wird jedes Frame einzeln dem CNN übergeben und ausgewertet. Nachfolgend sind die Funktionen der Teilblöcke kurz beschrieben, wobei nähere Erläuterungen online\footnote{Unter www.tensorflow.org/ } zu finden sind.
 
 \textbf{Convoluton Layer:} Filtermatrizen die entsprechend der Einstellung durch das gesamte vorhandene Bild iterieren, um Features zu identifizieren.   \\
 \textbf{Polling Layer:} Überflüssige Informationen werden entfernt und das Frame wird verkleinert.   \\
-\textbf{Fully-connected Layer:} Werden zur Klassifizierung am Ende des Netzwerk angewendet, indem mehrere Verknüpfungen aktiviert werden. Aus den Aktivierten Verknüfungen wird der entsprechende Output ausgegeben.   \\
+\textbf{Fully-connected Layer:} Werden zur Klassifizierung am Ende des Netzwerks angewendet, indem mehrere Verknüpfungen aktiviert werden. Aus den aktivierten Verknüpfungen wird der entsprechende Output ausgegeben.   \\
 
 Das erstellte Netzwerk ist funktionell in Abbildung \ref{fig:CNN} dargestellt.
 \begin{figure}[H]
@@ -176,7 +176,7 @@ Im Python-Skript Personendetektion\_Modelling\_V3\_Profil1.py wurde das \ac{CNN}
 Dafür werden ständig neue zufällige Frames aus dem Datenset zu einem Batch\footnote{zu Deutsch: Stapel} zusammengefügt und iterativ dem \ac{CNN} übergeben. Während den Iterationen werden mit den Labels ständig Soll/Ist-Vergleiche durchgeführt und die Parameter der Layer automatisch verbessert. 
 Für den Optimierungsalgorithmus wurden mehrere verschiedene Algorithmen ausprobiert. Die besten Ergebnisse konnten mit dem AdamOptimizer erzielt werden. Dafür wurden die standardmäßigen Parameter von Tensorflow übernommen.
 
-In Abbildung \ref{fig:traininsverlauf} ist die prozentuale Übereinstimmung der Frames mit einer Batchgrösse von 1000 Frames in Abhängigkeit der Anzahl Iterationen abgebildet. Dabei wird das Trainingsset und ein das Vaildierungsset verwendet. Sie zeigen die aktuellen Übereisstimmungen an. 
+In Abbildung \ref{fig:traininsverlauf} ist die prozentuale Übereinstimmung der Frames mit einer Batchgrösse von 1000 Frames in Abhängigkeit der Anzahl Iterationen abgebildet. Dabei wird das Trainingsset und das Vaildierungsset verwendet. Sie zeigen die aktuellen Übereisstimmungen an. 
 
 \begin{figure}[H]
 	\centering
@@ -185,7 +185,7 @@ In Abbildung \ref{fig:traininsverlauf} ist die prozentuale Übereinstimmung der 
 	\includegraphics[width=1.0\linewidth]{fig/Traininsverlauf}
 \end{figure}
 
-Die Iterationen steigen anfänglich stark an und konvergieren nahe zu 100\%. Die Validationsset besitzt ein sehr ähnliche Übereinstimmung. Dies liegt daran, dass diese zufällige Frames sind, die aus dem Trainingsset entnommen wurden. Während den Iterationen werden mit der Saver-Klasse von Tensorflow die besten prozentualen Ergebnisse\footnote{Übereistimmung: Training: 100.00\%, Validierung 99.92\%}  in ein Modell gespeichert. Diese können dann weiter verwendet werden. Je nach Grösse der Parameter kann diese Berechnung bis zu mehreren Stunden\footnote{abhängig von der Rechenleistung des Computers} dauern. 
+Die Iterationen steigen anfänglich stark an und konvergieren nahe zu 100\%. Das Validationsset besitzt eine sehr ähnliche Übereinstimmung. Dies liegt daran, dass es sich um zufällige Frames handelt, die aus dem Trainingsset entnommen wurden. Während den Iterationen werden mit der Saver-Klasse von Tensorflow die besten prozentualen Ergebnisse\footnote{Übereistimmung: Training: 100.00\%, Validierung 99.92\%}  in ein Modell gespeichert. Diese können dann weiter verwendet werden. Je nach Grösse der Parameter kann diese Berechnung bis zu mehreren Stunden\footnote{abhängig von der Rechenleistung des Computers} dauern. 
 
 
 \section{Ergebnisse}
@@ -196,39 +196,39 @@ In diesem Unterkapitel werden die Resultate der Profile ausgewertet und durch ei
 
 \subsection{Profil 1}
 \label{subsec:Profil1}
-Im Vergleich mit den anderen zwei Profilen konnte mit dem Profil 1 die besten Ergebnisse erzielt werden. Daher wurde das endgültige Model mit dem Datenset des Profils 1 trainiert. Nachfolgende Grafik zeigt die Übereinstimmung des trainierten Modells, wenn das Model auf das eigene Datenset getestet wird. 
+Im Vergleich mit den anderen zwei Profilen konnten mit dem Profil 1 die besten Ergebnisse erzielt werden. Daher wurde das endgültige Model mit dem Datenset des Profils 1 trainiert. Nachfolgende Grafik zeigt die Übereinstimmung des trainierten Modells, wenn das Model auf das eigene Datenset getestet wird. 
 
 
 \begin{figure}[H]
 	\centering
 	\label{fig:profil1}
-	\includegraphics[width=0.49\linewidth]{fig/Profil_1m}
+	\includegraphics[width=0.55\linewidth]{fig/Profil_1m}
 	\caption[Confusion Matrix Profil 1]{Confusion Matrix Profil 1}
 
 \end{figure}
 
- Es ist naheliegend, dass praktisch alle vorhergesagten Frames richtig klassifiziert wurden. Die grössten Verfehlungen liegen bei der Klassifizierung von 2 und 3 Personen. Es wurden 44 Frames als 2 klassifziert, wobei sich richtigerweise 3 Personen im Messberich befanden. Im Verhältnis zu denn insgesamt 151935 Frames sind dies jedoch sehr tiefe Werte.
+ Es ist naheliegend, dass praktisch alle vorhergesagten Frames richtig klassifiziert wurden. Die grössten Verfehlungen liegen bei der Klassifizierung von zwei und drei Personen. Es wurden 44 Frames als Zwei klassifziert, wobei sich richtigerweise drei Personen im Messbereich befanden. Im Verhältnis zu den insgesamt 151935 Frames sind dies jedoch sehr tiefe Werte.
 
 \subsection{Profil 2}
 \label{subsec:Profil2}
-Mit dem Profil 2 wurden im Allgemeinen die schlechtesten Ergebnisse erzielt. Bei der Betrachtung der fehlerhaften Frames, wurde festgestellt, dass es einige Frames gibt in denen bei den 3 Personen Frames eine Person kaum im Messbereich stand und dadurch schwieriger zu identifizieren ist. Dies ist auch in der folgenden Confusion Matrix ersichtlich.
+Mit dem Profil 2 wurden im Allgemeinen die schlechtesten Ergebnisse erzielt. Bei der Betrachtung der fehlerhaften Frames, wurde festgestellt, dass es einige Frames gibt in denen bei den drei Personen Frames eine Person davon kaum im Messbereich stand und dadurch schwieriger zu identifizieren ist. Dies ist auch in der folgenden Confusion Matrix ersichtlich.
 
 \begin{figure}[H]
 	\centering
 		\label{fig:profil2}
-	\includegraphics[width=0.5\linewidth]{fig/Profil_2m}
+	\includegraphics[width=0.55\linewidth]{fig/Profil_2m}
 	\caption[Confusion Matrix Profil 2]{Confusion Matrix Profil 2}
 
 \end{figure}
- Es wurden verhältnismäßig auch viele Frames mit 4 Personen als 3 Personen wahrgenommen. Das Profil 2 zeigt deutlich auf, das mit zunehmender Personenanzahl die richtige Personenzahl schwieriger zu detektieren ist. Die Identifikation von 0 - 2 Personen gelingt in den meisten Fällen. Bei 3 -4 Personen ist die Wahrscheinlichkeit von der richtigen Personendetektion nur noch ca 60%.
+ Es wurden verhältnismäßig auch viele Frames mit vier Personen als drei Personen wahrgenommen. Das Profil 2 zeigt deutlich auf, das mit zunehmender Personenanzahl die richtige Personenzahl schwieriger zu detektieren ist. Die Identifikation von null - zwei Personen gelingt in den meisten Fällen. Bei drei bis vier Personen ist die Wahrscheinlichkeit von der richtigen Personendetektion nur noch rund 60\%.
 
 \subsection{Profil 3}
 \label{subsec:Profil3}
-Das Profil 3 besitzt eine grosse Übereinstimmung mit den trainierten Modell. In Anhang \ref{AnhangD} ist jedoch ersichtlich, das die zwei  Personenaufzüge ganz andere Eigenschaften besitzen. Es wurden jedoch keine dieser Frames für das Training verwendet.
+Das Profil 3 besitzt eine grosse Übereinstimmung mit den trainierten Modell. In Anhang \ref{AnhangD} ist jedoch ersichtlich, das die zwei  Personenaufzüge ganz andere Eigenschaften besitzen. Es wurde jedoch keines dieser Frames für das Training verwendet.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{fig/Profil_3m}
+	\includegraphics[width=0.55\linewidth]{fig/Profil_3m}
 	\caption[Confusion Matrix Profil 3]{Confusion Matrix Profil 3}
 		\label{fig:profil3}
 \end{figure}
@@ -237,17 +237,17 @@ Auch hier ist die Tendenz, dass mit zunehmender Personenzahl die Übereinstimmun
 
 \subsection{Testprofil}
 \label{subsec:Testprofil}
-Das Testprofil zeigt deutlich auf, welche Schwierigkeiten der Algorithmus besitzt, wenn Störquellen und Ausnahmesituationen vom \ac{CNN} verarbeitet werden. Es konnten trotz den Störeinflüssen alle 0 Frames mit 0 Personen richtig erkannt werden. 
+Das Testprofil zeigt deutlich auf, welche Schwierigkeiten der Algorithmus besitzt, wenn Störquellen und Ausnahmesituationen vom \ac{CNN} verarbeitet werden. Es konnten trotz der Störeinflüsse alle null Frames mit null Personen richtig erkannt werden. 
  
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.5\linewidth]{fig/Testprofilm}
+	\includegraphics[width=0.55\linewidth]{fig/Testprofilm}
 	\caption{Testprofil}
 	\label{fig:profil4}
 \end{figure}
 
-Wenn einzelne Personen am Rand des Messbereichs stehen können diese noch identifiziert werden. Werden mehrere Personen am Rand platziert, kann das \ac{CNN} nicht mehr alle Personen rihctig identifizieren. Dies erklärt die Verfehlungen oberhalb der Diagonalen.
-Ein weiteres Problem ist, wenn sich neben der richtigen Anzahl Personen noch ein weiteres Objekt im Messsbereich befindet. Die Temperaturdifferenz des Objekts zum Hintergrund, verursacht dass eine Person zu viel erkannt wird. Dies erklärt die Verfehlungen unterhalb der Diagonalen. 
+Wenn einzelne Personen am Rand des Messbereichs stehen können diese noch identifiziert werden. Werden mehrere Personen am Rand platziert, kann das \ac{CNN} nicht mehr alle Personen richtig identifizieren. Dies erklärt die Verfehlungen oberhalb der Diagonalen.
+Ein weiteres Problem ist, wenn sich neben der richtigen Anzahl Personen noch ein weiteres Objekt im Messsbereich befindet. Die Temperaturdifferenz des Objekts zum Hintergrund verursacht, dass eine Person zu viel erkannt wird. Dies erklärt die Fehler unterhalb der Diagonalen. 
 
 \newpage
 
@@ -272,27 +272,27 @@ Dank einem VNC-Server kann das \acsfont{RPI3} drahtlos über WLAN vom Laptop ges
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\linewidth]{fig/Messeinheit.png}
+	\includegraphics[width=0.9\linewidth]{fig/Messeinheit.png}
 	\caption{Prinzipschema}
 	\label{fig:einheit2}
 \end{figure}
 
-Die Personendetektion wird mit dem Python-Skript Persondendetektion\_Execution\_V1 ausgeführt. In diesem laufen parallel zwei Threads\footnote{parallel laufende Programmteile}. Der Thread Serial Read liest alle 100 ms die ankommenden Frames und bereitet diese für das \acsfont{CNN}. Im zweiten Thread wird das \ac{CNN} mit einem geladenen Modell ausgeführt. 
+Die Personendetektion wird mit dem Python-Skript Persondendetektion\_Execution\_V1 ausgeführt. In diesem laufen parallel zwei Threads\footnote{parallel laufende Programmteile}. Der Thread Serial Read liest alle 100 ms die ankommenden Frames und bereitet diese für das \ac{CNN} vor. Im zweiten Thread wird das \ac{CNN} mit einem geladenen Modell ausgeführt. 
 
-Die berechneten Personenzahlen werden im Zyklus von 1 Sekunde ausgegeben. Dabei werden aus den zehn Frames der Median\footnote{Mittelwert, unabhängig von Ausreissern} eruiert und ausgegeben. 
+Die berechneten Personenzahlen werden im Zyklus von einer Sekunde ausgegeben. Dabei werden aus den zehn Frames der Median\footnote{Mittelwert, unabhängig von Ausreissern} eruiert und ausgegeben. 
 
-Auf dem Raspberry Pi wurde das vollständige Tensorflow r1.7 installiert. Es empfiehlt sich trotzdem nicht, dass Training auf dem Raspberry Pi duchzuführen. Die Rechenzeit für ein Model benötigt mehrere Stunden, da bedeutend weniger Rechenleistung vorhanden ist. 
+Auf dem Raspberry Pi wurde das vollständige Tensorflow r1.7 installiert. Es empfiehlt sich trotzdem nicht, das Training auf dem Raspberry Pi durchzuführen. Die Rechenzeit für ein Model benötigt mehrere Stunden, da bedeutend weniger Rechenleistung vorhanden ist. 
 
 
 \section{Fazit}
 
-Tensorflow bietet mit der Implementierung eines \ac{CNN} eine grosse Anzahl an Parameter und variierbaren Einstellungen, um eine Bilderkennung mittels maschinellen Lernens zu realisieren. 
+Tensorflow bietet mit der Implementierung eines \ac{CNN} eine grosse Anzahl an Parametern und variierbaren Einstellungen, um eine Bilderkennung mittels maschinellem Lernens zu realisieren. 
 
-Der relevanteste Punkt für die Personenerkennung sind die Trainingssets. Es wurde mit den erstellten Datensätzen eine möglichst breite Palette an Situationen generiert, trotzdem lassen sich zum Teil Frames nicht differenzieren.
+Der relevantesten Punkt für die Personenerkennung sind die Trainingssets. Es wurde mit den erstellten Datensätzen eine möglichst breite Palette an Situationen generiert, aber trotzdem lassen sich zum Teil Frames nicht differenzieren.
 
-Die Auflösung ist in diesem Zusammenhang von grosser Bedeutung. Da nur 8x8 Pixel zur Verfügung stehen, ist die Tiefe de neuronalen Netzwerk begrenzt. Es lassen sich viele Features aus den Frames generieren, doch die Unterschiede zu anderen Objekten lassen sich nur bedingt erstellen. Vor allem an den Rändern reichen die vorhandenen Bildinformationen nicht aus um zweifelsfreie die richtige Anzahl Personen zu detektieren. 
+Die Auflösung ist in diesem Zusammenhang von grosser Bedeutung. Da nur 8x8 Pixel zur Verfügung stehen, ist die Tiefe des neuronalen Netzwerk begrenzt. Es lassen sich viele Features aus den Frames generieren, doch die Unterschiede zu anderen Objekten lassen sich nur bedingt erstellen. Vor allem an den Rändern reichen die vorhandenen Bildinformationen nicht aus um zweifelsfrei die richtige Anzahl Personen zu detektieren. 
 
-Die Genauigkeit des Sensors streut mit 3°C bedeutend. Dies verursacht das die bedeutend mehr unterschiedliche thermische Frames vorhanden sind, doch die Streuung verursacht eine grösse Messunsicherheit, welche vorallem bei Bilder zu tragen kommen, in welchen mehrere Personen von unterschieldicher Grösse nahe beinader stehen. Durch die Unsicherheit lassen sich einzelne grosse Personen kaum von mehreren kleinen Personen differenzieren.
+Die Genauigkeit des Sensors streut mit 3°C bedeutend. Dies verursacht, dass bedeutend mehr unterschiedliche thermische Frames vorhanden sind. Doch die Streuung verursacht eine grosse Messunsicherheit, welche vor allem bei Bilder zu tragen kommen, in denen mehrere Personen von unterschiedlicher Grösse nahe nebenbeinander stehen. Durch die Unsicherheit lassen sich einzelne grosse Personen kaum von mehreren kleinen Personen differenzieren.
 
 
 

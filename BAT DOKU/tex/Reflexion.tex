@@ -5,28 +5,50 @@ Dieses Kapitel beinhaltet neben den bedeutendsten Erläuterungen zum Projektmana
 
 
 \section{Erläuterungen zum Projektmanagement}
-Im Rahmen dieser Arbeit wurde anfänglich die Meilensteine definiert, welche im Anhang \ref{AnhangA} zu sehen sind. Der detaillierte Projektplan im Anhang \ref{AnhangB} bietet vollständigen Überblick über die erledigten Tätigkeiten. 
+\label{Projektmanagement}
+Im Rahmen dieser Arbeit wurden anfänglich die Meilensteine definiert und ein Risikomanagement erstellt. Da diverse Meilensteine voneinander abhängig sind, mussten im Verlauf der Arbeit diese angepasst werden. In Anhang \ref{AnhangA} und \ref{AnhangC} ist der Meilensteinplan V3 und das Risikomanagement angefügt.
 
+Neben der Planung wurden die wöchentlichen Besprechungen protokolliert und entsprechende Erkenntnisse in die Planung miteinbezogen. 
 
-DiProblematiken nach dem Risikomanagement in \ref{AnhangC} angegangen.
+Der detaillierte Projektplan V3 im Anhang \ref{AnhangB} bietet vollständigen Überblick über die erledigten Tätigkeiten während der gesamten Arbeit. Dabei sind die Meilensteine \textcolor{darkgray}{grau} markiert.
 
-In Anhang \ref{AnhangA}
+Es wurde ein SCRUM ähnliches Verfahren angewendet, um alle anstehenden Aufgaben systematisch abzuarbeiten. Der detaillierte Projektplan gibt zudem auch den geschätzten und effektiven Zeitaufwand der Tätigkeit wieder.
+
+Der gesamthaft, berechnete Zeitaufwand ist in der Tabelle  \ref{tab:Zeitaufwand} dargestellt. Die entstandenen Differenz des Soll-Ist-Vergleich wird in nachfolgenden Abschnitt erläutert.
 
 \begin{table}[H]
 	\centering
 	\caption{Soll-Ist-Vergleich zeitlicher Aufwendungen in [h]}
-	\label{my-label}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\rowcolor[HTML]{9B9B9B} 
 	\multicolumn{1}{|c|}{\cellcolor[HTML]{9B9B9B}\textbf{Soll-Aufwand}} &  \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}{\color[HTML]{333333} \textbf{Ist-Aufwand}}} & \textbf{zeitliche Differenz} \\ \hline
-		200.0
-		& 300.0                                                                                           &    
-		200.0                \\ \hline
+		420.5
+		& 472.25                                                                                           &    
+		52.25                \\ \hline
 	\end{tabular}
+	\label{tab:Zeitaufwand}
 \end{table}
 
+Im allgemeinen wurde die Aufwände der einzelnen Tätigkeiten eher unterschätzt. Dabei sind vor allem die Zeitdifferenzen der Projektphasen; Hardware/Software V1, Datenerfassung \& Auswertung TP1 und die Dokumentation ausschlaggebend für die Differenz.
 
+Für die Informationsbeschaffung musste mehr Zeit aufgewendet werden, bis die Grundlagen des Messprinzips verstanden wurden. Daher wurde der Zeitraum verlängert.
+
+Der Testaufbau und die Durchführungen benötigen enorm viel Zeit, da jede Messung vor- und nachbearbeitet wurde. Dabei nehmen die Parameteridentifikation und die Auswertung der Messergebnisse zusätzliche Zeit in Anspruch. 
+
+Die Softwareimplementierung des \ac{CNN} war bedeutend aufwendiger als angenommen. Viele kleine Fehler verursachten Verzögerungen, daher musste dieser Projektabschnitt um eine Woche verlängert werden. 
+
+Es wurde noch Zeit aufgewendet eine Echtzeitmesseinheit zu erstellen. Diese Messeinheit war in der anfänglichen Planung nicht enthalten. 
+
+Ansonsten konnten die geschätzten zeitlichen Rahmen eingehalten werden. Für die gesamte Projektplanung sowie der Aktualisierungen des Zeitplans und der Tätigkeiten wurde eine aufsummierte
+
+
+
+
+
+
+
+\newpage
 \section{Schlusswort}
 
 Mit der zunehmenden Verbreitung von Internet of Things in alltäglichen Situation bieten simple Sensoren neue Anwendungsmöglichkeiten. Das Potential von neuronalen Netzwerken für die Bilderkennung zeigen Vorzeigeprojekte wie das \acsfont{MNIST Dataset}. Auch in der thermografischen Bilderkennung bietet dieses Modellierungsverfahren Ansätze.

@@ -8,42 +8,52 @@
 \ihead[]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abstract}
 \input{tex/Abstract}
 
-
 %Inhaltsverzeichnis Dokumentation
 \newpage
 \ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Inhaltsverzeichnis]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Inhaltsverzeichnis}
 \tableofcontents
 
-
+\clearpage
+\pagenumbering{Roman} 
+\ofoot[]{\pagemark}
 
 %% Glossar
 \newpage
 \chapter*{Abkürzungverzeichnis}\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
 \input{tex/glossary.tex}
 \ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abkürzungsverzeichnis]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abkürzungsverzeichnis}
+\ofoot[]{\pagemark}
 
 
 %% Abbildungen
 \newpage
-\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abbildungen]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abbildungen}
+\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abbildungen, Tabellen, Formeln]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Abbildungen}
+\ofoot[\pagemark]{\pagemark}
 \listoffigures \addcontentsline{toc}{section}{Abbildungen}
 
-\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Tabellen]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Tabellen}
+
+%\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Tabellen]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Tabellen}
+%\ofoot[]{\pagemark}
 \listoftables \addcontentsline{toc}{section}{Tabellen}
-%% EQUATUIN
-\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small ]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Formeln}
+\ofoot[\pagemark]{\pagemark}
+%% EQUATION
+%\ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small ]{\sffamily \flushleft \sffamily BAT Schlussbericht\\ 
+% \small Formeln}
+%\ofoot[]{\pagemark}
 
 \listofmyequations \addcontentsline{toc}{section}{Formeln} 
+\ofoot[\pagemark]{\pagemark}
+
 \newpage
 \ihead[\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Literaturverzeichnis]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small Literaturverzeichnis}
-\printbibliography[ keyword={online}, title={Literaturverzeichnis}]\clearpage \addcontentsline{toc}{section}{Literaturverzeichnis}
+\printbibliography[ keyword={online}, title={Literaturverzeichnis}] \addcontentsline{toc}{section}{Literaturverzeichnis}
  
 \clearpage 
-
 
 %Zielbestimmung
 \ihead[]{\sffamily \flushleft \sffamily BAT Schlussbericht\\  \small \rightmark}
 \newpage
+\pagenumbering{arabic}
 \input{tex/Einleitung}
 \ofoot[]{\pagemark}
 \input{tex/Informationsbeschaffung}

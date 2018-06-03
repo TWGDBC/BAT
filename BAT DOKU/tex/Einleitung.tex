@@ -7,7 +7,7 @@ Durch den technologischen Wandel, den die Industrie 4.0 sowie \ac{IoT}  mit sich
 
 Für Wartungs- und Diagnosezwecke von Personenaufzügen bieten solche intelligente Systeme ein bedeutendes Potential. Durch die ortsunabhängige Kommunikation von übergreifenden Netzwerken und der Echtzeitverarbeitung bieten solche Messeinheiten Alternativen zu teuren Servicegängen. Mittels ständiger Überwachung und Fernwartung können Probleme frühzeitig erkannt und behoben werden. Die Anforderungen an eine solche Messeinheit hängt jedoch stark vom Einsatzort ab. Dabei spielen Langzeiteinsatz, Zuverlässigkeit, Flexibilität sowie auch der Energieverbrauch eine bedeutende Rolle.
 
-Ein relevantes Messobjekt für eine solche Messeinheit ist unter anderem die Anzahl Personen innerhalb eines Aufzugs. Da übliche Überwachungskameras und bildgebende TOF-Sensoren teuer sind und einen bedeutenden Energiebedarf besitzen, stellt sich in diesem Bereich die Frage nach einer Alternative.
+Eine relevante Messgrösse für eine solche Messeinheit ist unter anderem die Anzahl Personen innerhalb eines Aufzugs. Da übliche Überwachungskameras und bildgebende TOF-Sensoren teuer sind und als aktive Sensoren einen beträchtlichen Energiebedarf besitzen, stellt sich in diesem Bereich die Frage nach einer Alternative.
 
 \section{Aufgabenstellung}
 \label{chap:Aufgabenstellung}
@@ -15,14 +15,14 @@ Gegenstand dieser Bachelorarbeit ist die Überprüfung, ob \ac{PIR} für eine so
 
 \section{Ziel}
 \label{sec:Einleitung}
-In erster Linie soll mit dieser Arbeit die Fragestellung geklärt werden, ob sich bildgebende \ac{PIR} für die Personendetektion in Personenaufzügen eignen. Ziel ist es, einen breiten und fundierten Katalog über die Möglichkeiten und Grenzen des Messprinzips zu liefern. Aus diesem Katalog wird eine Bewertung erstellt, welche auf Basis von Messungen und dessen Ergebnissen aufbaut. Diese Bachelorarbeit begrenzt sich auf die Analyse des Messprinzips von bildgebenden \ac{PIR} Sensoren. Es werden keine Vergleiche mit anderen Sensorarten und Messprinzipien durchgeführt.
+In erster Linie soll mit dieser Arbeit die Fragestellung geklärt werden, ob sich bildgebende \ac{PIR} Sensoren für die Personendetektion in Personenaufzügen eignen. Ziel ist es, einen breiten und fundierten Katalog über die Möglichkeiten und Grenzen des Messprinzips zu liefern. Aus diesem Katalog wird eine Bewertung erstellt, welche auf Basis von Messungen und dessen Ergebnissen aufbaut. Diese Bachelorarbeit begrenzt sich auf die Analyse des Messprinzips von bildgebenden \ac{PIR} Sensoren. Es werden keine Vergleiche mit anderen Sensorarten und Messprinzipien durchgeführt.
 
 \section {Methodik}
 \label{sec:Methodik}
 Das Vorgehen wurde anfänglich durch einen Meilensteinplan gegliedert und ist etappenweise aufgebaut. Als erstes wurde ein Zeitraum für die Informationsbeschaffung definiert. Danach wiederholen sich Testphasen, Datenerfassungen und Auswertungen. Einzelne Testkonzepte geben Auskunft über die Testdurchführungen sowie die entsprechenden Testspezifikationen. 
 
-Das Projektmanagement in Anhang \ref{AnhangA} bis \ref{AnhangC} beinhaltet neben dem detaillierten Projektplan auch die anfänglich definierten Meilensteine. Im detaillierten Projektplan sind neben den Tätigkeiten auch die zeitlichen Abschätzungen als Soll-Ist-Vergleich angefügt. Im Kapitel \ref{chap:Reflexion} Reflexion wird zum Projektmanagement kurz Stellung genommen und grössere Differenzen kommentiert.
+Das Projektmanagement in Anhang \ref{AnhangA} bis \ref{AnhangC} beinhaltet neben dem detaillierten Projektplan auch die anfänglich definierten Meilensteine. Im detaillierten Projektplan sind neben den Tätigkeiten auch die zeitlichen Abschätzungen als Soll-Ist-Vergleich dargelegt. Im Kapitel \ref{chap:Reflexion} Reflexion wird zum Projektmanagement Stellung genommen und grössere Differenzen kommentiert.
 
-Für die Datenverarbeitung und Aufbereitung wurde mittels Matlab und Python 3.5 programmiert. Für den Auswertealgorithmus wird das Prinzip des maschinellen Lernens angewendet. Dafür steht die Open-Source-Library Tensorflow r1.7 von Google zur Verfügung. Im Anhang \ref{AnhangD} sind die erarbeiteten Datensätze für Tensorflow kurz spezifiziert. Der vollständige, programmierte Quellcode, die Rohdaten sowie die vorbereiteten Datensätze stehen im digitalen Anhang \ref{AnhangE} zur Verfügung. 
+Für die Datenverarbeitung und Software-Implementierung wurde mittels Matlab und Python 3.5 programmiert. Für den Auswertealgorithmus wird das Prinzip des maschinellen Lernens angewendet. Dafür steht die Open-Source-Library Tensorflow r1.7 von Google zur Verfügung. Im Anhang \ref{AnhangD} sind die erstellten Datensätze für das neuronale Netzwerk spezifiziert. Der vollständige, programmierte Quellcode, die Rohdaten, die Anhange und alle weiteren Ergebnisse stehen in digitalen Form in  Anhang \ref{AnhangE} zur Verfügung. 
 
 

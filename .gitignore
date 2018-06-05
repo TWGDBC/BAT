@@ -1,4 +1,4 @@
-*.aux
+Ordnerstruktur *.aux
 *.glo
 *.idx
 *.log
@@ -33,3 +33,4 @@
 # latexmk files
 *.fls
 *.fdb_latexmk
+

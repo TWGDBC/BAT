@@ -26,7 +26,7 @@ In Abbildung \ref{fig:SchemaAMG8834} ist das Prinzipschema des Sensors dargestel
 	\label{fig:SchemaAMG8834}
 \end{figure}
  
-Über die \ac{I2C}-Schnittstelle lassen sich die Werte der Thermoelemente und der Thermistoren je aus zwei Registern auslesen. Die Messwerte werden alle 100 ms aktualisiert. Dabei werden lediglich 12 Bit pro Pixel für die Temperaturregister genutzt. Dies führt zu der kleinsten unterscheidbaren Grösse von 0.25 $^\circ$C. Die Thermistorregister lassen sich mit der Auflösung von 0.0625 $^\circ$C unterscheiden. Im Datenblatt wird zwar eine \ac{NETD} von 0.05 °C für die Pixelwerte angegeben. Durch den \ac{ADC} kann diese Angabe jedoch nicht als Qualitätswert benutzt werden.
+Über die \ac{I2C}-Schnittstelle lassen sich die Werte der Thermoelemente und der Thermistoren je aus zwei Registern auslesen. Die Messwerte werden alle 100 ms aktualisiert. Dabei werden lediglich 12 Bit pro Pixel für die Temperaturregister genutzt. Dies führt zu der kleinsten unterscheidbaren Grösse von 0.25 $^\circ$C. Die Thermistorregister lassen sich mit der Auflösung von 0.0625 $^\circ$C unterscheiden. Im Datenblatt wird zwar eine \ac{NETD} von 0.05 °C für die Pixelwerte angegeben. Durch den \ac{ADC} kann diese Angabe jedoch nicht als Qualitätsangabe benutzt werden.
 In Abbildung \ref{fig:SchemaAMG8834} ist klar ersichtlich, dass die Umgebungstemperatur, bzw. die Temperatur, welche vom Thermistor gemessen wird, direkten Einfluss auf die Pixelwerte hat. Variieren die Thermistorwerte aufgrund von Raumtemperaturschwankungen, entstehen bei den Pixelwerten dadurch entsprechende Schwankungen.
 
 \section{Physikalische Aspekte}
@@ -38,10 +38,10 @@ Dieser Abschnitt erläutert auf prägnante Weise, physikalische Aspekte die dem 
 	\begin{tabular}{l|c|c}
 		\rowcolor{gray} Grösse &  Bezeichnung  & Einheit \\
 		\hline 
-		Thermospannung &  $ U_{t}$ & $J$  \\ 
+		Thermospannung &  $ U_{t}$ & $V$  \\ 
 		\rowcolor{gray} Thermokraft P/N -Silizium  & $\alpha_{p},\alpha_{n}$ & $V/K$\\	
-		Temperatur P/N -Silizium &  $T_{p},T_{n}$ & $V/K$ \\
-		\rowcolor{gray}Wärmestrom &  $\dot{Q}$ & $J$  \\ 
+		Temperatur P/N -Silizium &  $T_{p},T_{n}$ & $K$ \\
+		\rowcolor{gray}Wärmestrom &  $\dot{Q}$ & $J/s$  \\ 
 		Emission & $\epsilon$ & $-$\\	
 		\rowcolor{gray}Reflektion &  $\rho $ & $-$ \\
 		Transmission & $\tau$ & $-$\\
@@ -68,7 +68,7 @@ In Abbildung \ref{fig:AufbauThermo} ist ein einzelnes Pixel funktionell dargeste
 	\label{fig:AufbauThermo}
 \end{figure}
 
-Durch die unterschiedlichen Thermokräfte\footnote[3]{Auch Seebeckkoeffizienten genannt} der zwei Halbleitermaterialien entsteht ein Potentialunterschied, den man an den zwei äußeren Eckpunkten (5) abgreifen kann. Diese Spannung $U_{t}$ ($V_{t}$) ist die Grundlage des Messprinzips und wird mit Formel \ref{eq1} beschrieben [\protect\cite{AMG8834}].
+Durch die unterschiedlichen Thermokräfte\footnote[3]{Auch Seebeckkoeffizienten genannt} der zwei Halbleitermaterialien entsteht ein Potentialunterschied, den man an den zwei äusseren Eckpunkten (5) abgreifen kann. Diese Spannung $U_{t}$ ($V_{t}$) ist die Grundlage des Messprinzips und wird mit Formel \ref{eq1} beschrieben [\protect\cite{AMG8834}].
 
 \begin{equation}
 \label{eq1}
@@ -108,7 +108,7 @@ Die Fläche A ist lediglich proportional. Dies verursacht, dass bereits flächen
 \end{figure}
 
 
-Das Stefan-Boltzmann-Gesetz deutet auf eine weitere relevante physikalische Gegebenheit hin, die mit dem Emissionsgrad $\epsilon$  in Verbindung steht.
+Das Stefan-Boltzmann-Gesetz deutet auf eine weitere relevante, physikalische Gegebenheit hin, die mit dem Emissionsgrad $\epsilon$  in Verbindung steht.
  Der Emissionsgrad $\epsilon$ ist ein materialabhängiger Faktor, welcher zwischen 0 bis 1  angegeben wird. Dieser gilt für graue Körper d.h. für Körper, dessen Oberfläche auftreffende Strahlungen nicht vollständig absorbieren. Diese Eigenheit gilt für alle realen Körper. Da der Emissionsgrad vom Material und dessen Oberfläche abhängt, können starke Unterschiede entstehen. Im Unterkapitel \ref{subsec:Personenaufzuege} werden übliche Aufzugsmaterialien betrachtet.
 
 Neben der Emission können auch Reflexion und Transmission von Störquellen Einfluss auf die Messwerte besitzen. In den nachfolgenden Formeln wird dies aufgezeigt. Nach dem Energieerhaltungsgesetz [\protect\cite{Thermoformeln}] gilt für Transmission, Reflexion und Absorption die Formel \ref{eq4}.
@@ -154,7 +154,7 @@ Dieses Kapitel beschreibt die Erkenntnisse bei der Betrachtung des Messobjekts u
 
 \subsection{Personen}
 \label{subsec:Personen}
-Die Reaktionen im menschlichen Körper sind auf eine Kerntemperatur von 37 $^\circ$C eingestellt. Am kältesten ist die Haut, die etwa 4 bis 7 Kelvin  kälter ist. Die Aufteilung der verschiedenen Arten der Wärmeabgabe beträgt bei einem ruhenden Menschen in einer Umgebung von 20 $^\circ$C aus:
+Die Reaktionen im menschlichen Körper sind auf eine Kerntemperatur von 37 $^\circ$C eingestellt. Am kältesten ist die Haut, die etwa 4 bis 7 Grad  kälter ist. Die Aufteilung der verschiedenen Arten der Wärmeabgabe beträgt bei einem ruhenden Menschen in einer Umgebung von 20 $^\circ$C aus:
 \begin{itemize}
 	\item 46 \% Strahlung
 	\item 33 \% Konvektion\footnote[9]{Konvektion bezeichnet die Wärmeabgabe an
@@ -186,10 +186,10 @@ Ein weiterer Aspekt, der die zu messende Temperatur einer Person beeinflusst, is
 	\end{minipage}
 \end{figure}
 
- Unbekleidete Zonen sind üblicherweise die wärmsten Regionen. Das thermische Verhalten der Bekleidung hängt von der Art der Bekleidung ab und variiert zwischen Hauttemperatur und Umgebungstemperatur. Dabei gibt es grosse Unterscheide im Körperbereich. Für die Personenerkennung ist hauptsächlich der Oberkörperbereich von Interesse, welcher von der Vogelperspektive die grösste Fläche bietet.
+ Unbekleidete Zonen sind üblicherweise die wärmsten Regionen. Das thermische Verhalten der Bekleidung hängt von der Art der Bekleidung ab und variiert zwischen Hauttemperatur und Umgebungstemperatur. Dabei gibt es grosse Unterschiede im Körperbereich. Für die Personenerkennung ist hauptsächlich der Oberkörperbereich von Interesse, welcher von der Vogelperspektive die grösste Fläche bietet.
  
  Im Falle von einem Umgebungstemperaturwechsel besitzt die Kleidung eine verzögerte Reaktion, bis sich die neue Temperatur einstellt. 
- Dies ist insofern relevant, weil bei einem Wechsel von einem warmen Aussenbereich zu einem beispielsweise klimatisierten Innenbereich, die Bekleidung an die neue Temperatur anpasst. In einem Messaufbau konnte diese Problematik verifiziert werden. Es wurden diverse Kleidungsstücke in einem Aufzug getragen, während der Sensor die Personen von der Decke vermessen hat. Da die Personenerkennung in Aufzügen von der Decke ausgeführt wird, sind im Wesentlichen die Kopfbedeckungen ein Störfaktor.
+ Dies ist insofern relevant, weil bei einem Wechsel von einem warmen Aussenbereich zu einem beispielsweise klimatisierten Innenbereich, die Bekleidung sich an die neue Temperatur anpasst. In einem Messaufbau konnte diese Problematik verifiziert werden. Es wurden diverse Kleidungsstücke in einem Aufzug getragen, während der Sensor die Personen von der Decke vermessen hat. Da die Personenerkennung in Aufzügen von der Decke ausgeführt wird, sind im Wesentlichen die Kopfbedeckungen ein Störfaktor.
 
 \begin{figure}[!ht]
 	\centering
@@ -238,7 +238,7 @@ Ein besonderes Augenmerk gilt den Aufzügen mit Edelstahlverkleidung. In Abbildu
 	\label{fig:Edelstahl}
 \end{figure}
 
-Die Emissionsgrade von Edelstahl schwanken zwischen 0,05 bis 0.82, je nachdem wie das Material verarbeitet wurde. Auch Veredelungen durch Schleifen, Polieren oder Bürsten verändern die Oberflächenbeschaffenheit und haben eine Änderung des Emissionsgrad zur Folge. Somit lässt sich die Störanfälligkeit von Edelstahlkabinen nur schwer evaluieren. Es muss daher mit äusseren Störeinwirkung gerechnet werden. 
+Die Emissionsgrade von Edelstahl schwanken zwischen 0,05 bis 0.82, je nachdem wie das Material verarbeitet wurde. Auch Veredelungen durch Schleifen, Polieren oder Bürsten verändern die Oberflächenbeschaffenheit und haben eine Änderung des Emissionsgrads zur Folge. Somit lässt sich die Störanfälligkeit von Edelstahlkabinen nur schwer evaluieren. Es muss daher mit äusseren Störeinwirkung gerechnet werden. 
 
 Bei vollverglasten Kabinen kommt noch eine weitere Eigenschaft zum Tragen. Glas besitzt die Eigenschaft auch als Festkörper Infrarotstrahlung zu transmittieren. In Abbildung \ref{fig:Glas} sind die drei Grade im  Wellenlängenbereich des Sensors dargestellt. 
 
@@ -246,7 +246,7 @@ Bei vollverglasten Kabinen kommt noch eine weitere Eigenschaft zum Tragen. Glas 
 	\centering
 	\includegraphics[width=0.6\textwidth]
 	{fig/Glas_bearbeitet.png}
-	\caption[Emissionsgrad in Abhängikeit zur Wellenlänge von Glas]{Emissionsgrad in Abhängigkeit zur Wellenlänge von Glas}[\cite{Glas}] 
+	\caption[Emissionsgrad in Abhängigkeit zur Wellenlänge von Glas]{Emissionsgrad in Abhängigkeit zur Wellenlänge von Glas}[\cite{Glas}] 
 	\label{fig:Glas}	
 \end{figure}
 
@@ -271,7 +271,7 @@ Die vorher genannten Einflüsse fallen hauptsächlich ins Gewicht, wenn externe 
 	\end{minipage}
 \end{figure}
 
-Da sich die Wellenlängen von üblichen Lichtquellen im tieferen Bereich\footnote[12]{Maximal naher Infrarotbereich [< 3 $\mu$m]} befinden, können die Strahlungen ausgeschlossen werden. Einzig die Betriebstemperatur der Lichtquelle kann den Sensor beeinflussen. Daher empfiehlt sich, den Sensor nicht zu nahe an der Beleuchtung zu positionieren. In Abbildung \ref{fig:lichtquellen}  und \ref{fig:m2lichtquelle} sind unterschiedliche Aufzugsbeleuchtungen mit einer Wärmebildkamera aufgenommen.
+Da sich die Wellenlängen von üblichen Lichtquellen im tieferen Bereich\footnote[12]{Maximal naher Infrarotbereich [< 3 $\mu$m]} befinden, können die Strahlungen ausgeschlossen werden. Einzig die Betriebstemperatur der Lichtquelle kann den Sensor beeinflussen. Daher empfiehlt sich, den Sensor nicht zu nahe an der Beleuchtung zu positionieren. In Abbildung \ref{fig:lichtquellen}  und \ref{fig:m2lichtquelle} sind unterschiedliche Aufzugsbeleuchtungen mit der Wärmebildkamera TI-125 aufgenommen.
 
 
 

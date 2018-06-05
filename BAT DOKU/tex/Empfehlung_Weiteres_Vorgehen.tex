@@ -1,7 +1,7 @@
 \chapter{Bewertung und Empfehlung}
 \label{Empfehlung_Vorgehen}
 
-Dieses Kapitel beinhaltet eine Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teilkriterien des Messprinzips mit einer Skala zwischen minimal 0 und maximal 10  bewertet. Danach wird die Gesamtbewertung in einer Gegenüberstellung dargelegt. Anhand dieser Zusammenstellung wird beurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
+Dieses Kapitel beinhaltet eine Zusammenfassung der wichtigsten Erkenntnisse. Dabei werden einzelne Teilkriterien des Messprinzips mit einer Skala zwischen minimal 0 und maximal 10  bewertet. Danach wird die Gesamtbewertung in einer Empfehlung dargelegt. Anhand dieser Zusammenstellung wird beurteilt, inwieweit sich PIR Sensoren für die Personenerkennung in Aufzügen eignen. 
 
 \section{Teilbewertungen}
 \label{sec:Teilbewertung}
@@ -12,7 +12,7 @@ Es folgen verschiedene Bewertungskriterien. Anhand der Beschreibung und den Erge
 Durch den standartisierten Datenbus \ac{I2C} lassen sich die Sensordaten einfach auslesen und entsprechende Konfigurationen auf dem Sensor tätigen. Dafür eignen sich heutzutage bereits low-cost Microcontroller. Panasonic bietet eine Vielzahl an Source-Codes, Beispielprogrammen und Hilfestellungen, damit der Einsatz des Sensors vereinfacht wird. Die physikalischen Betrachtungen des Messprinzips besitzen keine komplexen Abhängigkeiten, welche den Einsatz des Sensors verunmöglichen. Dem System sind jedoch Grenzen im Temperaturbereich von 0 - 80 °C gesetzt.
 
 \textbf{Geometrie [6/10]:} \\
-Bei bildgebenden Sensoren ist die geometrische Betrachtung von grosser Bedeutung. Der \ac{FOV} des Sensors ist lediglich für kleinere Flächen geeignet, wenn die Distanz auf übliche Raumhöhen vorgegeben ist. Auch in den Empfehlungen von Panasonic wird in den Literaturen grössere Distanzen zum Messobjekt für die Personendetektion angegeben. Personenerkennungen am Rande des Messbereichs fallen durch weniger Wärmebildinformationen schlechter aus. Im Allgemeinen lässt sich dieses Problem mit der Vergrösserung der Linse lösen.
+Bei bildgebenden Sensoren ist die geometrische Betrachtung von grosser Bedeutung. Der \ac{FOV} des Sensors ist lediglich für kleinere Flächen geeignet, wenn die Distanz auf übliche Raumhöhen vorgegeben ist. Auch in den Empfehlungen in den Literaturen von Panasonic werden grössere Distanzen zum Messobjekt für die Personendetektion angegeben. Personenerkennungen am Rande des Messbereichs fallen durch weniger Wärmebildinformationen schlechter aus. Im Allgemeinen lässt sich dieses Problem mit der Vergrösserung der Linse lösen.
 
 \textbf{Zuverlässigkeit [8/10]:} \\
 Es konnten während der Testzeit keine nennenswerten Probleme mit dem Sensor festgestellt werden. Es wurden mehrstündige Messungen durchgeführt, welche einwandfreie Daten lieferten. Bei 24/7-Anwendungen können diese jedoch nicht als Referenz gelten. Die Thermistorwerte des Sensors besitzen Exemplarstreuungen, welches Einfluss auf die Korrektheit der Sensorwerte hat.
@@ -24,12 +24,12 @@ Die Störanfälligkeit des Sensors auf äussere Einflüsse ist nicht unwesentlic
 Die Auflösung wird höher gewichtet, da das gesamte maschinelle Lernen darauf aufbaut. Mit der Auflösung konnten nach Kapitel \ref{chap:Personendetektion} eine breite Palette an Situationen erkannt werden. Bei Extrem- und Randbedingungen reicht diese jedoch nicht mehr aus, da zu wenig Wärmebildinformationen zur Verfügung stehen. Es lassen sich zwar mit der aktuellen Auflösung mehrere Personen detektieren, da zum Teil Objekte ähnliche Wärmebilder produzieren, können diese nicht differenziert werden.  
 
 \textbf{Integrierbarkeit [8/10]:} \\
-Das Sensorprinzip ist durch die MEMS-Technologie sehr klein dimensioniert und lässt sich auf einem \ac{PCB} anbringen. Es muss bei der Platzierung darauf geachtet werden, dass keine nahen Komponenten die Temperatur des Sensor beeinflussen können. Zudem muss der Sensor freies Blickfeld besitzen. Ansonsten gibt es keine Einschränkungen. 
+Das Sensorprinzip ist durch die MEMS-Technologie sehr klein dimensioniert und lässt sich auf einer \ac{PCB} anbringen. Es muss bei der Platzierung darauf geachtet werden, dass keine nahen Komponenten die Temperatur des Sensor beeinflussen können. Zudem muss der Sensor freies Blickfeld besitzen. Ansonsten gibt es keine Einschränkungen. 
 
 \textbf{Qualität [8/10]:}
-Trotz der tiefen Auflösung und den Temperaturschwankungen konnte mittels dem \ac{CNN} bei einem unbekannten Testdatensatz von 150 000 Frames mit einer Übereinstimmung von 91\% erreicht werden. Somit kann dieses Messprinzip in Zusammenhang mit neuronalen Netzen eine bescheidene Qualität bieten.
+Trotz der tiefen Auflösung und den Temperaturschwankungen konnte mittels dem \ac{CNN} bei einem unbekannten Testdatensatz von 150 000 Frames eine Übereinstimmung von 91\% erreicht werden. Somit kann dieses Messprinzip in Zusammenhang mit neuronalen Netzen eine bescheidene Qualität bieten.
 
-In der Tabelle \ref{tab:Teilbewertung} werden die allgemeinen Wertungen des Systems eingetragen. Zudem werden alle Bewertungskriterien mit Gewichtungen für den Anwendungsbereich Personendetektion erweitert. Daraus ergeben sich die gewichteten Teilbewertungen.
+In der Tabelle \ref{tab:Teilbewertung} werden die allgemeinen Wertungen des Systems eingetragen. Zudem werden alle Bewertungskriterien mit Gewichtungen für den Anwendungsbereich Personenaufzüge erweitert. Daraus ergeben sich die gewichteten Teilbewertungen.
 
 \begin{table}[H]
 	\centering
@@ -64,11 +64,11 @@ Aus den gewichteten Teilbewertungen für den Anwendungsbereich in Personenaufzü
 		\hline
 		\rowcolor[HTML]{9B9B9B} 
 		\multicolumn{1}{|c|}{\cellcolor[HTML]{9B9B9B}\textbf{Gesamtbewertung}} \\ \hline
-		\textbf{7.0 / 10.0 }                                                                   \\ \hline
+		\textbf{6.8 / 10.0 }                                                                   \\ \hline
 	\end{tabular}
 \end{table} 
 
-Die Gesamtbewertung deutet mit der Bewertung 7 von 10 möglichen Punkten bereits daraufhin, dass die Personenerkennung mittels Passiv Infrarotsensoren möglich ist. Dem System sind jedoch ganz klar Grenzen gesetzt, welche mit dieser Arbeit aufgezeigt wurden. Mit zunehmender Personenzahl wird die richtige Anzahl Personen zunehmend schwieriger, daher ist das System mit der aktuellen Auflösung auf wenige Personen begrenzt. In grossen Aufzügen reicht der \ac{FOV} nicht aus, damit sich alle Personen im Messbereich befinden.
+Die Gesamtbewertung deutet mit der Bewertung 6.8 von 10 möglichen Punkten bereits daraufhin, dass die Personenerkennung mittels Passiv Infrarotsensoren möglich ist. Dem System sind jedoch ganz klar Grenzen gesetzt, welche mit dieser Arbeit aufgezeigt werden. Mit zunehmender Personenzahl wird die richtige Anzahl Personen zunehmend schwieriger, daher ist das System mit der aktuellen Auflösung auf wenige Personen begrenzt. In grossen Aufzügen reicht der \ac{FOV} nicht aus, damit sich alle Personen im Messbereich detektieren lassen.
 
 Die Eignung von neuronalen Netzwerken für einen solchen Anwendungsfall ist empfehlenswert. Mit dem neuronalen Netzwerk lassen sich aus Datensätzen Modelle für die Erkennung trainieren. Dabei spielt nicht nur die Grösse der Datensätze eine entscheidende Rolle, sondern auch die Variationen der trainierten Daten. Um die Personenerkennung noch zu verbessern müssen die Trainingssets noch verfeinert werden. 
 
@@ -84,7 +84,7 @@ Im Unterkapitel \ref{sec:Ausblick} Ausblick  wird zu dem aktuellen Sensor noch e
 Dieser Abschnitt erläutert offene Punkte, welche im Rahmen der Arbeit nicht untersucht wurden.
 
 \textbf{thermische Grenzfälle}\\
-Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche thermische Grenzfälle abdecken. Vor allem das Verhalten des Sensors bei Umgebungstemperatur von 0$ ^\circ$C und 37 $^\circ$C bietet eventuell Erkenntnisse, die entscheidend für die Wahl des Messprinzips sind .
+Es konnten aufgrund fehlender Möglichkeiten keine Messungen durchgeführt werden, welche thermische Grenzfälle abdecken. Vor allem das Verhalten des Sensors bei Umgebungstemperatur von 0 $ ^\circ$C und 37 $^\circ$C bietet eventuell Erkenntnisse, die entscheidend für die Bewertung des Messprinzips sind.
 
 \textbf{Bewegungsfehlverhalten}\\
 Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgegangen und dies zeigt sich auch bei der Auswertung mit der Echtzeitmesseinheit. Bewegungen verursachen, dass sich das Wärmebild einer Person kurzzeitig zum Teil bedeutend verändert. Dies kann zu einer falschen Erkennung der Personenanzahl führen. 
@@ -93,14 +93,14 @@ Bei der aktuellen Betrachtung wird weitgehend von stillstehenden Personen ausgeg
 Im Rahmen der Arbeit wurden lediglich stehende erwachsene Personen mit Grössen zwischen 162 - 187 betrachtet. Es wurden im Rahmen der Arbeit keine Kinder, Tiere und rollstuhlgängige Personen ausgemessen. Dessen Wärmebilder können von den aktuellen Profilen abweichen und führen zu fehlerhaften Ergebnissen.
 
 \textbf{chronologische Trainingssets}\\
-Das aktuelle Modell wurde mit einem grossen gemischten Datensatz trainiert, dabei wurden nur zufällige statische Situation verwendet. In Aufzügen bietet es sich jedoch auch an ganze Sequenzen anzutrainieren. Dabei werden nicht einzelne Frames trainiert, sondern chronologische Framefolgen, wie beispielsweise unterschiedlichen Anzahl Personen, welche den Aufzug betreten und verlassen. Die chronologische Abfolge verändert das Trainingsverhalten, da nicht ständig neue ganz unterschiedliche Frames betrachtet werden.
+Das aktuelle Modell wurde mit einem grossen gemischten Datensatz trainiert, dabei wurden nur zufällige statische Situation verwendet. In Aufzügen bietet es sich jedoch auch an ganze Sequenzen anzutrainieren. Dabei werden nicht einzelne Frames trainiert, sondern chronologische Framefolgen, wie beispielsweise unterschiedlichen Anzahl Personen, welche den Aufzug betreten und verlassen. Die chronologische Abfolge verändert das Trainingsverhalten, da nicht ständig ganz unterschiedliche Frames betrachtet werden.
 
 \newpage
 \section{Ausblick}
 \label{sec:Ausblick}
 Diese Bachelorarbeit hat sich mit dem dem Panasonic Grid-Eye AMG8834 befasst. Während der Informationsbeschaffung wurde dieser mit ähnlichen Sensoren anderer Hersteller verglichen und als State-Of-The-Art beurteilt. 
 
-Es zeigt sich jedoch, dass dieses Messprinzip im Zusammenhang mit \ac{IoT} zunehmend an Interesse gewinnt.  Seit Mai 2018 wurde von der Firma Melexis der Sensor MLX90640 auf den Markt gebracht. Dieser konnte jedoch aus zeitlichen Gründen und einer aktuellen Lieferfrist von 24 Wochen\footnote{Stand: Mouser,DigiKey 31.05.2018 } nicht mehr betrachtet und beurteilt werden.
-Dieser Sensor baut auf dem gleichen Messprinzip wie der AMG8834 und könnte die Lücken, welche der verwendete Sensor besitzt schließen. Der MLX90640 besitzt mit einer Auflösung von 24x32 Pixel bedeutende Darstellungs- und Auswertemöglichkeiten. Interessant ist bei diesem Sensor das Model mit dem Öffnungswinkel von 110$^\circ$x75$^\circ$. Dieser \ac{FOV} könnte die geometrische Problematik aus Kapitel \ref{sec:geometrie} lösen und somit für den Einsatzbereich in Personenaufzügen besser geeignet sein. Preislich ist dieser Sensor jedoch doppelt so teuer wie der AMG8834, gehört im Vergleich mit anderen Sensorarten in die Kategorie low-cost in der thermografischen Bilderkennung. Das entsprechende Datenblatt ist im digitalen Anhang \ref{AnhangE} angefügt.
+Es zeigt sich jedoch, dass dieses Messprinzip im Zusammenhang mit \ac{IoT} zunehmend an Interesse gewinnt.  Seit Mai 2018 wurde von der Firma Melexis der Sensor MLX90640 auf den Markt gebracht. Dieser konnte jedoch aus zeitlichen Gründen und einer aktuellen Lieferfrist von 24 Wochen\footnote[34]{Stand: Mouser,DigiKey 31.05.2018 } nicht mehr betrachtet und beurteilt werden.
+Dieser Sensor baut auf dem gleichen Messprinzip wie der AMG8834 und könnte die Lücken, welche der verwendete Sensor besitzt schließen. Der MLX90640 besitzt mit einer Auflösung von 24x32 Pixel bedeutende Darstellungs- und Auswertemöglichkeiten. Interessant ist bei diesem Sensor das Model mit dem Öffnungswinkel von 110$^\circ$x75$^\circ$. Dieser \ac{FOV} könnte die geometrische Problematik aus Kapitel \ref{sec:geometrie} lösen und somit für den Einsatzbereich in Personenaufzügen besser geeignet sein. Preislich ist dieser Sensor jedoch doppelt so teuer wie der AMG8834, gehört im Vergleich mit anderen Sensorarten trozdem in die low-cost Kategorie in der thermografischen Bilderkennung. Das entsprechende Datenblatt ist im digitalen Anhang \ref{AnhangE} angefügt.
 
-Ausblickend lässt sich erwähnen, dass die Möglichkeiten mit neuronalen Netzwerken stetig wachsen. In den 3 Jahren, in denen Tensorflow nun für jedermann erhältlich ist, konnten ständig neue Versionen und Updates Verbesserungen erzielen, damit neuronale Netzwerk für aktuelle Problemstellungen solide Lösungen erbringen. Es wird davon ausgegangen, dass dieser Themenbereich in den kommenden Jahren in vielen Anwendungsbereichen an Bedeutung gewinnt.
+Ausblickend lässt sich erwähnen, dass die Möglichkeiten mit neuronalen Netzwerken stetig wachsen. In den drei Jahren, in denen Tensorflow nun für jedermann erhältlich ist, konnten ständig neue Versionen und Updates Verbesserungen erzielen, damit neuronale Netzwerk für aktuelle Problemstellungen solide Lösungen erbringen. Es wird davon ausgegangen, dass dieser Themenbereich in den kommenden Jahren in vielen Anwendungsbereichen an Bedeutung gewinnt.
